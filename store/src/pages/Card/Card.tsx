@@ -1,8 +1,12 @@
 import style from './cadr.module.css';
+import { Link } from "react-router-dom";
 
 function Card() {
   return (
-    <div className={style.cards}>Card</div>
+    <Link to="card">
+      <div className={style.cards}>Card</div>
+    </Link>
+    
   )
 }
 
