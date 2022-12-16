@@ -1,8 +1,8 @@
-import './footer.css';
+import style from './footer.module.css'
 
 function Footer() {
   return (
-   <footer className='footer__page'>Footer</footer>
+   <footer className={style.footer__page}>Footer</footer>
   )
 }
 

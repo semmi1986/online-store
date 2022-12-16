@@ -1,8 +1,8 @@
-import './cadr.css';
+import style from './cadr.module.css';
 
 function Card() {
   return (
-    <div className='cards'>Card</div>
+    <div className={style.cards}>Card</div>
   )
 }
 

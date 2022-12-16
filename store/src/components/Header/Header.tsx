@@ -1,13 +1,13 @@
-import "./header.css"
+import style from './header.module.css'
 
 function Header() {
   return (
-    <header className="header">
-      <div className="header__inner">
-        <div className="header__logo">
+    <header className={style.header}>
+      <div className={style.header__inner}>
+        <div className={style.header__logo}>
           LOGO
         </div>
-        <div className="header__baskets">
+        <div className={style.header__baskets}>
           BASKETS
         </div>
       </div>

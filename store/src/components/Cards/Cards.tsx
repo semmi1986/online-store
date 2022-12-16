@@ -1,9 +1,9 @@
 import Card from '../../pages/Card/Card';
-import './content.css';
+import style from './cards.module.css';
 
-function Content() {
+function Cards() {
   return (
-    <div className='content'>
+    <div className={style.content}>
       <Card/>
       <Card/>
       <Card/>
@@ -24,4 +24,4 @@ function Content() {
   )
 }
 
-export default Content
+export default Cards

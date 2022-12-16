@@ -1,17 +1,14 @@
 import './App.css';
-import Content from './components/Content/Content';
+
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import SortPage from './components/SortPage/SortPage';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
     <div className='wrapper'>
       <Header/>
-      <main className='main__page'>
-        <SortPage/>
-        <Content/>
-      </main>
+      <HomePage/>
       <Footer/>
     </div>
   );

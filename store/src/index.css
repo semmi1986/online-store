@@ -32,10 +32,3 @@ body {
   padding: 0 1.5rem;
   margin: 0 auto;
 }
-
-.main__page{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-}
