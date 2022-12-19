@@ -1,8 +1,8 @@
 import React from 'react'
-import style from './sortFirst.module.css';
+import style from './sortSecond.module.css';
 
 
-function SortFirst({title}) {
+function SortSecond({title}) {
   return (
     <div className={style.category_check}>
       <input type="checkbox" /><span className={style.font}>{title}</span>
@@ -10,4 +10,4 @@ function SortFirst({title}) {
   )
 }
 
-export default SortFirst
+export default SortSecond
