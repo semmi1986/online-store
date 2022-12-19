@@ -74,3 +74,8 @@
   -1px  1px 0   #000000,
    1px  1px 0   #000000;
 }
+.input_check{
+  height: 15%;
+  margin-bottom: 9px;
+  margin-top: 2px;
+}

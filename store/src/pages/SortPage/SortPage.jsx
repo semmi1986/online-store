@@ -35,12 +35,16 @@ function Sort() {
       </div>
       <BottomCover/>
      </div>
+     <div className={style.input_check}>
      <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Price</span></div>
       <SortThird/>
       <BottomCover/>
+      </div>
+      <div className={style.input_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Stock</span></div>
       <SortFourth/>
       <BottomCover/>
+     </div>
      </div>
   );
 }
