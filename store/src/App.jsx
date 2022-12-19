@@ -1,4 +1,3 @@
-
 import React from 'react'
 import './App.css';
 import { Routes, Route } from "react-router-dom";
@@ -8,6 +7,7 @@ import HomePage from './pages/HomePage/HomePage';
 import BasketPage from './pages/BasketPage/BasketPage';
 import Card from './components/Card/Card';
 window.React = React
+
 
 function App() {
   return (
