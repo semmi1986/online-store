@@ -1,8 +1,11 @@
 import React from 'react'
+import style from './sortSecond.module.css';
 
-function SortSecond() {
+function SortSecond(title:string[]) {
   return (
-    <div>SortFirst</div>
+    <div className={style.category_check}>
+      <input type="checkbox" /><span className={style.font}>{title}</span>
+    </div>
   )
 }
 
