@@ -2,9 +2,40 @@
   color: rgb(0, 33, 63);
   font-weight: bold;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   padding: 1rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border: 1px solid black;
+}
+.logo__git_semmi{
+  width: 50px;
+  height: 50px;
+}
+.logo__git_alex{
+  width: 50px;
+  height: 50px;
+}
+.logo__rss{
+  width: 120px;
+  height: 50px;
+}
+.two__columns{
+  width: 15%;
+  justify-content: space-around;
+  display: flex;
+}
+
+.logo__git_semmi:hover{
+  background-color: rgba(167, 93, 93, 0.658);
+  transition: 0.5s;
+}
+.logo__git_alex:hover{
+  background-color: rgba(165, 93, 167, 0.658);
+  transition: 0.5s;
+}
+.logo__rss:hover{
+  background-color: rgba(120, 130, 197, 0.622);
+  transition: 0.5s;
 }
