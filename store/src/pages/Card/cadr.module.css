@@ -1,6 +1,65 @@
-.cards{
-  width: 50px;
-  height: 60px;
+.cadr__cards {
+  margin: 0px 0px 0px 14px;
+  flex-direction: column;
+  display: flex;  
+  justify-content: space-between;
+  width: 160px;
+  height: 160px;
   border: 1px solid black;
-  background-color: rgb(198, 76, 76);
+  background: url(../../assets/img/test.png);
+  background-size: 100% 100%;
+}
+
+.font{
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 16px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: 
+  -0   -1px 0   #000000,
+   0   -1px 0   #000000,
+  -0    1px 0   #000000,
+   0    1px 0   #000000,
+  -1px -0   0   #000000,
+   1px -0   0   #000000,
+  -1px  0   0   #000000,
+   1px  0   0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000;
+}
+.card_two_rows{
+  display: flex;
+  justify-content: space-between;
+}
+.card_name{
+  text-align: center;
+}
+
+.border__top__card{
+  cursor: pointer;
+  background-color: rgba(14, 5, 6, 0.534);
+  border: 1px solid rgba(14, 5, 6, 0.534);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 12px;
+}
+.border__bottom__card{
+  cursor: pointer;
+  background-color: rgba(14, 5, 6, 0.534);
+  border: 1px solid rgba(14, 5, 6, 0.534);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 12px;
+}
+.border__top__card:hover,.border__bottom__card:hover{
+  background-color: rgba(167,93,93,0.6222864145658263);
+  border: 1px solid rgb(255, 150, 167);
+  transition: 0.3s;
 }

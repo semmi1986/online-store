@@ -1,0 +1,76 @@
+.sort__page{
+  font-size: 24px;
+    margin-right: 0.5rem;
+    width: 25%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.reset__filters, .copy__link{
+  background-color: rgba(14, 5, 6, 0.534);
+  border: 1px solid rgba(14, 5, 6, 0.534);
+  border-radius: 5px;
+  width: 45%;
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 16px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: 
+  -0   -1px 0   #000000,
+   0   -1px 0   #000000,
+  -0    1px 0   #000000,
+   0    1px 0   #000000,
+  -1px -0   0   #000000,
+   1px -0   0   #000000,
+  -1px  0   0   #000000,
+   1px  0   0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000;
+}
+
+.first_check{
+  height: 25%;
+  margin-bottom: 9px;
+  margin-top: 2px;
+}
+.sort__scroll{
+  overflow: hidden;
+  overflow-y: auto;
+  height: 80%;
+}
+.border__bottom__sort{
+  cursor: pointer;
+  background-color: rgba(14, 5, 6, 0.534);
+  border: 1px solid rgba(14, 5, 6, 0.534);
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 12px;
+}
+.font{
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 16px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: 
+  -0   -1px 0   #000000,
+   0   -1px 0   #000000,
+  -0    1px 0   #000000,
+   0    1px 0   #000000,
+  -1px -0   0   #000000,
+   1px -0   0   #000000,
+  -1px  0   0   #000000,
+   1px  0   0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000;
+}

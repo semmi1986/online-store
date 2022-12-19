@@ -1,4 +1,4 @@
-import Sort from "../../components/Sort/Sort";
+import SortPage from "../SortPage/SortPage";
 import Cards from "../../components/Cards/Cards";
 import style from './homePage.module.css'
 
@@ -6,9 +6,8 @@ import style from './homePage.module.css'
 function HomePage() {
   return (
     <main>
-      <h1>HOME PAGE</h1>
       <div className={style.main__page}>
-      <Sort/>
+      <SortPage/>
       <Cards/>
       </div>
     </main>

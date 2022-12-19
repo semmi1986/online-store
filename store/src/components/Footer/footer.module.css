@@ -1,4 +1,10 @@
-.footer__page{
+.footer__page {
+  color: rgb(0, 33, 63);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
   padding: 1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   border: 1px solid black;
 }

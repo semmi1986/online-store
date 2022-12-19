@@ -1,19 +1,22 @@
-import style from './header.module.css';
+import style from "./header.module.css";
 import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header className={style.header}>
       <div className={style.header__inner}>
-        <div className={style.header__logo}>
-        <Link to="/">LOGO</Link>
+        <Link to="/">
+          <div className={style.header__logo}></div>
+        </Link>
+        <div>
+          <span className={style.font}>Cart total: €2,697.00</span>
         </div>
-        <div className={style.header__baskets}>
-          <Link to="basket">BASKETS</Link>
-        </div>
+        <Link to="basket">
+          <div className={style.header__basket}></div>
+        </Link>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
