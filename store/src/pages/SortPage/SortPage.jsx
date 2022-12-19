@@ -1,6 +1,7 @@
 import { type } from "@testing-library/user-event/dist/type";
 import SortFirst from "../../components/SortFirst/SortFirst";
 import SortSecond from "../../components/SortSecond/SortSecond";
+import SortThird from "../../components/SortThird/SortThird";
 import style from "./sortPage.module.css";
 import classNames from "classnames";
 
@@ -30,6 +31,8 @@ function Sort() {
       ))}
       </div>
      </div>
+     <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Price</span></div>
+      <SortThird/>
      </div>
   );
 }
