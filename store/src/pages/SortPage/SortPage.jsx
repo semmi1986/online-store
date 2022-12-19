@@ -4,7 +4,8 @@ import SortSecond from "../../components/SortSecond/SortSecond";
 import style from "./sortPage.module.css";
 import classNames from "classnames";
 
-const firstCheck = ['Smartphones', 'Laptops', 'Fragrances', 'Skincare', 'Smartphones', 'Laptops', 'Fragrances', 'Skincare', 'Smartphones', 'Laptops', 'Fragrances', 'Skincare']
+const firstCheck = ['Smartphones', 'Laptops', 'Fragrances', 'Skincare', 'Smartphones', 'Laptops', 'Fragrances', 'Skincare', 'Smartphones', 'Laptops', 'Fragrances', 'Skincare'];
+const secondCheck = ['Apple', 'Samsung', 'Xiaomi', 'Nokia', 'Lenovo', 'ZTE', 'Vivo', 'Lenovo', 'Nokia', 'Xiaomi', 'Samsung', 'Nokia'];
 
 function Sort() {
   return (
@@ -20,10 +21,16 @@ function Sort() {
         <SortFirst key={i} title={item}/>
       ))}
       </div>
-    </div>
-    <SortSecond/>
-    
-    </div>
+     </div>
+     <div className={style.first_check}>
+      <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>
+      <div className={style.sort__scroll}>
+      {secondCheck.map((item, i) =>(
+        <SortSecond key={i} title={item}/>
+      ))}
+      </div>
+     </div>
+     </div>
   );
 }
 

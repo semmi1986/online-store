@@ -1,6 +1,7 @@
-interface plug{
-
+interface SortSecond{
+    title: string,
+    key?: undefined;
 }
 
 
-export default plug;
+export default SortSecond;
