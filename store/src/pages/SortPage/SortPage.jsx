@@ -1,4 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type";
+import React from "react";
 import SortFirst from "../../components/SortFirst/SortFirst";
 import SortSecond from "../../components/SortSecond/SortSecond";
 import style from "./sortPage.module.css";
