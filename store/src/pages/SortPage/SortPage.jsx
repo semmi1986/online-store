@@ -3,6 +3,7 @@ import SortFirst from "../../components/SortFirst/SortFirst";
 import SortSecond from "../../components/SortSecond/SortSecond";
 import SortThird from "../../components/SortThird/SortThird";
 import SortFourth from "../../components/SortFourth/SortFourth";
+import BottomCover from "../../components/BottomCover/bottomCover";
 import style from "./sortPage.module.css";
 import classNames from "classnames";
 
@@ -23,7 +24,7 @@ function Sort() {
         <SortFirst key={i} title={item}/>
       ))}
       </div>
-
+      <BottomCover/>
      </div>
      <div className={style.first_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>
@@ -32,14 +33,14 @@ function Sort() {
         <SortSecond key={i} title={item}/>
       ))}
       </div>
-  
+      <BottomCover/>
      </div>
      <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Price</span></div>
       <SortThird/>
-
+      <BottomCover/>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Stock</span></div>
       <SortFourth/>
-
+      <BottomCover/>
      </div>
   );
 }
