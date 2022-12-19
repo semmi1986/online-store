@@ -1,13 +1,16 @@
 .cadr__cards {
-  margin: 0px 0px 0px 14px;
+  margin: 10px 10px 10px 10px;
   flex-direction: column;
   display: flex;  
   justify-content: space-between;
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border: 1px solid black;
-  background: url(../../assets/img/test.png);
-  background-size: 100% 100%;
+}
+
+.image__card{
+  width: 150px;
+  height: 150px;
 }
 
 .font{
