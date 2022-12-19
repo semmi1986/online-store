@@ -23,6 +23,7 @@ function Sort() {
         <SortFirst key={i} title={item}/>
       ))}
       </div>
+
      </div>
      <div className={style.first_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>
@@ -31,11 +32,14 @@ function Sort() {
         <SortSecond key={i} title={item}/>
       ))}
       </div>
+  
      </div>
      <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Price</span></div>
       <SortThird/>
+
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Stock</span></div>
       <SortFourth/>
+
      </div>
   );
 }
