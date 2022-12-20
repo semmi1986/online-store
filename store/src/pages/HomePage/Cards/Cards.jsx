@@ -3,7 +3,6 @@ import Card from '../../../components/Card/Card';
 import style from './cards.module.css';
 
 function Cards({products}) {
-  console.log(products);
   return (
     <div className={style.cards__content}>
       {

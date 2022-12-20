@@ -7,16 +7,19 @@ import style from './homePage.module.css'
 function HomePage() {
 
   const [products, setProducts] = useState([]);
+  const [categoryName, setCategoryName] = React.useState("")
+  const [category, setCategory] = React.useState([])
+  const [isCategoryName, setIsCategoryName] = React.useState(false);
 
   useEffect(() => {
-    fetch('https://63a042fa24d74f9fe832fb1e.mockapi.io/items')
+    fetch('https://63a042fa24d74f9fe832fb1e.mockapi.io/items?category=' + categoryName)
     .then((res) => {
       return res.json();
     })
     .then((data) => {
       setProducts(data);
     })
-  }, [])
+  }, [categoryName])
   
 
  
@@ -24,7 +27,7 @@ function HomePage() {
   return (
     <main>
       <div className={style.main__page}>
-      <SortPage/>
+      <SortPage categoryName={categoryName} products={products} onClickCategoryId = {(i) => setCategoryName(i)}/>
       <Cards products={products}/>
       </div>
     </main>

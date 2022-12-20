@@ -5,7 +5,6 @@ import classNames from "classnames";
 import { CoverageMap } from "istanbul-lib-coverage";
 
 function Card({item}) {
-  console.log(item.images);
   return (
     <Link to="card">
       <div style={{background:`url(${item.images[1]})`,backgroundSize: `cover`}} className={style.cadr__cards}>

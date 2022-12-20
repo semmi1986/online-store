@@ -7,10 +7,12 @@ import BottomCover from "../../components/BottomCover/bottomCover";
 import style from "./sortPage.module.css";
 import classNames from "classnames";
 
-const firstCheck = ['Smartphones', 'Laptops', 'Fragrances', 'Skincare', 'Smartphones', 'Laptops', 'Fragrances', 'Skincare', 'Smartphones', 'Laptops', 'Fragrances', 'Skincare'];
-const secondCheck = ['Apple', 'Samsung', 'Xiaomi', 'Nokia', 'Lenovo', 'ZTE', 'Vivo', 'Lenovo', 'Nokia', 'Xiaomi', 'Samsung', 'Nokia'];
 
-function Sort() {
+const secondCheck =[]
+function SortPage({onClickCategoryId}) {
+  const firstPick = ["smartphones", "laptops", "fragrances", "skincare", "groceries","home-decoration", "furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
+
+
   return (
     <div className={style.sort__page}>
       <div className={style.sort__buttons}>
@@ -20,8 +22,10 @@ function Sort() {
       <div className={style.first_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Category</span></div>
       <div className={style.sort__scroll}>
-      {firstCheck.map((item, i) =>(
-        <SortFirst key={i} title={item}/>
+      {firstPick.map((item, i) =>(
+        <div key={i} className={style.category_check}>
+          <input type="checkbox" onClick ={(e) => onClickCategoryId(item)}/><span className={style.font}>{item[0].toUpperCase() + item.slice(1)}</span>
+        </div>
       ))}
       </div>
       <BottomCover/>
@@ -49,4 +53,4 @@ function Sort() {
   );
 }
 
-export default Sort;
+export default SortPage;
