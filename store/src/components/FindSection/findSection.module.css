@@ -1,0 +1,5 @@
+.search_header{
+    display: flex;
+    position: relative;
+    justify-content: space-around ;
+}

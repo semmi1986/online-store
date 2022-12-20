@@ -18,7 +18,9 @@ function SortPage({onClickCategoryId}) {
       console.log(value);
       onClickCategoryId(pre => [...pre,value])
     }else{
-      onClickCategoryId('')
+      onClickCategoryId(pre =>{
+        return[...pre.filter(item => item !==value)]
+      })
     }
   }
 
@@ -29,15 +31,13 @@ function SortPage({onClickCategoryId}) {
         <button className={style.copy__link}>Copy link</button>
       </div>
       <div className={style.first_check}>
-      <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Category</span></div>
+      <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>
       <div className={style.sort__scroll}>
       {firstPick.map((item, i) =>(
-        <div key={i} className={style.category_check}>
-          <input type="checkbox" value={item[0].toUpperCase() + item.slice(1)} onChange ={handlerChange}/> {item[0].toUpperCase() + item.slice(1)}
-          {/* <span className={style.font}>{item[0].toUpperCase() + item.slice(1)}</span> */}
-        </div>
+        <SortSecond key={i} title={item}/>
       ))}
       </div>
+      <BottomCover/>
       <BottomCover/>
      </div>
      <div className={style.first_check}>
