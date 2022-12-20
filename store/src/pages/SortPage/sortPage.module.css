@@ -1,9 +1,12 @@
 .sort__page{
+  position: sticky;
+  top: 60px;
   font-size: 24px;
-    margin-right: 0.5rem;
-    width: 25%;
-    border: 1px solid black;
-    text-align: center;
+  margin-right: 0.5rem;
+  border: 1px solid black;
+  text-align: center;
+  width: 20%;
+  height: 100%;
 }
 
 .reset__filters, .copy__link{
@@ -34,14 +37,13 @@
 }
 
 .first_check{
-  height: 25%;
   margin-bottom: 9px;
   margin-top: 2px;
 }
 .sort__scroll{
+  height: 100px;
   overflow: hidden;
   overflow-y: auto;
-  height: 80%;
 }
 .border__bottom__sort{
   cursor: pointer;
@@ -75,7 +77,6 @@
    1px  1px 0   #000000;
 }
 .input_check{
-  height: 15%;
   margin-bottom: 9px;
   margin-top: 2px;
 }
