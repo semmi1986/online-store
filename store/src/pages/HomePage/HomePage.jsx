@@ -7,9 +7,7 @@ import style from './homePage.module.css'
 function HomePage() {
 
   const [products, setProducts] = useState([]);
-  const [categoryName, setCategoryName] = React.useState("")
-  const [category, setCategory] = React.useState([])
-  const [isCategoryName, setIsCategoryName] = React.useState(false);
+  const [categoryName, setCategoryName] = React.useState([])
 
   useEffect(() => {
     fetch('https://63a042fa24d74f9fe832fb1e.mockapi.io/items?category=' + categoryName)

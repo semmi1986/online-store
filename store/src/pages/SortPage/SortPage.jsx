@@ -12,6 +12,15 @@ const secondCheck =[]
 function SortPage({onClickCategoryId}) {
   const firstPick = ["smartphones", "laptops", "fragrances", "skincare", "groceries","home-decoration", "furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
 
+  function handlerChange(event) {
+    const {value, checked} = event.target;
+    if (checked) {
+      console.log(value);
+      onClickCategoryId(pre => [...pre,value])
+    }else{
+      onClickCategoryId('')
+    }
+  }
 
   return (
     <div className={style.sort__page}>
@@ -24,7 +33,8 @@ function SortPage({onClickCategoryId}) {
       <div className={style.sort__scroll}>
       {firstPick.map((item, i) =>(
         <div key={i} className={style.category_check}>
-          <input type="checkbox" onClick ={(e) => onClickCategoryId(item)}/><span className={style.font}>{item[0].toUpperCase() + item.slice(1)}</span>
+          <input type="checkbox" value={item[0].toUpperCase() + item.slice(1)} onChange ={handlerChange}/> {item[0].toUpperCase() + item.slice(1)}
+          {/* <span className={style.font}>{item[0].toUpperCase() + item.slice(1)}</span> */}
         </div>
       ))}
       </div>
