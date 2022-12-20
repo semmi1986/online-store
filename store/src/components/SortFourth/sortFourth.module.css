@@ -50,3 +50,17 @@ input[type=range]  {
       border-radius: 10px/100%;
       cursor: pointer;
   }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #57575794;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(14, 5, 6, 0.644);
+    border-radius: 9px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(68, 55, 55, 0.534);
+}
