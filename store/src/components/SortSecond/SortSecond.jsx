@@ -5,7 +5,7 @@ import style from './sortSecond.module.css';
 function SortSecond({title}) {
   return (
     <div className={style.category_check}>
-      <input type="checkbox" /><span className={style.font}>{title}</span>
+      <li className={style.font}>{title}</li>
     </div>
   )
 }

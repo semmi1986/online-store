@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+}
+.cards__container{
   width: 80%;
   border: 1px solid black;
 }
