@@ -1,6 +1,6 @@
 import React from "react";
-import SortFirst from "../../components/SortFirst/SortFirst";
-import SortSecond from "../../components/SortSecond/SortSecond";
+import SortCategory from "../../components/SortCategory/SortCategory";
+import SortBrands from "../../components/SortBrands/SortBrands";
 import SortThird from "../../components/SortThird/SortThird";
 import SortFourth from "../../components/SortFourth/SortFourth";
 import BottomCover from "../../components/BottomCover/bottomCover";
@@ -8,22 +8,13 @@ import style from "./sortPage.module.css";
 import classNames from "classnames";
 
 
+
 const secondCheck =[]
-function SortPage({onClickCategoryId}) {
-  const firstPick = ["smartphones", "laptops", "fragrances", "skincare", "groceries","home-decoration", "furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
-
-  function handlerChange(event) {
-    const {value, checked} = event.target;
-    if (checked) {
-      console.log(value);
-      onClickCategoryId(pre => [...pre,value])
-    }else{
-      onClickCategoryId(pre =>{
-        return[...pre.filter(item => item !==value)]
-      })
-    }
-  }
-
+function SortPage({ products, onClickCategoryName, onClickCategoryBrands}) {
+  const category = ["oll", "smartphones", "laptops", "fragrances", "skincare", "groceries","home-decoration", "furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
+  const brands = [...new Set(products.map(item => item.brand))]
+  console.log(brands);
+ 
   return (
     <div className={style.sort__page}>
       <div className={style.sort__buttons}>
@@ -33,9 +24,7 @@ function SortPage({onClickCategoryId}) {
       <div className={style.first_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>
       <div className={style.sort__scroll}>
-      {firstPick.map((item, i) =>(
-        <SortSecond key={i} title={item}/>
-      ))}
+      <SortCategory firstPick={category} onClickCategoryName={onClickCategoryName}/>
       </div>
       <BottomCover/>
       <BottomCover/>
@@ -43,9 +32,7 @@ function SortPage({onClickCategoryId}) {
      <div className={style.first_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>
       <div className={style.sort__scroll}>
-      {secondCheck.map((item, i) =>(
-        <SortSecond key={i} title={item}/>
-      ))}
+        <SortBrands brands={brands} onClickCategoryBrands={onClickCategoryBrands}/>
       </div>
       <BottomCover/>
      </div>
