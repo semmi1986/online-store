@@ -21,7 +21,7 @@ function HomePage() {
     .then((data) => {
       setProducts(data);
       setProducts1(data);
-      // setIsLoading(false)
+      setIsLoading(false)
     })
   }, [categoryName])
 
