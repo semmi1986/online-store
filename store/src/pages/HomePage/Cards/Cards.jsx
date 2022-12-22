@@ -1,11 +1,13 @@
 import React from "react";
 import Card from '../../../components/Card/Card';
-import style from './cards.module.css';
 import FindSection from "../../../components/FindSection/FindSection";
-function Cards({products, isLoading}) {
+import style from './cards.module.css';
+
+
+function Cards({products, sortType, isLoading, onClickSortType}) {
   return (
     <div className={style.cards__container}>
-      <FindSection products={products}/>
+      <FindSection products={products} sortType={sortType} onClickSortType={onClickSortType}/>
       <div className={style.cards__content}>
         {
           isLoading 

@@ -2,11 +2,10 @@ import React from 'react'
 import Sort from '../Sort/Sort';
 import style from './findSection.module.css';
 
-function FindSection({products}) {
-  console.log(products.length);
+function FindSection({products, sortType, onClickSortType}) {
     return (
     <div className={style.search_header}>
-        <Sort/>
+        <Sort sortType={sortType} onClickSortType ={onClickSortType}/>
         <div>
             Found: {products.length}
         </div>

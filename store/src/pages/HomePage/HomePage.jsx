@@ -9,21 +9,31 @@ function HomePage() {
 
   const [products, setProducts] = useState([]);
   const [products1, setProducts1] = useState([]);
-  const [categoryName, setCategoryName] = useState('');
+  const [categoryName, setCategoryName] = useState('all');
   const [categoryBrand, setCategoryBrand] = useState('');
   const [isLoading, setIsLoading] = useState(true) // для скелетона или прелоудера
+  const [sortType, setSortType] = useState({name: "Sort by price DEC", sortProperty: "price"}) 
+
+  console.log(categoryName, sortType);
  
   useEffect(() => {
-    fetch(`https://63a042fa24d74f9fe832fb1e.mockapi.io/items?${categoryName !== "oll" ? `category=${categoryName}` : ''}`)
+    setIsLoading(true)
+
+    const sort = sortType.sortProperty.replace('-', '')
+    const order = sortType.sortProperty.includes('-') ? "asc" : 'desc';
+    const category = categoryName !== "all" ? `category=${categoryName}` : ''
+
+
+    fetch(`https://63a042fa24d74f9fe832fb1e.mockapi.io/items?${category}&sortBy=${sort}&order=${order}`)
     .then((res) => {
       return res.json();
     })
     .then((data) => {
       setProducts(data);
       setProducts1(data);
-      // setIsLoading(false)
+      setIsLoading(false)
     })
-  }, [categoryName])
+  }, [categoryName, sortType])
 
   useEffect(() => {
     setProducts1(products.filter(item => item.brand === categoryBrand ))
@@ -41,7 +51,11 @@ function HomePage() {
                 onClickCategoryName = {(item) => setCategoryName(item)} 
                 onClickCategoryBrands ={(i) => setCategoryBrand(i)}
                 />
-      <Cards products={products1} isLoading={isLoading}/>
+      <Cards products={products1} 
+             sortType={sortType}
+             onClickSortType ={(i) => setSortType(i)}
+             isLoading={isLoading}
+            />
       </div>
     </main>
   )
