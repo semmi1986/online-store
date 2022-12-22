@@ -5,8 +5,8 @@ import style from './sortBrands.module.css';
 function SortBrands({brands, onClickCategoryBrands}) {
   const [activeIndex, setActiveIndex] = useState()
 
-
   function handelClick(value, index) {
+
     onClickCategoryBrands(value);
     setActiveIndex(index)
   }

@@ -22,7 +22,6 @@ function SortCategory({firstPick, onClickCategoryName}) {
     ))}
     </>
   )
-  
 }
 
 export default SortCategory
