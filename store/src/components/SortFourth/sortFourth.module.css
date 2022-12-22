@@ -17,7 +17,7 @@
 
 
 input[type=range]  {
-    width: 200px;
+    width: 85%;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
