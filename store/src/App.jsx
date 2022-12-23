@@ -5,7 +5,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import BasketPage from './pages/BasketPage/BasketPage';
-import Card from './components/Card/Card';
+import CardPage from './pages/CardPage/CardPage';
 window.React = React
 
 
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='basket' element={<BasketPage/>}/>
-        <Route path='card' element={<Card/>}/>
+        <Route path='ProductDetails/:id' element={<CardPage/>}/>
       </Routes>
       <Footer/>
     </div>
