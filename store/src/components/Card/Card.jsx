@@ -2,7 +2,7 @@ import React from "react";
 import style from "./cadr.module.css";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import { CoverageMap } from "istanbul-lib-coverage";
+
 
 function Card({ item }) {
   return (
