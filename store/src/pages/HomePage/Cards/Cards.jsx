@@ -1,24 +1,41 @@
-import React from "react";
-import Card from '../../../components/Card/Card';
+import React, { useState } from "react";
+import Card from "../../../components/Card/Card";
 import FindSection from "../../../components/FindSection/FindSection";
-import style from './cards.module.css';
+import Preloader from "../../../components/Preloader/Preloader";
+import style from "./cards.module.css";
 
+function Cards({
+  products,
+  sortType,
+  isLoading,
+  onClickSortType
+}) {
+  const [searchValue, setSearchValue] = useState("");
+  const obj = products.map(item => item);
 
-function Cards({products, sortType, isLoading, onClickSortType}) {
+  const items = obj.filter(elem => {
+    if (elem.title.toLowerCase().includes(searchValue.toLowerCase())) {
+      return true
+    }
+    return false
+  }).map((item) => <Card key={item.id} item={item}/>)
+
   return (
     <div className={style.cards__container}>
-      <FindSection products={products} sortType={sortType} onClickSortType={onClickSortType}/>
+      <FindSection
+        products={products}
+        sortType={sortType}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        onClickSortType={onClickSortType}
+      />
       <div className={style.cards__content}>
-        {
-          isLoading 
-          ? "...LOADING" 
-          : products.map((item) => <Card key={item.id} item={item} />
-          )
-        }
+        {isLoading
+          ? <Preloader/>
+          : items}
       </div>
     </div>
-
-  )
+  );
 }
 
-export default Cards
+export default Cards;
