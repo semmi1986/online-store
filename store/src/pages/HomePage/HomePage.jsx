@@ -3,7 +3,6 @@ import SortPage from "../SortPage/SortPage";
 import Cards from "./Cards/Cards";
 import style from "./homePage.module.css";
 import api from '../../assets/api.json'
-console.log(api.products);
 
 function HomePage() {
   const [products, setProducts] = useState(api.products);
@@ -15,11 +14,11 @@ function HomePage() {
     name: "Sort by price DEC",
     sortProperty: "price",
   });
-  
+    console.log(categoryName);
   useEffect(() =>{
      setIsLoading(true);
       setProducts(api.products);
-      setProducts1(api.products);
+      setProducts1(api.products1);
       setIsLoading(false);
   },[categoryName, sortType])
 
