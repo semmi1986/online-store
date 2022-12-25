@@ -3,7 +3,7 @@ import style from './sortFourth.module.css';
 
 function SortFourth() {
     return (
-    <div>
+    <div className={style.back}>
         <div className={style.three_rows}>
             <span className={style.font}>2</span>
             <span className={style.font}>⟷</span>

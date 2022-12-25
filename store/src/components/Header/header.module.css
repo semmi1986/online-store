@@ -1,9 +1,7 @@
 .header {
-  border: 2px solid rgb(100, 100, 100);
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+  background: rgb(163, 177, 214);
+  border-bottom: 3px solid #967ac2;
 }
-
 .header__inner {
   display: flex;
   justify-content: space-between;
@@ -14,8 +12,8 @@
 .header__logo{
   background-image: url(../../assets/img/logo.png);
   background-size: contain;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
 }
 .header__logo:hover{
   background-color: rgba(167,93,93,0.6222864145658263);

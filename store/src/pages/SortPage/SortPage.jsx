@@ -31,7 +31,6 @@ function SortPage({ products, onClickCategoryName, onClickCategoryBrands}) {
       <SortCategory firstPick={category} onClickCategoryName={onClickCategoryName}/>
       </div>
       <BottomCover/>
-      <BottomCover/>
      </div>
      <div className={style.first_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>

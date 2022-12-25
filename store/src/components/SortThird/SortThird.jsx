@@ -3,7 +3,7 @@ import style from './sortThird.module.css';
 
 function sortThird() {
     return (
-    <div>
+    <div className={style.back}>
         <div className={style.three_rows}>
             <span className={style.font}>€10.00</span>
             <span className={style.font}>⟷</span>
