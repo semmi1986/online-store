@@ -1,13 +1,11 @@
 .cardpage__container{
-    border: 2px solid black;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    margin: 40px auto 40px auto;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 90%;
-    margin: 0 auto;
     background-color: rgba(14, 5, 6, 0.116);
 }
 
@@ -38,10 +36,42 @@
     -1px  1px 0   #000000,
      1px  1px 0   #000000;
   }
+  .footer__cover{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(14, 5, 6, 0.534);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 30px;
+    color: rgba(255, 148, 148, 0.945);
+    text-shadow: 
+    -0   -1px 0   #000000,
+     0   -1px 0   #000000,
+    -0    1px 0   #000000,
+     0    1px 0   #000000,
+    -1px -0   0   #000000,
+     1px -0   0   #000000,
+    -1px  0   0   #000000,
+     1px  0   0   #000000,
+    -1px -1px 0   #000000,
+     1px -1px 0   #000000,
+    -1px  1px 0   #000000,
+     1px  1px 0   #000000,
+    -1px -1px 0   #000000,
+     1px -1px 0   #000000,
+    -1px  1px 0   #000000,
+     1px  1px 0   #000000;
+  }
   .info__container{
     display: flex;
   }
   .container__font{
+    padding: 5px 0px 5px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
@@ -69,7 +99,6 @@
 }
 .photo__container{
     border-radius: 20px;
-    border: 1px solid black;
     height: 95%;
 }
 .product_info{
@@ -78,7 +107,7 @@
     flex-direction: column;
 }
 .breadcrumbs{
-    margin: 0 auto;
+    margin: 20px auto 0px auto;
     width: 80%;
     display: flex;
     justify-content: space-evenly;
@@ -173,4 +202,20 @@
     background: rgba(75, 75, 75, 0.466);
     color:  rgb(105, 110, 151);
     transition: 0.4s;
+}
+.header__photo{
+    display: flex;
+    justify-content: center;
+}
+.photos_to_choose{
+    margin-top: 10px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+}
+.buy__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -12,7 +12,6 @@ function Cards({
 }) {
   const [searchValue, setSearchValue] = useState("");
   const obj = products.map(item => item);
-
   const items = obj.filter(elem => {
     if (elem.title.toLowerCase().includes(searchValue.toLowerCase())) {
       return true
