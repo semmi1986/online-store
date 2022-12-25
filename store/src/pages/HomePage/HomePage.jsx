@@ -16,15 +16,13 @@ function HomePage() {
   });
 
   function checkCategory(){
-    if (categoryName == "all"){
+    if (categoryName === "all"){
       return products;
-    } else return products1.filter(item =>item.category==categoryName)
+    } else return products1.filter(item =>item.category===categoryName)
   }
 
-
-
-    console.log(categoryName);
-    console.log(checkCategory());
+    // console.log(products1.filter(item =>item.brand===categoryBrand));
+    // console.log(products1)
 
 
   useEffect(() =>{
