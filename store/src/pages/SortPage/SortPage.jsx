@@ -9,15 +9,15 @@ import classNames from "classnames";
 
 
 
-const secondCheck =[]
-function SortPage({ products, onClickCategoryName, onClickCategoryBrands}) {
+function SortPage({ products, onClickCategoryName, onClickCategoryBrands, categoryBrand}) {
 
   function getBrandList(products) {
     return Array.from(new Set(products.map((el) => el.brand)));
   }
 
   const category = ["all", "smartphones", "laptops", "fragrances", "skincare", "groceries","home-decoration", "furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
-  const brands = getBrandList(products);
+  // const brands = getBrandList(products);
+  const brands =[...new Set(products.map((el) => el.brand))]
 
   return (
     <div className={style.sort__page}>
@@ -35,7 +35,7 @@ function SortPage({ products, onClickCategoryName, onClickCategoryBrands}) {
      <div className={style.first_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Brand</span></div>
       <div className={style.sort__scroll}>
-        <SortBrands brands={brands} onClickCategoryBrands={onClickCategoryBrands}/>
+        <SortBrands brands={brands} categoryBrand={categoryBrand} onClickCategoryBrands={onClickCategoryBrands}/>
       </div>
       <BottomCover/>
      </div>

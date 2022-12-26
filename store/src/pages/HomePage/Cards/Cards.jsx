@@ -6,12 +6,40 @@ import style from "./cards.module.css";
 
 function Cards({
   products,
-  sortType,
-  isLoading,
-  onClickSortType
+  isLoading
 }) {
   const [searchValue, setSearchValue] = useState("");
-  const obj = products.map(item => item);
+  const [sortType, setSortType] = useState({
+    name: "Sort by price DEC",
+    sortProperty: "price",
+  });
+
+  const obj = [...products];
+
+  switch (sortType.sortProperty) {
+    case "price":
+      obj.sort((a,b) => a.price - b.price);
+      break;
+    case "-price":
+      obj.sort((a,b) => b.price - a.price);
+      break;
+    case "rating":
+      obj.sort((a,b) => a.rating - b.rating);
+      break;
+    case "-rating":
+      obj.sort((a,b) => b.rating - a.rating);
+      break;
+    case "discountPercentage":
+      obj.sort((a,b) => a.discountPercentage - b.discountPercentage);
+      break;
+    case "-discountPercentage":
+      obj.sort((a,b) => b.discountPercentage - a.discountPercentage);
+      break;
+    default:
+      break;
+  }
+
+
   const items = obj.filter(elem => {
     if (elem.title.toLowerCase().includes(searchValue.toLowerCase())) {
       return true
@@ -26,7 +54,7 @@ function Cards({
         sortType={sortType}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
-        onClickSortType={onClickSortType}
+        onClickSortType={(i) => setSortType(i)}
       />
       <div className={style.cards__content}>
         {isLoading

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import style from './sortBrands.module.css';
 
 
-function SortBrands({brands, onClickCategoryBrands}) {
+function SortBrands({brands, onClickCategoryBrands, categoryBrand}) {
   const [activeIndex, setActiveIndex] = useState()
 
   function handelClick(value, index) {

@@ -5,50 +5,49 @@ import style from "./homePage.module.css";
 import api from '../../assets/api.json'
   
 function HomePage() {
-  const [products, setProducts] = useState(api.products);
-  const [products1, setProducts1] = useState(api.products);
+  const [products, setProducts] = useState([]);
+  const [products1, setProducts1] = useState([]);
   const [categoryName, setCategoryName] = useState("all");
   const [categoryBrand, setCategoryBrand] = useState("");
   const [isLoading, setIsLoading] = useState(true); // для скелетона или прелоудера
-  const [sortType, setSortType] = useState({
-    name: "Sort by price DEC",
-    sortProperty: "price",
-  });
+ 
 
-  function checkCategory(){
-    if (categoryName === "all"){
-      return products;
-    } else return products1.filter(item =>item.category===categoryName)
-  }
+  // function checkCategory(){
+  //   if (categoryName === "all"){
+  //     return products;
+  //   } else return products1.filter(item =>item.category===categoryName)
+  // }
 
 
-  useEffect(() =>{
-     setIsLoading(true);
-      setProducts(api.products);
-      setProducts1(api.products1);
-      setIsLoading(false);
+  // useEffect(() =>{
+  //    setIsLoading(true);
+  //     setProducts(api.products);
+  //     setProducts1(api.products1);
+  //     setIsLoading(false);
 
-  },[categoryName, sortType])
+  // },[categoryName, sortType])
 
-  // useEffect(() => {
-  //   setIsLoading(true);
+ 
+  useEffect(() => {
+    setIsLoading(true);
 
-  //   const sort = sortType.sortProperty.replace("-", "");
-  //   const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
-  //   const category = categoryName !== "all" ? `category=${categoryName}` : "";
+    // const sort = sortType.sortProperty.replace("-", "");
+    // const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
+    // &sortBy=${sort}&order=${order}
+    const category = categoryName !== "all" ? `category=${categoryName}` : "";
 
-  //   fetch(
-  //     `https://63a042fa24d74f9fe832fb1e.mockapi.io/items?${category}&sortBy=${sort}&order=${order}`
-  //   )
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setProducts(data);
-  //       setProducts1(data);
-  //       setIsLoading(false);
-  //     });
-  // }, [categoryName, sortType]);
+    fetch(
+      `https://63a042fa24d74f9fe832fb1e.mockapi.io/items?${category}`
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setProducts(data);
+        setProducts1(data);
+        setIsLoading(false);
+      });
+  }, [categoryName]);
 
   useEffect(() => {
     setProducts1(products.filter((item) => item.brand === categoryBrand));
@@ -63,14 +62,13 @@ function HomePage() {
       <div className={style.main__page}>
         <SortPage
           categoryName={categoryName}
+          categoryBrand={categoryBrand}
           products={products}
           onClickCategoryName={(item) => setCategoryName(item)}
           onClickCategoryBrands={(i) => setCategoryBrand(i)}
         />
         <Cards
-          products={checkCategory()}
-          sortType={sortType}
-          onClickSortType={(i) => setSortType(i)}
+          products={products1}
           isLoading={isLoading}
         />
       </div>
