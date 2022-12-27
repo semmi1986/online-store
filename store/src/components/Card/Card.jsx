@@ -3,10 +3,9 @@ import style from "./cadr.module.css";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
-
+{/* <Link to={`/ProductDetails/${item.id}`}>    </Link> */}
 function Card({ item }) {
   return (
-    <Link to={`/ProductDetails/${item.id}`}>
       <div
         style={{
           background: `url(${item.thumbnail})`,
@@ -23,6 +22,7 @@ function Card({ item }) {
         >
           {item.title}
         </div>
+        <Link to={`/ProductDetails/${item.id}`}><div className={style.container}>  </div></Link>
         <div className={style.card_two_rows}>
           <div
             className={classNames(
@@ -44,7 +44,6 @@ function Card({ item }) {
           </div>
         </div>
       </div>
-    </Link>
   );
 }
 
