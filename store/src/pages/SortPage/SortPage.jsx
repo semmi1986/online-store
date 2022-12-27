@@ -1,22 +1,19 @@
 import React from "react";
 import SortCategory from "../../components/SortCategory/SortCategory";
 import SortBrands from "../../components/SortBrands/SortBrands";
-import SortThird from "../../components/SortThird/SortThird";
-import SortFourth from "../../components/SortFourth/SortFourth";
+// import SortFourth from "../../components/SortFourth/SortFourth";
 import BottomCover from "../../components/BottomCover/bottomCover";
 import style from "./sortPage.module.css";
+import SortPrice from "../../components/SortPrice/SortPrice";
 import classNames from "classnames";
 
 
 
-function SortPage({ products, onClickCategoryName, onClickCategoryBrands, categoryBrand}) {
+function SortPage({ products, onClickCategoryName, onClickCategoryBrands, categoryBrand, filterPrice, onChangPrice}) {
 
-  function getBrandList(products) {
-    return Array.from(new Set(products.map((el) => el.brand)));
-  }
 
   const category = ["all", "smartphones", "laptops", "fragrances", "skincare", "groceries","home-decoration", "furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
-  // const brands = getBrandList(products);
+
   const brands =[...new Set(products.map((el) => el.brand))]
 
   return (
@@ -41,12 +38,12 @@ function SortPage({ products, onClickCategoryName, onClickCategoryBrands, catego
      </div>
      <div className={style.input_check}>
      <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Price</span></div>
-      <SortThird/>
+      <SortPrice filterPrice={filterPrice} onChangPrice={onChangPrice}/>
       <BottomCover/>
       </div>
       <div className={style.input_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Stock</span></div>
-      <SortFourth/>
+      {/* <SortFourth/> */}
       <BottomCover/>
      </div>
      </div>

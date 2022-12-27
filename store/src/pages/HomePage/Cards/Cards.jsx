@@ -6,16 +6,18 @@ import style from "./cards.module.css";
 
 function Cards({
   products,
-  isLoading
+  isLoading,
+  filterPrice
 }) {
   const [searchValue, setSearchValue] = useState("");
   const [sortType, setSortType] = useState({
     name: "Sort by price DEC",
     sortProperty: "price",
   });
+  
+  const obj = products.filter(item => (filterPrice[0] <= item.price && item.price <= filterPrice[1]))
 
-  const obj = [...products];
-
+// сортировка DESC и ASC
   switch (sortType.sortProperty) {
     case "price":
       obj.sort((a,b) => a.price - b.price);
@@ -40,6 +42,7 @@ function Cards({
   }
 
 
+// сортировка по input
   const items = obj.filter(elem => {
     if (elem.title.toLowerCase().includes(searchValue.toLowerCase())) {
       return true

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SortPage from "../SortPage/SortPage";
 import Cards from "./Cards/Cards";
 import style from "./homePage.module.css";
-import api from '../../assets/api.json'
+// import api from '../../assets/api.json'
   
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -10,6 +10,7 @@ function HomePage() {
   const [categoryName, setCategoryName] = useState("all");
   const [categoryBrand, setCategoryBrand] = useState("");
   const [isLoading, setIsLoading] = useState(true); // для скелетона или прелоудера
+  const [filterPrice, setFilterPrice] = useState([10, 1800]);
  
 
   // function checkCategory(){
@@ -66,8 +67,11 @@ function HomePage() {
           products={products}
           onClickCategoryName={(item) => setCategoryName(item)}
           onClickCategoryBrands={(i) => setCategoryBrand(i)}
+          onChangPrice={(i) => setFilterPrice(i)}
+          filterPrice={filterPrice}
         />
         <Cards
+        filterPrice={filterPrice}
           products={products1}
           isLoading={isLoading}
         />
