@@ -6,10 +6,25 @@ import style from "./cards.module.css";
 
 function Cards({ products, isLoading, filterPrice, filterStock }) {
   const [searchValue, setSearchValue] = useState("");
+  const [ArrItems, setArrItems] = useState([]);
+  const [IndexRemove, setIndexRemove] = useState();
   const [sortType, setSortType] = useState({
     name: "Sort by price DEC",
     sortProperty: "price",
   });
+
+
+
+  const AddCard = (element) => {
+      ArrItems.push(element);
+      setArrItems(ArrItems);
+      localStorage.setItem('Basket',JSON.stringify(ArrItems));
+    }
+
+  const RemoveCard = (element) => {
+      ArrItems.splice(ArrItems.indexOf(element), 1);
+      localStorage.setItem('Basket',JSON.stringify(ArrItems));
+  }
 
 
   const obj = products.filter(
@@ -52,7 +67,7 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
       }
       return false;
     })
-    .map((item) => <Card key={item.id} item={item} />);
+    .map((item) => <Card key={item.id} item={item} AddCard={AddCard} RemoveCard={RemoveCard} />);
 
   return (
     <div className={style.cards__container}>

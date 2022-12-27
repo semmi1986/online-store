@@ -1,7 +1,9 @@
 import style from "./header.module.css";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 function Header() {
+
   return (
     <header className={style.header}>
       <div className={style.header__inner}>
