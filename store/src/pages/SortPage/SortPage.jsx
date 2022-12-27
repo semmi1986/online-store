@@ -17,10 +17,18 @@ function SortPage({ products, onClickCategoryName, onClickCategoryBrands, catego
 
   const brands =[...new Set(products.map((el) => el.brand))]
 
+  const handelRefresh = () => {
+    console.log('REFRESH');
+    onClickCategoryName("all")
+    onClickCategoryBrands("")
+    onChangPrice([10, 1800])
+    onChangStock([2, 150])
+  }
+
   return (
     <div className={style.sort__page}>
       <div className={style.sort__buttons}>
-        <button className={style.reset__filters}>Reset filters</button>
+        <button className={style.reset__filters} onClick={handelRefresh}>Reset filters</button>
         <button className={style.copy__link}>Copy link</button>
       </div>
       <div className={style.first_check}>

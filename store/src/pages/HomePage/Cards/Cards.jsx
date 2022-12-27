@@ -11,7 +11,7 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
     sortProperty: "price",
   });
 
-  
+
   const obj = products.filter(
     (item) =>
       filterPrice[0] <= item.price &&
@@ -20,7 +20,6 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
       item.price <= filterPrice[1]
   );
 
-  console.log(obj);
   // сортировка DESC и ASC
   switch (sortType.sortProperty) {
     case "price":
@@ -58,6 +57,7 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
   return (
     <div className={style.cards__container}>
       <FindSection
+      obj={obj}
         products={products}
         sortType={sortType}
         searchValue={searchValue}

@@ -9,11 +9,12 @@ function FindSection({
   onClickSortType,
   searchValue,
   setSearchValue,
+  obj
 }) {
   return (
     <div className={style.search_header}>
       <Sort sortType={sortType} onClickSortType={onClickSortType} />
-      <div>Found: {products.length}</div>
+      <div>Found: {obj.length}</div>
       <div>
         <Search
           searchValue={searchValue}
