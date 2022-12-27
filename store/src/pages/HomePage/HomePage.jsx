@@ -11,30 +11,12 @@ function HomePage() {
   const [categoryBrand, setCategoryBrand] = useState("");
   const [isLoading, setIsLoading] = useState(true); // для скелетона или прелоудера
   const [filterPrice, setFilterPrice] = useState([10, 1800]);
+  const [filterStock, setFilterStock] = useState([2, 150]);
  
 
-  // function checkCategory(){
-  //   if (categoryName === "all"){
-  //     return products;
-  //   } else return products1.filter(item =>item.category===categoryName)
-  // }
-
-
-  // useEffect(() =>{
-  //    setIsLoading(true);
-  //     setProducts(api.products);
-  //     setProducts1(api.products1);
-  //     setIsLoading(false);
-
-  // },[categoryName, sortType])
-
- 
   useEffect(() => {
     setIsLoading(true);
 
-    // const sort = sortType.sortProperty.replace("-", "");
-    // const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
-    // &sortBy=${sort}&order=${order}
     const category = categoryName !== "all" ? `category=${categoryName}` : "";
 
     fetch(
@@ -68,11 +50,14 @@ function HomePage() {
           onClickCategoryName={(item) => setCategoryName(item)}
           onClickCategoryBrands={(i) => setCategoryBrand(i)}
           onChangPrice={(i) => setFilterPrice(i)}
+          onChangStock={(i) => setFilterStock(i)}
           filterPrice={filterPrice}
+          filterStock={filterStock}
         />
         <Cards
         filterPrice={filterPrice}
           products={products1}
+          filterStock={filterStock}
           isLoading={isLoading}
         />
       </div>

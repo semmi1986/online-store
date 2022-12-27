@@ -3,13 +3,14 @@ import SortCategory from "../../components/SortCategory/SortCategory";
 import SortBrands from "../../components/SortBrands/SortBrands";
 // import SortFourth from "../../components/SortFourth/SortFourth";
 import BottomCover from "../../components/BottomCover/bottomCover";
-import style from "./sortPage.module.css";
 import SortPrice from "../../components/SortPrice/SortPrice";
 import classNames from "classnames";
+import style from "./sortPage.module.css";
+import SortStock from "../../components/SortStock/SortStock";
 
 
 
-function SortPage({ products, onClickCategoryName, onClickCategoryBrands, categoryBrand, filterPrice, onChangPrice}) {
+function SortPage({ products, onClickCategoryName, onClickCategoryBrands, categoryBrand, filterPrice, onChangPrice, filterStock, onChangStock}) {
 
 
   const category = ["all", "smartphones", "laptops", "fragrances", "skincare", "groceries","home-decoration", "furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
@@ -43,7 +44,7 @@ function SortPage({ products, onClickCategoryName, onClickCategoryBrands, catego
       </div>
       <div className={style.input_check}>
       <div className={classNames(style.sort__category, style.border__bottom__sort)}><span className={style.font}>Stock</span></div>
-      {/* <SortFourth/> */}
+      <SortStock filterStock={filterStock} onChangStock={onChangStock}/>
       <BottomCover/>
      </div>
      </div>
