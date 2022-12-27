@@ -1,4 +1,4 @@
-.three_rows {
+/* .three_rows {
     display: flex;
     justify-content: space-around;
 }
@@ -11,4 +11,15 @@
 
 .input_btn{
     width: 215px;
+} */
+
+.sort__wrapper{
+  margin: 0 20px;
+  
+}
+.price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
 }
