@@ -11,7 +11,7 @@ function Header() {
           <div className={style.header__logo}></div>
         </Link>
         <div>
-          <span className={style.font}>Cart total: €2,697.00</span>
+          <span className={style.font}>{}</span>
         </div>
         <Link to="basket">
           <div className={style.header__basket}></div>

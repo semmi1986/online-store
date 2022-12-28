@@ -1,21 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./cadr.module.css";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 
-function Card({ item, AddCard, RemoveCard }) {
-
+function Card({ item, AddCard, RemoveCard, countAddedCards, ArrItems }) {
   const [AddOrDelete, setAddOrDelete] = useState('Add');
   function checker(){
     if(AddOrDelete === 'Add'){
       setAddOrDelete('Delete');
       AddCard(item);
+      countAddedCards();
     } else {
       setAddOrDelete('Add');
       RemoveCard(item);
+      countAddedCards();
     }
   };
+
+  useEffect(() =>{
+    (ArrItems.map((el)=> el.id)).includes(item.id) ? setAddOrDelete('Delete') : setAddOrDelete('Add');
+  }, [])
 
   return (
       <div
