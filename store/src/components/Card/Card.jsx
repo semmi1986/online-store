@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 
-function Card({ item, AddCard, RemoveCard, countAddedCards, ArrItems }) {
+function Card({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) {
   const [AddOrDelete, setAddOrDelete] = useState('Add');
   function checker(){
     if(AddOrDelete === 'Add'){
       setAddOrDelete('Delete');
       AddCard(item);
       countAddedCards();
+      countPrice();
     } else {
       setAddOrDelete('Add');
       RemoveCard(item);
       countAddedCards();
+      countPrice();
     }
   };
 
