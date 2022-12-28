@@ -62,6 +62,10 @@ function CardPage() {
     />));
   }
 
+  const handelClick = () => {
+    console.log("go to baskets");
+  }
+
 
   return (
     <div>
@@ -109,7 +113,7 @@ function CardPage() {
             </div>
             <div className={style.two__rows}>
               <button className={style.button}>Add to Cart</button>
-              <button className={style.button}>Buy now</button>
+              <button className={style.button} onClick={handelClick}>Buy now</button>
             </div>
           </div>
         </div>
