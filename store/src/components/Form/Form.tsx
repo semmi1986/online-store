@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
+import style from "./form.module.css";
 
 type FormValues = {
   fullName: string;
@@ -53,15 +54,15 @@ function Form() {
   };
 
   return (
-    <div className="modal">
-      <div className="modal__container">
-        <div className="modal__item">
-          <form className="modal__form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="person__info">
-              <h2 className="person__title">Personal details </h2>
-              <div className="modal__field">
+    <div className={style.modal}>
+      <div className={style.modal__container}>
+        <div className={style.modal__item}>
+          <form className={style.modal__form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={style.person__info}>
+              <h2 className={style.person__title}>Personal details </h2>
+              <div className={style.modal__field}>
                 <input
-                  className="fullName"
+                  className={style.fullName}
                   {...register("fullName", {
                     required: "required",
                     pattern: {
@@ -72,14 +73,14 @@ function Form() {
                   placeholder="full name"
                 />
                 {errors?.fullName && (
-                  <div className="error__massage">
+                  <div className={style.error__massage}>
                     {errors.fullName.message}
                   </div>
                 )}
               </div>
-              <div className="modal__field">
+              <div className={style.modal__field}>
                 <input
-                  className="email"
+                  className={style.email}
                   {...register("email", {
                     required: "required",
                     pattern: {
@@ -90,12 +91,12 @@ function Form() {
                   placeholder="email"
                 />
                 {errors?.email && (
-                  <div className="error__massage">{errors.email.message}</div>
+                  <div className={style.error__massage}>{errors.email.message}</div>
                 )}
               </div>
-              <div className="modal__field">
+              <div className={style.modal__field}>
                 <input
-                  className="phoneNumber"
+                  className={style.phoneNumber}
                   {...register("phone", {
                     required: "required",
                     pattern: { value: /^\+\d{9,}$/, message: "invalid number" },
@@ -103,12 +104,12 @@ function Form() {
                   placeholder="phone number"
                 />
                 {errors?.phone && (
-                  <div className="error__massage">{errors.phone.message}</div>
+                  <div className={style.error__massage}>{errors.phone.message}</div>
                 )}
               </div>
-              <div className="modal__field">
+              <div className={style.modal__field}>
                 <input
-                  className="address"
+                  className={style.address}
                   {...register("address", {
                     required: "required",
                     pattern: {
@@ -119,36 +120,36 @@ function Form() {
                   placeholder="delivery address"
                 />
                 {errors?.address && (
-                  <div className="error__massage">{errors.address.message}</div>
+                  <div className={style.error__massage}>{errors.address.message}</div>
                 )}
               </div>
             </div>
 
-            <div className="card__info">
-              <h2 className="card__title">Credit card details</h2>
-              <div className="skeleton__card">
-                <div className="block__number">
+            <div className={style.card__info}>
+              <h2 className={style.card__title}>Credit card details</h2>
+              <div className={style.skeleton__card}>
+                <div className={style.block__number}>
                   {cardNumberValue.startsWith("4") ? (
                     <img
-                      className="card__img"
+                      className={style.card__img}
                       src="https://cdn.visa.com/v2/assets/images/logos/visa/blue/logo.png"
                       alt="visa card"
                     />
                   ) : cardNumberValue.startsWith("5") ? (
                     <img
-                      className="card__img"
+                      className={style.card__img}
                       src="https://www.mastercard.hu/content/dam/public/mastercardcom/eu/hu/images/mc-logo-52.svg"
                       alt="master card"
                     />
                   ) : (
                     <img
-                      className="card__img"
+                      className={style.card__img}
                       src="https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71"
                       alt="other card"
                     />
                   )}
                   <input
-                    className="cardNumber"
+                    className={style.cardNumber}
                     {...register("cardNumber", {
                       required: "required",
                       pattern: {
@@ -166,11 +167,11 @@ function Form() {
                   />
                 </div>
 
-                <div className="other__info">
-                  <div className="card__data">
+                <div className={style.other__info}>
+                  <div className={style.card__data}>
                     VALID:
                     <input
-                      className="card__data_input"
+                      className={style.card__data_input}
                       {...register("cardDate", {
                         required: "required",
                         pattern: {
@@ -187,10 +188,10 @@ function Form() {
                       onKeyDown={handleKeyDownDate}
                     />
                   </div>
-                  <div className="card__code">
+                  <div className={style.card__code}>
                     CVV:
                     <input
-                      className="card__code_input"
+                      className={style.card__code_input}
                       {...register("cardCode", {
                         required: "required",
                         pattern: {
@@ -209,12 +210,12 @@ function Form() {
                   </div>
                 </div>
               </div>
-              {errors?.cardNumber && <div className="error__card">{errors.cardNumber.message}</div>}
-              {errors?.cardDate && <div className="error__card">{errors.cardDate.message}</div>}
-              {errors?.cardCode && <div className="error__card">{errors.cardCode.message}</div>}
+              {errors?.cardNumber && <div className={style.error__card}>{errors.cardNumber.message}</div>}
+              {errors?.cardDate && <div className={style.error__card}>{errors.cardDate.message}</div>}
+              {errors?.cardCode && <div className={style.error__card}>{errors.cardCode.message}</div>}
             </div>
 
-            <button className="send__btn" type="submit" >confirm</button>
+            <button className={style.send__btn} type="submit" >confirm</button>
 
           </form>
         </div>
