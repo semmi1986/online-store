@@ -2,19 +2,30 @@ import React, {useState} from 'react';
 import style from './sort.module.css';
 import classNames from "classnames";
 
-function Sort({sortType, onClickSortType}) {
+interface Sort{
+  name: string, 
+  sortProperty: string
+}
+
+interface SortProps {
+  sortType: Sort;
+  onClickSortType: (i: Sort) => void
+}
+
+const Sort: React.FC<SortProps> = ({sortType, onClickSortType}) => {
 
   const[isVisible, setIsVisibel] = useState(false);
-  const sortList = [
+  const sortList: Sort[] = [
                     {name: "Sort by price DESC", sortProperty: "price"}, 
                     {name: "Sort by price ASC", sortProperty: "-price"}, 
                     {name: "Sort by rating DESC", sortProperty: "rating"}, 
                     {name: "Sort by rating ASC", sortProperty: "-rating"}, 
                     {name: "Sort by discount DESC", sortProperty: "discountPercentage"}, 
-                    {name: "Sort by discount ASC", sortProperty: "-discountPercentage"} 
+                    {name: "Sort by discount ASC", sortProperty: "-discountPercentage"},
+                    {name: "Sort by discount ASC", sortProperty: "-discountPercentage"}
                   ];
 
-  const onClickSelectItem = (i) => {
+  const onClickSelectItem = (i: Sort) => {
     onClickSortType(i);
     setIsVisibel(false)
   }

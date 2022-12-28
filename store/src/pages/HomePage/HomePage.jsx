@@ -4,7 +4,7 @@ import Cards from "./Cards/Cards";
 import style from "./homePage.module.css";
 // import api from '../../assets/api.json'
 
-function HomePage() {
+const HomePage= () => {
   const [products, setProducts] = useState([]);
   const [products1, setProducts1] = useState([]);
   const [categoryName, setCategoryName] = useState("all");

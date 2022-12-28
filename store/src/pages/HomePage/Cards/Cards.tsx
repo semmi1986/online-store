@@ -1,12 +1,21 @@
+import { stringify } from "querystring";
 import React, { useState } from "react";
 import Card from "../../../components/Card/Card";
 import FindSection from "../../../components/FindSection/FindSection";
 import Preloader from "../../../components/Preloader/Preloader";
 import style from "./cards.module.css";
+interface Sorts{
+  name: string, 
+  sortProperty: string
+}
 
-function Cards({ products, isLoading, filterPrice, filterStock }) {
+interface SortProps {
+  sortType: Sorts;
+  onClickSortType: any
+}
+const Cards = ({ products, isLoading, filterPrice, filterStock }) => {
   const [searchValue, setSearchValue] = useState("");
-  const [sortType, setSortType] = useState({
+  const [sortType, setSortType] = useState<SortProps>({
     name: "Sort by price DEC",
     sortProperty: "price",
   });
