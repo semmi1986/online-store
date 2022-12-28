@@ -54,7 +54,7 @@ function Form() {
   };
 
   return (
-    <div className={style.modal}>
+    <div className={style.modal} >
       <div className={style.modal__container}>
         <div className={style.modal__item}>
           <form className={style.modal__form} onSubmit={handleSubmit(onSubmit)}>

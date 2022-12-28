@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./CardPage.module.css";
-
 
 function CardPage() {
   const { id } = useParams();
@@ -41,31 +41,41 @@ function CardPage() {
     componentDidMount();
   }, [id]);
 
-
-
-
-  function renderHeaderPhoto(){
-    return <img 
-    src={photo} 
-    style={{ width: "50vh", height: "50vh", borderRadius: "10px", marginTop: "20px"}}
-    />
+  function renderHeaderPhoto() {
+    return (
+      <img
+        src={photo}
+        style={{
+          width: "50vh",
+          height: "50vh",
+          borderRadius: "10px",
+          marginTop: "20px",
+        }}
+      />
+    );
   }
- 
-  function renderPhotos(){
+
+  function renderPhotos() {
     const photos = total.images;
-    return (photos.map((item, i) => 
-    <img 
-    key={i}
-    src={item} 
-    style={{ width: "15vh", height: "15vh", borderRadius: "10px", margin: "10px 10px", cursor: "pointer"}}
-    onClick={()=>setPhoto(item)}
-    />));
+    return photos.map((item, i) => (
+      <img
+        key={i}
+        src={item}
+        style={{
+          width: "15vh",
+          height: "15vh",
+          borderRadius: "10px",
+          margin: "10px 10px",
+          cursor: "pointer",
+        }}
+        onClick={() => setPhoto(item)}
+      />
+    ));
   }
 
   const handelClick = () => {
     console.log("go to baskets");
-  }
-
+  };
 
   return (
     <div>
@@ -86,12 +96,8 @@ function CardPage() {
         <div className={style.header__font}>{total.title}</div>
         <div className={style.info__container}>
           <div className={style.photo__container}>
-          <div className={style.header__photo}>
-            {renderHeaderPhoto()}
-          </div>
-          <div className={style.photos_to_choose}>
-            {renderPhotos()}
-          </div>
+            <div className={style.header__photo}>{renderHeaderPhoto()}</div>
+            <div className={style.photos_to_choose}>{renderPhotos()}</div>
           </div>
           <div className={style.product_info}>
             <div className={style.container__font}>
@@ -113,7 +119,9 @@ function CardPage() {
             </div>
             <div className={style.two__rows}>
               <button className={style.button}>Add to Cart</button>
-              <button className={style.button} onClick={handelClick}>Buy now</button>
+              <Link to={"/basket"} className={style.button} onClick={handelClick}>
+                  Buy now
+              </Link>
             </div>
           </div>
         </div>

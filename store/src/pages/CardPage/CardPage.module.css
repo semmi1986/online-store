@@ -167,6 +167,7 @@
     color: rgb(120, 130, 197);
 }
 .button{
+  text-decoration: none;
     margin-top: 10px;
     width: 100%;
     cursor: pointer;
