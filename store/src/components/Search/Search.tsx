@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import style from "./search.module.css";
 
-function Search({searchValue, setSearchValue}) {
+interface Serch{
+  searchValue: string;
+  setSearchValue: (i:string) => void
+}
+
+
+const Search:React.FC<Serch> = ({searchValue, setSearchValue}) =>{
  
   return (
     <div className={style.input__item}>
@@ -22,7 +28,7 @@ function Search({searchValue, setSearchValue}) {
         placeholder="Search"
         className={style.input}
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={(e) => setSearchValue((e.target as HTMLInputElement).value )}
       />
       {searchValue && (
         <svg
