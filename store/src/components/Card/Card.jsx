@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import style from "./cadr.module.css";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
-{/* <Link to={`/ProductDetails/${item.id}`}>    </Link> */}
-function Card({ item }) {
+
+function Card({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) {
+  const [AddOrDelete, setAddOrDelete] = useState('Add');
+  function checker(){
+    if(AddOrDelete === 'Add'){
+      setAddOrDelete('Delete');
+      AddCard(item);
+      countAddedCards();
+      countPrice();
+    } else {
+      setAddOrDelete('Add');
+      RemoveCard(item);
+      countAddedCards();
+      countPrice();
+    }
+  };
+
+  useEffect(() =>{
+    (ArrItems.map((el)=> el.id)).includes(item.id) ? setAddOrDelete('Delete') : setAddOrDelete('Add');
+  }, [])
+
   return (
       <div
         style={{
@@ -22,16 +41,17 @@ function Card({ item }) {
         >
           {item.title}
         </div>
-        <Link to={`/ProductDetails/${item.id}`}><div className={style.container}>  </div></Link>
+        <Link to={`/ProductDetails/${item.id}`}><div className={style.container}> </div></Link>
         <div className={style.card_two_rows}>
           <div
-            className={classNames(
+            className={
+              classNames(
               style.card_add,
               style.border__bottom__card,
-              style.font
-            )}
+              style.font)}
+            onClick={() => checker()}
           >
-            Add
+          {AddOrDelete}
           </div>
           <div
             className={classNames(
