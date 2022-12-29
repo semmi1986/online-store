@@ -4,6 +4,7 @@ interface SortSecond{
 }
 
 export interface BasketPagePullArr{
+    map(arg0: (item: any) => JSX.Element): unknown;
     brand: string,
     category: string,
     description: string,
@@ -14,7 +15,8 @@ export interface BasketPagePullArr{
     rating: number,
     stock: number,
     thumbnail: string,
-    title: string;
+    title: string,
+    [1]? : number;
 }
 
 export default SortSecond;

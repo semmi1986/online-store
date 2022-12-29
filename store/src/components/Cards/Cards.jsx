@@ -79,7 +79,7 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
 
   // сортировка по input
   const items = obj
-    .filter((elem) => {
+  .filter((elem) => {
       if (elem.title.toLowerCase().includes(searchValue.toLowerCase())) {
         return true;
       }
