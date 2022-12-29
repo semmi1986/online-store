@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SortPage from "../SortPage/SortPage";
-import Cards from "./Cards/Cards";
+import Cards from "../../components/Cards/Cards";
 import style from "./homePage.module.css";
 // import api from '../../assets/api.json'
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "../Search/Search";
-import Sort from "../Sort/Sort";
+import Sort from "../Sort";
 import style from "./findSection.module.css";
 
 function FindSection({

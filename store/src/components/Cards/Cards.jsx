@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Card from "../../../components/Card/Card";
-import FindSection from "../../../components/FindSection/FindSection";
-import Preloader from "../../../components/Preloader/Preloader";
+import Card from "../Card/Card";
+import FindSection from "../Sort/FindSection/FindSection";
+import Preloader from "../Preloader/Preloader";
 import style from "./cards.module.css";
 import classNames from "classnames";
 

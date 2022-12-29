@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import SortCategory from "../../components/SortCategory/SortCategory";
-import SortBrands from "../../components/SortBrands/SortBrands";
+import SortCategory from "../../components/Sort/SortCategory/SortCategory";
+import SortBrands from "../../components/Sort/SortBrands/SortBrands";
 // import SortFourth from "../../components/SortFourth/SortFourth";
-import BottomCover from "../../components/BottomCover/bottomCover";
-import SortPrice from "../../components/SortPrice/SortPrice";
+import BottomCover from "../../components/Preloader/BottomCover/bottomCover";
+import SortPrice from "../../components/Sort/SortPrice/SortPrice";
 import classNames from "classnames";
 import style from "./sortPage.module.css";
-import SortStock from "../../components/SortStock/SortStock";
+import SortStock from "../../components/Sort/SortStock/SortStock";
 
 function SortPage({
   products,
