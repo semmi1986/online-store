@@ -2,15 +2,15 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import style from "./form.module.css";
 
-type FormValues = {
-  fullName: string;
-  email: string;
-  phone: string;
-  address: string;
-  cardNumber: string;
-  cardDate: string;
-  cardCode: string;
-};
+// type FormValues = {
+//   fullName: string;
+//   email: string;
+//   phone: string;
+//   address: string;
+//   cardNumber: string;
+//   cardDate: string;
+//   cardCode: string;
+// };
 
 function Form() {
   const {
@@ -23,14 +23,14 @@ function Form() {
 
 
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit = (data) => {
     alert(JSON.stringify(data));
     reset();
   };
 
   const cardNumberValue = getValues("cardNumber") || "";
 
-  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+  const handleKeyDown = (e) => {
     const { key } = e;
     !(
       (key >= "0" && key <= "9") ||
@@ -41,16 +41,16 @@ function Form() {
     ) && e.preventDefault();
   };
 
-  const handleKeyDownDate: React.KeyboardEventHandler<HTMLInputElement> = (
+  const handleKeyDownDate = (
     e
   ) => {
     handleKeyDown(e);
     const { key } = e;
-    const { value } = e.target as HTMLInputElement;
+    const { value } = e.target;
     key >= "0" &&
       key <= "9" &&
       value.length === 2 &&
-      ((e.target as HTMLInputElement).value = value + "/");
+      ((e.target).value = value + "/");
   };
 
   return (
