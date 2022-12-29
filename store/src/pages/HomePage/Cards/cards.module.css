@@ -8,3 +8,56 @@
   width: 80%;
   border: 1px solid black;
 }
+.header_counter{
+    display: flex;
+    flex-direction: column;
+    left: 45vw;
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+    width: 200px;
+}
+.font{
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 22px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: 
+  -0   -1px 0   #000000,
+   0   -1px 0   #000000,
+  -0    1px 0   #000000,
+   0    1px 0   #000000,
+  -1px -0   0   #000000,
+   1px -0   0   #000000,
+  -1px  0   0   #000000,
+   1px  0   0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000;
+}
+.second_font{
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 22px;
+  color: rgba(253, 253, 253, 0.945);
+  text-shadow: 
+  -0   -1px 0   #000000,
+   0   -1px 0   #000000,
+  -0    1px 0   #000000,
+   0    1px 0   #000000,
+  -1px -0   0   #000000,
+   1px -0   0   #000000,
+  -1px  0   0   #000000,
+   1px  0   0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000;
+}
