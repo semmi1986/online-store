@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import style from './sortCategory.module.css';
 
 
 function SortCategory({firstPick, activeIndexCategory, onClickCategoryName, onChangIndexCategory}) {
 
- 
 
   function handelClick(value, index) {
     onClickCategoryName(value);

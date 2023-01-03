@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import style from "./CardPage.module.css";
@@ -67,9 +67,9 @@ function CardPage() {
     <div>
       <div className={style.breadcrumbs}>
         <div>
-          <a href="/" className={style.link}>
+          <Link to="/" className={style.link}>
             <span>STORE</span>
-          </a>
+          </Link>
         </div>
         <div className={style.color}>{">>"}</div>
         <div>{total.category}</div>

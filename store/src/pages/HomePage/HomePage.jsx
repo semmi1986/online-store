@@ -14,6 +14,8 @@ function HomePage() {
   const [filterStock, setFilterStock] = useState([2, 150]); // начальные значения слайдера фильтра по акциям
   const [activeIndexBrand, setActiveIndexBrand] = useState();
 
+  
+
   useEffect(() => {
     setIsLoading(true);
 
