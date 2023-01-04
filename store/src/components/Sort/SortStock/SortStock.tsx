@@ -2,10 +2,16 @@ import React from 'react';
 import {Slider} from '@mui/material'
 import style from './sortStock.module.css'
 
-function SortStock({filterStock, onChangStock}) {
 
-  const updateValue = (e, item) => {
-    onChangStock(item)
+interface StockProps{
+  filterStock: number[]
+  onChangStock: (i: number[]) => void
+}
+
+const SortStock: React.FC<StockProps> = ({filterStock, onChangStock}) => {
+
+  const updateValue = (e: Event, newValue: number | number[] ) => {
+    onChangStock(newValue as number[] )
   }
 
   return (

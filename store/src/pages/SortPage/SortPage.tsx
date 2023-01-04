@@ -1,14 +1,28 @@
 import React, { useState } from "react";
 import SortCategory from "../../components/Sort/SortCategory/SortCategory";
 import SortBrands from "../../components/Sort/SortBrands/SortBrands";
-// import SortFourth from "../../components/SortFourth/SortFourth";
 import BottomCover from "../../components/Preloader/BottomCover/bottomCover";
 import SortPrice from "../../components/Sort/SortPrice/SortPrice";
+import SortStock from "../../components/Sort/SortStock/SortStock";
 import classNames from "classnames";
 import style from "./sortPage.module.css";
-import SortStock from "../../components/Sort/SortStock/SortStock";
+import { BasketPagePullArr } from "../../types/types";
 
-function SortPage({
+interface SortPageProps{
+  products: BasketPagePullArr[]
+  onClickCategoryName: (i:string) => void
+  onClickCategoryBrands: (i: string) => void
+  filterPrice: number[]
+  onChangPrice: (i: number[]) => void
+  filterStock: number[]
+  onChangStock: (i: number[]) => void
+  activeIndexBrand: number
+  onChangIndexBrand: (i: number) => void
+}
+
+
+
+const SortPage: React.FC<SortPageProps> = ({
   products,
   onClickCategoryName,
   onClickCategoryBrands,
@@ -18,7 +32,7 @@ function SortPage({
   onChangStock,
   activeIndexBrand,
   onChangIndexBrand,
-}) {
+}) => {
   const category = [
     "all",
     "smartphones",

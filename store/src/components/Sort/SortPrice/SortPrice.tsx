@@ -2,10 +2,16 @@ import React from "react";
 import style from "./sortPrice.module.css";
 import {Slider} from '@mui/material'
 
-function SortPrice({onChangPrice, filterPrice}) {
 
-  const updateValue = (e, item) => {
-    onChangPrice(item)
+interface PriceProps{
+  filterPrice: number[]
+  onChangPrice: (i: number[]) => void
+}
+
+const SortPrice: React.FC<PriceProps> = ({onChangPrice, filterPrice}) => {  
+
+  const updateValue = (e: Event, newValue: number | number[]) => {
+    onChangPrice(newValue as number[])
   }
 
   return (

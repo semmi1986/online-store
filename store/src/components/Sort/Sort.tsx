@@ -1,8 +1,16 @@
 import React, {useState} from 'react';
 import style from './sort.module.css';
 import classNames from "classnames";
+import { Sorts } from '../../types/types';
+// import { Sort, SortProps } from '../../types/types';
 
-function Sort({sortType, onClickSortType}) {
+
+export interface SortProps {
+  sortType: Sorts;
+  onClickSortType: (i: Sorts) => void
+}
+
+const Sort: React.FC<SortProps> = ({sortType, onClickSortType}) => {
 
   const[isVisible, setIsVisibel] = useState(false);
   const sortList = [
@@ -14,7 +22,7 @@ function Sort({sortType, onClickSortType}) {
                     {name: "Sort by discount ASC", sortProperty: "-discountPercentage"} 
                   ];
 
-  const onClickSelectItem = (i) => {
+  const onClickSelectItem = (i: Sorts) => {
     onClickSortType(i);
     setIsVisibel(false)
   }

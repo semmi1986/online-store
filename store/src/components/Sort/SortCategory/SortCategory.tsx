@@ -1,11 +1,20 @@
 import React from 'react'
 import style from './sortCategory.module.css';
 
+// setSearchValue: (i:string) => void
 
-function SortCategory({firstPick, activeIndexCategory, onClickCategoryName, onChangIndexCategory}) {
+interface CategoryProps {
+  firstPick: string[]
+  activeIndexCategory: number
+  onClickCategoryName: (i: string) => void
+  onChangIndexCategory: (i: number) => void
+}
 
 
-  function handelClick(value, index) {
+const SortCategory: React.FC<CategoryProps> = ({firstPick, activeIndexCategory, onClickCategoryName, onChangIndexCategory}) => {
+
+
+  function handelClick(value: string, index: number) {
     onClickCategoryName(value);
     onChangIndexCategory(index)
   }

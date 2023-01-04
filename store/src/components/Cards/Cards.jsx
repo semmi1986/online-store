@@ -16,34 +16,43 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
   });
 
   useEffect(() => {
-    (localStorage.getItem('Basket')) ? setArrItems(JSON.parse(localStorage.getItem('Basket'))) : setArrItems([]);
-    (localStorage.getItem('Count')) ? setCounter((localStorage.getItem('Count'))) : setCounter(0);
-    (localStorage.getItem('Summary')) ? setTotalPrice((localStorage.getItem('Summary'))) : setTotalPrice(0);
-  },[])
+    localStorage.getItem("Basket")
+      ? setArrItems(JSON.parse(localStorage.getItem("Basket")))
+      : setArrItems([]);
+    localStorage.getItem("Count")
+      ? setCounter(localStorage.getItem("Count"))
+      : setCounter(0);
+    localStorage.getItem("Summary")
+      ? setTotalPrice(localStorage.getItem("Summary"))
+      : setTotalPrice(0);
+  }, []);
 
   const AddCard = (element) => {
-      ArrItems.push(element);
-      setArrItems(ArrItems);
-      localStorage.setItem('Basket',JSON.stringify(ArrItems));
-    }
+    ArrItems.push(element);
+    setArrItems(ArrItems);
+    localStorage.setItem("Basket", JSON.stringify(ArrItems));
+  };
 
   const RemoveCard = (element) => {
-      ArrItems.splice(ArrItems.findIndex(el => el.id === element.id), 1);
-      setArrItems(ArrItems);
-      localStorage.setItem('Basket',JSON.stringify(ArrItems));
-  }
+    ArrItems.splice(
+      ArrItems.findIndex((el) => el.id === element.id),
+      1
+    );
+    setArrItems(ArrItems);
+    localStorage.setItem("Basket", JSON.stringify(ArrItems));
+  };
 
-  const countAddedCards = () =>{
-    localStorage.setItem('Count',JSON.stringify(ArrItems.length));
-    setCounter(JSON.parse(localStorage.getItem('Count')));
-  }
+  const countAddedCards = () => {
+    localStorage.setItem("Count", JSON.stringify(ArrItems.length));
+    setCounter(JSON.parse(localStorage.getItem("Count")));
+  };
   const countPrice = () => {
     let sum = 0;
-    let priceArray = ArrItems.map((el) => (el.price));
-    priceArray.map((item) => sum += item);
+    let priceArray = ArrItems.map((el) => el.price);
+    priceArray.map((item) => (sum += item));
     setTotalPrice(sum);
-    localStorage.setItem('Summary',JSON.stringify(sum));
-  }
+    localStorage.setItem("Summary", JSON.stringify(sum));
+  };
 
   const obj = products.filter(
     (item) =>
@@ -85,20 +94,31 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
       }
       return false;
     })
-    .map((item) => <Card key={item.id} item={item} AddCard={AddCard} RemoveCard={RemoveCard} countAddedCards= {countAddedCards} ArrItems={ArrItems} countPrice={countPrice}/>);
+    .map((item) => (
+      <Card
+        key={item.id}
+        item={item}
+        AddCard={AddCard}
+        RemoveCard={RemoveCard}
+        countAddedCards={countAddedCards}
+        ArrItems={ArrItems}
+        countPrice={countPrice}
+      />
+    ));
 
   return (
     <div className={style.cards__container}>
       <div className={classNames(style.header_counter, style.font)}>
         <div>
-          Cart total: <span className={style.second_font}>€{totalPrice}.00</span>
+          Cart total:{" "}
+          <span className={style.second_font}>€{totalPrice}.00</span>
         </div>
         <div>
           Total Items: <span className={style.second_font}>{counter}</span>
         </div>
       </div>
       <FindSection
-      obj={obj}
+        obj={obj}
         products={products}
         sortType={sortType}
         searchValue={searchValue}

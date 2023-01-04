@@ -2,15 +2,15 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import style from "./form.module.css";
 
-// type FormValues = {
-//   fullName: string;
-//   email: string;
-//   phone: string;
-//   address: string;
-//   cardNumber: string;
-//   cardDate: string;
-//   cardCode: string;
-// };
+type FormValues = {
+  fullName: string;
+  email: string;
+  phone: string;
+  address: string;
+  cardNumber: string;
+  cardDate: string;
+  cardCode: string;
+};
 
 function Form() {
   const {
@@ -23,14 +23,14 @@ function Form() {
 
 
 
-  const onSubmit = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
     alert(JSON.stringify(data));
     reset();
   };
 
   const cardNumberValue = getValues("cardNumber") || "";
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     const { key } = e;
     !(
       (key >= "0" && key <= "9") ||
@@ -41,20 +41,20 @@ function Form() {
     ) && e.preventDefault();
   };
 
-  const handleKeyDownDate = (
+  const handleKeyDownDate: React.KeyboardEventHandler<HTMLInputElement> = (
     e
   ) => {
     handleKeyDown(e);
     const { key } = e;
-    const { value } = e.target;
+    const { value } = e.target as HTMLInputElement;
     key >= "0" &&
       key <= "9" &&
       value.length === 2 &&
-      ((e.target).value = value + "/");
+      ((e.target as HTMLInputElement).value = value + "/");
   };
 
   return (
-    <div className={style.modal}>
+    <div className={style.modal} >
       <div className={style.modal__container}>
         <div className={style.modal__item}>
           <form className={style.modal__form} onSubmit={handleSubmit(onSubmit)}>
@@ -157,7 +157,7 @@ function Form() {
                         message: "invalid card number",
                       },
                       onChange: (e) => {
-                        const { value } = e.target;
+                        const { value } = e.target as HTMLInputElement;
                         value.length > 16 &&
                           (e.target.value = value.slice(0, -1));
                       },
@@ -179,7 +179,7 @@ function Form() {
                           message: "invalid card date",
                         },
                         onChange: (e) => {
-                          const { value } = e.target;
+                          const { value } = e.target as HTMLInputElement;
                           value.length > 5 &&
                             (e.target.value = value.slice(0, -1));
                         },
@@ -199,7 +199,7 @@ function Form() {
                           message: "invalid card code",
                         },
                         onChange: (e) => {
-                          const { value } = e.target;
+                          const { value } = e.target as HTMLInputElement;
                           value.length > 3 &&
                             (e.target.value = value.slice(0, -1));
                         },

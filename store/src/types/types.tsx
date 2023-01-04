@@ -1,4 +1,4 @@
-interface SortSecond{
+export interface SortSecond{
     title: string,
     key?: undefined;
 }
@@ -17,4 +17,12 @@ export interface BasketPagePullArr{
     title: string;
 }
 
-export default SortSecond;
+
+export interface SearchI{
+  searchValue: string;
+}
+
+export interface Sorts{
+  name: string, 
+  sortProperty: string
+}

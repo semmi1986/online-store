@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import SortPage from "../SortPage/SortPage";
 import Cards from "../../components/Cards/Cards";
 import style from "./homePage.module.css";
+import { BasketPagePullArr } from "../../types/types";
 // import api from '../../assets/api.json'
 
-function HomePage() {
-  const [products, setProducts] = useState([]);
-  const [products1, setProducts1] = useState([]);
+const HomePage = () => {
+  const [products, setProducts] = useState<BasketPagePullArr[]>([]);
+  const [products1, setProducts1] = useState<BasketPagePullArr[]>([]);
   const [categoryName, setCategoryName] = useState("all");
   const [categoryBrand, setCategoryBrand] = useState("");
   const [isLoading, setIsLoading] = useState(true); // для скелетона или прелоудера
   const [filterPrice, setFilterPrice] = useState([10, 1800]); // начальные значения слайдера фильтра по цене
   const [filterStock, setFilterStock] = useState([2, 150]); // начальные значения слайдера фильтра по акциям
-  const [activeIndexBrand, setActiveIndexBrand] = useState();
+  const [activeIndexBrand, setActiveIndexBrand] = useState<number>();
 
   
 
@@ -39,17 +40,15 @@ function HomePage() {
   useEffect(() => {
     setProducts1(products);
     setCategoryBrand("");
-    setActiveIndexBrand()
+    setActiveIndexBrand(null)
   }, [categoryName]);
 
-  console.log(categoryBrand);
 
   return (
     <main>
       <div className={style.main__page}>
         <SortPage
           activeIndexBrand={activeIndexBrand}
-          categoryName={categoryName}
           products={products}
           onClickCategoryName={(item) => setCategoryName(item)}
           onClickCategoryBrands={(i) => setCategoryBrand(i)}
