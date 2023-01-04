@@ -4,8 +4,17 @@ import FindSection from "../Sort/FindSection/FindSection";
 import Preloader from "../Preloader/Preloader";
 import style from "./cards.module.css";
 import classNames from "classnames";
+import { BasketPagePullArr } from "../../types/types";
 
-function Cards({ products, isLoading, filterPrice, filterStock }) {
+
+interface CardsProps{
+  products: BasketPagePullArr[]
+  isLoading: boolean
+  filterPrice: number[]
+  filterStock: number[]
+}
+
+const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterStock }) => {
   const [searchValue, setSearchValue] = useState("");
   const [ArrItems, setArrItems] = useState([]);
   const [counter, setCounter] = useState(0);
@@ -20,20 +29,20 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
       ? setArrItems(JSON.parse(localStorage.getItem("Basket")))
       : setArrItems([]);
     localStorage.getItem("Count")
-      ? setCounter(localStorage.getItem("Count"))
+      ? setCounter(JSON.parse(localStorage.getItem("Count")))
       : setCounter(0);
     localStorage.getItem("Summary")
-      ? setTotalPrice(localStorage.getItem("Summary"))
+      ? setTotalPrice(JSON.parse(localStorage.getItem("Summary")))
       : setTotalPrice(0);
   }, []);
 
-  const AddCard = (element) => {
+  const AddCard = (element:BasketPagePullArr) => {
     ArrItems.push(element);
     setArrItems(ArrItems);
     localStorage.setItem("Basket", JSON.stringify(ArrItems));
   };
-
-  const RemoveCard = (element) => {
+/////?????????????
+  const RemoveCard = (element:BasketPagePullArr) => {
     ArrItems.splice(
       ArrItems.findIndex((el) => el.id === element.id),
       1
@@ -119,7 +128,6 @@ function Cards({ products, isLoading, filterPrice, filterStock }) {
       </div>
       <FindSection
         obj={obj}
-        products={products}
         sortType={sortType}
         searchValue={searchValue}
         setSearchValue={setSearchValue}

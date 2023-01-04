@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import style from "./CardPage.module.css";
 
 
-function CardPage() {
+const CardPage: React.FC = () => {
   const { id } = useParams();
-  const [photo, setPhoto] = useState();
+  const [photo, setPhoto] = useState("");
   const [total, setTotal] = useState({
     brand: "Apple",
     category: "smartphones",

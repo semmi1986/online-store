@@ -2,21 +2,33 @@ import React, { useState, useEffect } from "react";
 import style from "./cadr.module.css";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { BasketPagePullArr } from "../../types/types";
 
 
-function Card({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) {
+interface CardProps{
+  item: BasketPagePullArr
+  AddCard: (i: BasketPagePullArr) => void
+  RemoveCard: (i:BasketPagePullArr) => void
+  countAddedCards: (i:number)=> void
+  ArrItems: BasketPagePullArr[]
+  countPrice: (i: number) => void
+}
+
+const Card: React.FC<CardProps> = ({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) => {
+
+  console.log(item);
   const [AddOrDelete, setAddOrDelete] = useState('Add');
   function checker(){
     if(AddOrDelete === 'Add'){
       setAddOrDelete('Delete');
       AddCard(item);
-      countAddedCards();
-      countPrice();
+      countAddedCards(null);
+      countPrice(null);
     } else {
       setAddOrDelete('Add');
       RemoveCard(item);
-      countAddedCards();
-      countPrice();
+      countAddedCards(null);
+      countPrice(null);
     }
   };
 
