@@ -18,7 +18,7 @@ function BasketPage() {
   const pullItems = () => {
    return itemsArr.map((el, index) => 
     <div key={el.id} className={style.items__container}>
-      <div className={style.font3}>{}</div>
+      <div className={classNames(style.font3, style.round)}>{index + 1}</div>
       <div 
       className={style.image} 
       style={{
@@ -39,6 +39,11 @@ function BasketPage() {
           <div className={style.font5}>Ratting: {el.rating}</div>
           <div className={style.font5}>Discount: {el.discountPercentage}%</div>
         </div>
+      </div>
+      <div className={style.counter__container}>
+      <div className={classNames(style.font3, style.round)}>+</div>
+        <div className={style.font3}>{1}</div>
+        <div className={classNames(style.font3, style.round)}>-</div>
       </div>
     </div> )
   }
