@@ -16,7 +16,7 @@ function BasketPage() {
 
 
   const pullItems = () => {
-   return itemsArr.map((el) => 
+   return itemsArr.map((el, index) => 
     <div key={el.id} className={style.items__container}>
       <div className={style.font3}>{}</div>
       <div 
