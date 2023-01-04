@@ -72,6 +72,15 @@ function BasketPage() {
               <span className={style.font2}> 0</span>
             </span>
           </div>
+          <div className={style.font7}>
+          <span>Promo for test: 'RS', 'EPM'</span>
+          </div>
+          <div>
+            <input type="text" />
+          </div>
+          <div className={style.button_container}>
+          <button className={style.button}>Buy now</button>
+          </div>
           </div>
         </div>
       </div>

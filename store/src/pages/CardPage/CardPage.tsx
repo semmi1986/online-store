@@ -8,6 +8,8 @@ import style from "./CardPage.module.css";
 const CardPage: React.FC = () => {
   const { id } = useParams();
   const [photo, setPhoto] = useState("");
+  const [AddOrDelete, setAddOrDelete] = useState('Add to Cart');
+  const [totalArray, setTotalArray] = useState([]);
   const [total, setTotal] = useState({
     brand: "Apple",
     category: "smartphones",
@@ -26,6 +28,7 @@ const CardPage: React.FC = () => {
       "https://i.dummyjson.com/data/products/1/4.jpg",
     ],
   });
+
   useEffect(() => {
     async function componentDidMount() {
       try {
@@ -41,8 +44,30 @@ const CardPage: React.FC = () => {
     componentDidMount();
   }, [id]);
 
+  useEffect(()=>{
+    localStorage.getItem("Basket")
+      ? setTotalArray(JSON.parse(localStorage.getItem("Basket")))
+      : setTotalArray([]);
+  },[])
 
+  function checker(){
+    return (event: React.MouseEvent) =>{
+    if(AddOrDelete === 'Add to Cart'){
+      setAddOrDelete('Remove from Cart');
+      totalArray.push(total);
+      setTotalArray(totalArray);
+      localStorage.setItem("Basket", JSON.stringify(totalArray));
+      console.log(AddOrDelete)
+    } else {
+      setAddOrDelete('Add to Cart');
+      totalArray.splice(-1, 1);
+      setTotalArray(totalArray);
+      localStorage.setItem("Basket", JSON.stringify(totalArray));
+      console.log(AddOrDelete);
+    }}
+  };
 
+  
 
   function renderHeaderPhoto(){
     return <img 
@@ -63,6 +88,7 @@ const CardPage: React.FC = () => {
     alt={item}
     />));
   }
+
 
 
   return (
@@ -110,12 +136,12 @@ const CardPage: React.FC = () => {
               <span className={style.font_cost}>€{total.price}.00</span>
             </div>
             <div className={style.two__rows}>
-              <button className={style.button}>Add to Cart</button>
+              <button className={style.button}onClick={checker()}>{AddOrDelete}</button>
               <button className={style.button}>Buy now</button>
             </div>
           </div>
         </div>
-        <div className={style.footer__cover}> </div>
+        <div className={style.footer__cover}> </div>
       </div>
     </div>
   );

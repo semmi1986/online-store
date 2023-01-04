@@ -10,7 +10,8 @@ interface HeaderProps{
 }
 
 const Header: React.FC<HeaderProps> = ({counter, totalPrice}) => {
-
+  
+  
   return (
     <header className={style.header}>
       <div className={style.header__inner}>

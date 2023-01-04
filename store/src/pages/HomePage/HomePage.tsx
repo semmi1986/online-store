@@ -11,7 +11,7 @@ interface HomePageProps{
   onChanck2: (i: number) => void
 }
 
-const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2}) => {
+const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2 }) => {
   const [products, setProducts] = useState<BasketPagePullArr[]>([]);
   const [products1, setProducts1] = useState<BasketPagePullArr[]>([]);
   const [categoryName, setCategoryName] = useState("all");
