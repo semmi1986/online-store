@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 import FindSection from "../Sort/FindSection/FindSection";
 import Preloader from "../Preloader/Preloader";
 import style from "./cards.module.css";
-import classNames from "classnames";
+
 import { BasketPagePullArr } from "../../types/types";
 
 
@@ -12,17 +12,22 @@ interface CardsProps{
   isLoading: boolean
   filterPrice: number[]
   filterStock: number[]
+  onChanck: (i: number) => void
+  onChanck2: (i: number) => void
 }
 
-const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterStock }) => {
+const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterStock, onChanck, onChanck2}) => {
   const [searchValue, setSearchValue] = useState("");
-  const [ArrItems, setArrItems] = useState([]);
+  const [ArrItems, setArrItems] = useState<BasketPagePullArr[]>([]);
   const [counter, setCounter] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [sortType, setSortType] = useState({
     name: "Sort by price DEC",
     sortProperty: "price",
   });
+
+  onChanck(counter)
+  onChanck2(totalPrice)
 
   useEffect(() => {
     localStorage.getItem("Basket")
@@ -41,7 +46,7 @@ const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterS
     setArrItems(ArrItems);
     localStorage.setItem("Basket", JSON.stringify(ArrItems));
   };
-/////?????????????
+
   const RemoveCard = (element:BasketPagePullArr) => {
     ArrItems.splice(
       ArrItems.findIndex((el) => el.id === element.id),
@@ -117,15 +122,7 @@ const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterS
 
   return (
     <div className={style.cards__container}>
-      <div className={classNames(style.header_counter, style.font)}>
-        <div>
-          Cart total:{" "}
-          <span className={style.second_font}>€{totalPrice}.00</span>
-        </div>
-        <div>
-          Total Items: <span className={style.second_font}>{counter}</span>
-        </div>
-      </div>
+      
       <FindSection
         obj={obj}
         sortType={sortType}

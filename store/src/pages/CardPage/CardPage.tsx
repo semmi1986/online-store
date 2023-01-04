@@ -48,6 +48,7 @@ const CardPage: React.FC = () => {
     return <img 
     src={photo} 
     style={{ width: "50vh", height: "50vh", borderRadius: "10px", marginTop: "20px"}}
+    alt={total.title}
     />
   }
  
@@ -59,6 +60,7 @@ const CardPage: React.FC = () => {
     src={item} 
     style={{ width: "15vh", height: "15vh", borderRadius: "10px", margin: "10px 10px", cursor: "pointer"}}
     onClick={()=>setPhoto(item)}
+    alt={item}
     />));
   }
 

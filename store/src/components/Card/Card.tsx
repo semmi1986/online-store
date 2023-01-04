@@ -16,7 +16,6 @@ interface CardProps{
 
 const Card: React.FC<CardProps> = ({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) => {
 
-  console.log(item);
   const [AddOrDelete, setAddOrDelete] = useState('Add');
   function checker(){
     if(AddOrDelete === 'Add'){

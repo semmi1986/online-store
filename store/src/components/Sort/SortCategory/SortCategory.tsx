@@ -24,7 +24,7 @@ const SortCategory: React.FC<CategoryProps> = ({firstPick, activeIndexCategory, 
     {firstPick.map((item, i) =>(
       <div key={i} className={style.category_check}>
         <ul>
-          <li  className={activeIndexCategory == i ? style.active : ''} onClick= {() => handelClick(item, i)}>{item[0].toUpperCase()+item.slice(1)}</li>
+          <li  className={activeIndexCategory == i ? style.active : ''} onClick = {() => handelClick(item, i)}>{item[0].toUpperCase()+item.slice(1)}</li>
         </ul>
       </div>
     ))}

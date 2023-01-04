@@ -5,7 +5,13 @@ import style from "./homePage.module.css";
 import { BasketPagePullArr } from "../../types/types";
 // import api from '../../assets/api.json'
 
-const HomePage = () => {
+
+interface HomePageProps{
+  onChanck: (i: number) => void
+  onChanck2: (i: number) => void
+}
+
+const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2}) => {
   const [products, setProducts] = useState<BasketPagePullArr[]>([]);
   const [products1, setProducts1] = useState<BasketPagePullArr[]>([]);
   const [categoryName, setCategoryName] = useState("all");
@@ -26,7 +32,7 @@ const HomePage = () => {
       .then((res) => {
         return res.json();
       })
-      .then((data) => {
+      .then((data: BasketPagePullArr[]) => {
         setProducts(data);
         setProducts1(data);
         setIsLoading(false);
@@ -63,6 +69,8 @@ const HomePage = () => {
           products={products1}
           filterStock={filterStock}
           isLoading={isLoading}
+          onChanck={onChanck}
+          onChanck2={onChanck2}
         />
       </div>
     </main>

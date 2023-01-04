@@ -6,10 +6,10 @@ import style from "./findSection.module.css";
 
 interface FindProps{
   sortType: Sorts
-  searchValue: string //?
+  searchValue: string
   onClickSortType: (i: Sorts) => void
   setSearchValue: (i:string) => void
-  obj: BasketPagePullArr[] //?
+  obj: BasketPagePullArr[] 
 }
 
 const FindSection: React.FC<FindProps> = ({sortType, onClickSortType, searchValue, setSearchValue, obj}) => {

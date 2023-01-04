@@ -1,8 +1,15 @@
-import style from "./header.module.css";
+
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+import style from "./header.module.css";
 
-function Header() {
+interface HeaderProps{
+  counter: number
+  totalPrice: number
+}
+
+const Header: React.FC<HeaderProps> = ({counter, totalPrice}) => {
 
   return (
     <header className={style.header}>
@@ -11,7 +18,15 @@ function Header() {
           <div className={style.header__logo}></div>
         </Link>
         <div>
-          <span className={style.font}></span>
+          <div className={classNames(style.header_counter, style.font)}>
+            <div>
+              Cart total:{" "}
+              <span className={style.second_font}>€{totalPrice}.00</span>
+            </div>
+            <div>
+              Total Items: <span className={style.second_font}>{counter}</span>
+            </div>
+          </div>
         </div>
         <Link to="basket">
           <div className={style.header__basket}></div>
