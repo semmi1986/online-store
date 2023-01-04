@@ -26,8 +26,11 @@ const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterS
     sortProperty: "price",
   });
 
-  onChanck(counter)
-  onChanck2(totalPrice)
+  useEffect(()=>{
+    onChanck(counter)
+    onChanck2(totalPrice)
+  })
+  
 
   useEffect(() => {
     localStorage.getItem("Basket")
