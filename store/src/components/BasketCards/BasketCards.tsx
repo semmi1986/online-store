@@ -20,6 +20,11 @@ const BasketCards: React.FC<IBasketCardsProps> = ({item}) => {
     setSummary(summary + 1);
     }
   }
+  const removeOne = () => {
+    return (event: React.MouseEvent) =>{
+    setSummary(summary - 1);
+    }
+  }
 
     return<>
         {<div key={item.id} className={style.items__container}>
@@ -50,7 +55,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({item}) => {
             <div className={style.counter__container}>
             <div className={classNames(style.font3, style.round)} onClick={addOne()}>+</div>
             <div className={style.font3}>{summary}</div>
-            <div className={classNames(style.font3, style.round)}>-</div>
+            <div className={classNames(style.font3, style.round)} onClick={removeOne()}>-</div>
             </div>
             <div className={style.font8}>€{item.price} </div>
         </div>
