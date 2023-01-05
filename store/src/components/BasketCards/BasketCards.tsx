@@ -33,13 +33,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({ item }) => {
   return (
     <div className={style.items__container}>
       <div className={classNames(style.font3, style.round)}>1</div>
-      <div
-        className={style.image}
-        style={{
-          background: `url(${item.thumbnail})`,
-          backgroundSize: `100% 100%`,
-        }}
-      ></div>
+      <img src={item.thumbnail} className={style.image} alt={item.title} />
       <div className={classNames(style.font3, style.title)}>
         <div style={{ textAlign: "center" }}>
           <span className={style.font6}>{item.title}</span>

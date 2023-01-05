@@ -39,17 +39,11 @@ const BasketPage: React.FC<IBasketPageProps> = ({ onChanck, onChanck2 }) => {
 
   return (
     <div className={style.basket__page_container}>
-      <div className={style.basket__page_two_rows}>
-        <div className={style.products__container}>
-          <div
-            className={classNames(style.header__products_container, style.font)}
-          >
-            Products In Cart
-          </div>
-          <Paginate data={itemsArr}/>
-        </div>
-        
-        <div className={style.summary__container}>
+      <div className={style.products__cards}>
+        <div className={classNames(style.header__products_container, style.font)}>Products In Cart</div>
+        <Paginate data={itemsArr}/>
+      </div>
+      <div className={style.summary__container}>
           <div className={style.summary__container_header}>
             <span className={style.font}>Summary</span>
           </div>
@@ -72,7 +66,6 @@ const BasketPage: React.FC<IBasketPageProps> = ({ onChanck, onChanck2 }) => {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };
