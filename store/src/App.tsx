@@ -18,7 +18,7 @@ function App() {
       <Header counter={counter1} totalPrice={totalPrice1}/>
       <div className="wrapper">
         <Routes>
-          <Route path="/" element={<HomePage  onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}/>} />
+          <Route path="/" element={<HomePage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
           <Route path="basket" element={<BasketPage />} />
           <Route path="ProductDetails/:id" element={<CardPage />} />
         </Routes>

@@ -73,6 +73,14 @@
   -1px  1px 0   #000000,
    1px  1px 0   #000000;
 }
+.round{
+  background: #a89aa4;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
 .font3{
   font-family: 'Source Sans Pro', sans-serif;;
   font-size: 20px;
@@ -113,8 +121,9 @@
 .items__container{
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: space-around;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 .font4{
   font-family: 'Source Sans Pro', sans-serif;;
@@ -139,4 +148,50 @@
 .description__container{
   display: flex;
   justify-content: center;
+}
+.counter__container{
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+.title{
+  width: 450px;
+}
+.button{
+  margin-top: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 3px solid rgb(68, 72, 99);
+  background: rgba(168, 168, 168, 0.466);
+  border-radius: 14px;
+  padding:       10px 40px;
+  display:       block;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  color:  rgba(255, 255, 255, 0.945);
+  text-shadow: 
+  -0   -1px 0   #000000,
+   0   -1px 0   #000000,
+  -0    1px 0   #000000,
+   0    1px 0   #000000,
+  -1px -0   0   #000000,
+   1px -0   0   #000000,
+  -1px  0   0   #000000,
+   1px  0   0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000;
+   text-align: center;
+}
+.button_container{
+  margin: 0 auto;
+  width: 50%;
+}
+.font7{
+color: rgb(104, 10, 10);
 }

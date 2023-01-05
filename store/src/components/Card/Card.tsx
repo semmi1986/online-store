@@ -14,9 +14,11 @@ interface CardProps{
   countPrice: (i: number) => void
 }
 
-const Card: React.FC<CardProps> = ({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) => {
 
+const Card: React.FC<CardProps> = ({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) => {
+  
   const [AddOrDelete, setAddOrDelete] = useState('Add');
+ 
   function checker(){
     if(AddOrDelete === 'Add'){
       setAddOrDelete('Delete');
@@ -52,7 +54,7 @@ const Card: React.FC<CardProps> = ({ item, AddCard, RemoveCard, countAddedCards,
         >
           {item.title}
         </div>
-        <Link to={`/ProductDetails/${item.id}`}><div className={style.container}> </div></Link>
+        <Link to={`/ProductDetails/${item.id}`}><div className={style.container}></div></Link>
         <div className={style.card_two_rows}>
           <div
             className={
