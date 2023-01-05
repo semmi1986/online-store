@@ -44,6 +44,7 @@ const CardPage: React.FC = () => {
     componentDidMount();
   }, [id]);
 
+
   useEffect(()=>{
     localStorage.getItem("Basket")
       ? setTotalArray(JSON.parse(localStorage.getItem("Basket")))
@@ -67,7 +68,12 @@ const CardPage: React.FC = () => {
     }}
   };
 
-  
+  // window.onload = (event) => {    
+  //   let newArr =(JSON.parse(localStorage.getItem("Basket"))); 
+  //   if (newArr.includes(total)){
+  //   setAddOrDelete('Remove from Cart')
+  // } else setAddOrDelete('Add to Cart')
+  // };
 
   function renderHeaderPhoto(){
     return <img 

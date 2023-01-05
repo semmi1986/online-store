@@ -19,7 +19,7 @@ function App() {
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<HomePage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
-          <Route path="basket" element={<BasketPage />} />
+          <Route path="basket" element={<BasketPage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
           <Route path="ProductDetails/:id" element={<CardPage />} />
         </Routes>
         <Footer />
