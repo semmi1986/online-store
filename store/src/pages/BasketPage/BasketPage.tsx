@@ -36,34 +36,30 @@ const BasketPage: React.FC<IBasketPageProps> = ({onChanck, onChanck2 }) => {
       <div className={style.basket__page_two_rows}>
         <div className={style.products__container}>
             <div className={classNames(style.header__products_container,style.font)}>Products In Cart</div>
-            {items}
+        {pullItems()}
         </div>
         <div className={style.summary__container}>
           <div className={style.summary__container_header}>
-            <span className={style.font} >Summary</span>
+            <span className={style.font} onClick={()=> pullItems()} >Summary</span>
           </div>
           <div className={style.summary__content}>
-          <div className={style.spaces}>
+          <div>
             <span className={style.font}>
-              Proucts:  
-              <span className={style.font2}> {counter}</span>
-            </span>
-            <span className={style.font}>
-              Total€: <span className={style.font2}> {totalPrice}.00</span>
+              Proucts : 
+              <span className={style.font2}> 0</span>
             </span>
           </div>
           <div>
-            <input type="text" />
-            <span className={style.font7}>Promo for test: 'RS', 'EPM'</span>
-          </div>
-          <div className={style.button_container}>
-          <button className={style.button}>Buy now</button>
+            <span className={style.font}>
+              Total € : 
+              <span className={style.font2}> 0</span>
+            </span>
           </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default BasketPage;
+export default BasketPage
