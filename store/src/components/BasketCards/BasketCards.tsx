@@ -12,6 +12,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({ item }) => {
   //   JSON.parse(localStorage.getItem("Basket"))
   // );
   const [summary, setSummary] = useState(1);
+  
 
   // useEffect(() => {
   //   JSON.parse(localStorage.getItem("Basket"))
