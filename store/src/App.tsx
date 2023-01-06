@@ -13,13 +13,21 @@ function App() {
   const [counter1, setCounter1] = useState(0);
   const [totalPrice1, setTotalPrice] = useState(0);
 
+  useEffect(() => {
+    setCounter1(counter1)
+    setTotalPrice(totalPrice1)
+  }, [counter1, totalPrice1]);
+
+
+
+
   return (
     <>
       <Header counter={counter1} totalPrice={totalPrice1}/>
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<HomePage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
-          <Route path="basket" element={<BasketPage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
+          <Route path="basket" element={<BasketPage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}  counter1={counter1} totalPrice1={totalPrice1}/>} />
           <Route path="ProductDetails/:id" element={<CardPage />} />
         </Routes>
         <Footer />
