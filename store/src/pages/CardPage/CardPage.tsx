@@ -3,12 +3,16 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import style from "./CardPage.module.css";
+import { BasketPagePullArr } from "../../types/types";
 
 interface CardPageProps{
-  onShowForm: (i: boolean) => void
+  onChanck: (i: number) => void;
+  onChanck2: (i: number) => void;
+  onShowForm: (i: boolean) => void;
+  onStore: (i: BasketPagePullArr[]) => void;
 }
 
-const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
+const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onStore}) => {
   const { id } = useParams();
   const [photo, setPhoto] = useState("");
   const [AddOrDelete, setAddOrDelete] = useState('Add to Cart');
@@ -53,21 +57,25 @@ const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
       ? setTotalArray(JSON.parse(localStorage.getItem("Basket")))
       : setTotalArray([]);
   },[])
-
+//TODO ПЕРЕПИСАТЬ ЛОГИКУ ONCHANK!!!
   function checker(){
     return (event: React.MouseEvent) =>{
     if(AddOrDelete === 'Add to Cart'){
       setAddOrDelete('Remove from Cart');
       totalArray.push(total);
-      setTotalArray(totalArray);
+      onStore(totalArray);
       localStorage.setItem("Basket", JSON.stringify(totalArray));
       console.log(AddOrDelete)
+      onChanck((JSON.parse(localStorage.getItem("Count"))) + 1)
+      onChanck2((JSON.parse(localStorage.getItem("Summary")) )+ total.price)
     } else {
       setAddOrDelete('Add to Cart');
       totalArray.splice(-1, 1);
-      setTotalArray(totalArray);
+      onStore(totalArray);
       localStorage.setItem("Basket", JSON.stringify(totalArray));
       console.log(AddOrDelete);
+      onChanck((JSON.parse(localStorage.getItem("Count"))) - 1)
+      onChanck2((JSON.parse(localStorage.getItem("Summary"))) - total.price)
     }}
   };
 
