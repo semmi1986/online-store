@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ReactPaginate from "react-paginate";
 import { BasketPagePullArr } from "../../types/types";
 import BasketCards from "../../components/BasketCards/BasketCards";
@@ -15,6 +15,10 @@ interface PaginateProps{
 const Paginate: React.FC<PaginateProps> = ({data, totalPrice1, onChanck, onChanck2, counter1}) => {
   
   const [itemOffset, setItemOffset] = useState(0);
+
+  console.log(data);
+  
+
 
   const itemsPerPage = 3
   const endOffset = itemOffset + itemsPerPage;

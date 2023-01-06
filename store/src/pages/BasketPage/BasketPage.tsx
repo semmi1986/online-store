@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import style from "./BasketPage.module.css";
 import { BasketPagePullArr } from "../../types/types";
 import classNames from "classnames";
-import BasketCards from "../../components/BasketCards/BasketCards";
 import Paginate from "../../components/Paginate/Paginate";
 
 
@@ -12,9 +11,10 @@ interface IBasketPageProps {
   totalPrice1: number 
   counter1: number
   onShowForm: (i: boolean) => void
+  localStore: BasketPagePullArr[]
 }
 
-const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanck, onChanck2, onShowForm }) => {
+const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanck, onChanck2, onShowForm, localStore }) => {
   const [itemsArr, setItemsArr] = useState<BasketPagePullArr[]>(
     JSON.parse(localStorage.getItem("Basket"))
   );
@@ -47,7 +47,7 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
     <div className={style.basket__page_container}>
       <div className={style.products__cards}>
         <div className={classNames(style.header__products_container, style.font)}>Products In Cart</div>
-        <Paginate data={itemsArr} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>
+        <Paginate data={localStore} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>
       </div>
       <div className={style.summary__container}>
           <div className={style.summary__container_header}>

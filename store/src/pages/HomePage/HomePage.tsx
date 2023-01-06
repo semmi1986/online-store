@@ -9,9 +9,10 @@ import { BasketPagePullArr } from "../../types/types";
 interface HomePageProps{
   onChanck: (i: number) => void
   onChanck2: (i: number) => void
+  onStore: (i: BasketPagePullArr[]) => void
 }
 
-const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2 }) => {
+const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
   const [products, setProducts] = useState<BasketPagePullArr[]>([]);
   const [products1, setProducts1] = useState<BasketPagePullArr[]>([]);
   const [categoryName, setCategoryName] = useState("all");
@@ -65,6 +66,7 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2 }) => {
           filterStock={filterStock}
         />
         <Cards
+          onStore={onStore}
           filterPrice={filterPrice}
           products={products1}
           filterStock={filterStock}

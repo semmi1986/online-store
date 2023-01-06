@@ -14,9 +14,10 @@ interface CardsProps{
   filterStock: number[]
   onChanck: (i: number) => void
   onChanck2: (i: number) => void
+  onStore: (i: BasketPagePullArr[]) => void
 }
 
-const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterStock, onChanck, onChanck2}) => {
+const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterStock, onChanck, onChanck2, onStore}) => {
   const [searchValue, setSearchValue] = useState("");
   const [ArrItems, setArrItems] = useState<BasketPagePullArr[]>([]);
   const [counter, setCounter] = useState(0);
@@ -29,6 +30,7 @@ const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterS
   useEffect(()=>{
     onChanck(counter)
     onChanck2(totalPrice)
+    onStore(ArrItems)
   })
   
 
