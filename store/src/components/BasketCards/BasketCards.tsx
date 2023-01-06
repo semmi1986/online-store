@@ -20,22 +20,23 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
 }) => {
   const [summary, setSummary] = useState(1);
 
+
   const addOne = (e: React.MouseEvent) => {
       setSummary(summary + 1);
       console.log("i am work");
       onChanck(counter1 + 1);
       onChanck2(totalPrice1 + item.price);
-      
+      localStorage.setItem("Count", JSON.stringify(counter1));
+      localStorage.setItem("Summary", JSON.stringify(totalPrice1));
   };
   const removeOne = (e: React.MouseEvent) => {
       setSummary(summary - 1);
       console.log("i am not work");
       onChanck(counter1 - 1);
       onChanck2(totalPrice1 - item.price);
+      localStorage.setItem("Count", JSON.stringify(counter1));
+      localStorage.setItem("Summary", JSON.stringify(totalPrice1));
   };
-
-  console.log(counter1);
-  console.log(totalPrice1);
 
   return (
     <div className={style.items__container}>

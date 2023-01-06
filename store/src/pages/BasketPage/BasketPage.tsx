@@ -25,22 +25,15 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
     JSON.parse(localStorage.getItem("Summary"))
   );
 
+
+
   useEffect(() => {
     onChanck(counter);
     onChanck2(totalPrice);
-    localStorage.setItem("Count", JSON.stringify(counter1));
-    localStorage.setItem("Summary", JSON.stringify(totalPrice1));
     setCounter(JSON.parse(localStorage.getItem("Count")))
     setTotalPrice(JSON.parse(localStorage.getItem("Summary")))
   },[totalPrice1, counter1]);
 
-  useEffect(() => {
-    JSON.parse(localStorage.getItem("Basket"))
-      ? setItemsArr(JSON.parse(localStorage.getItem("Basket")))
-      : setItemsArr(null);
-  }, []);
-
-  // const items = itemsArr.map((item, i) => <BasketCards key={i} item={item} />);
 
 
   return (
@@ -57,10 +50,10 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
             <div className={style.spaces}>
               <div className={style.item__span}>
                 Proucts:
-                <span className={style.font2}> {counter}</span> 
+                <span className={style.font2}> {counter1}</span> 
               </div>
               <div className={style.item__span}>
-                Total: <span className={style.font2}> €{totalPrice}.00</span>
+                Total: <span className={style.font2}> €{totalPrice1}.00</span>
               </div>
             </div>
             <div>

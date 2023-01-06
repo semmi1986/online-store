@@ -23,6 +23,17 @@ function App() {
     setTotalPrice(totalPrice1)
   }, [counter1, totalPrice1]);
 
+  useEffect(() => {
+    localStorage.getItem("Basket")
+      ? setLocalStore(JSON.parse(localStorage.getItem("Basket")))
+      : setLocalStore([]);
+    localStorage.getItem("Count")
+      ? setCounter1(JSON.parse(localStorage.getItem("Count")))
+      : setCounter1(0);
+    localStorage.getItem("Summary")
+      ? setTotalPrice(JSON.parse(localStorage.getItem("Summary")))
+      : setTotalPrice(0);
+  },[]);
 
   const [isShowForm, setIsShowForm] = useState(false)
 

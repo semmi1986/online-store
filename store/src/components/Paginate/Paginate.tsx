@@ -17,12 +17,11 @@ const Paginate: React.FC<PaginateProps> = ({data, totalPrice1, onChanck, onChanc
   const [itemOffset, setItemOffset] = useState(0);
 
   console.log(data);
-  
+
 
 
   const itemsPerPage = 3
   const endOffset = itemOffset + itemsPerPage;
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
