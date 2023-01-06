@@ -11,9 +11,10 @@ interface IBasketPageProps {
   onChanck2: (i: number) => void;
   totalPrice1: number 
   counter1: number
+  onShowForm: (i: boolean) => void
 }
 
-const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanck, onChanck2 }) => {
+const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanck, onChanck2, onShowForm }) => {
   const [itemsArr, setItemsArr] = useState<BasketPagePullArr[]>(
     JSON.parse(localStorage.getItem("Basket"))
   );
@@ -66,7 +67,7 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
               <input type="text" className={style.item__input} placeholder="Enter promo code"/>
               <span className={style.font7}>Promo for test: 'RS', 'EPM'</span>
             </div>
-            <button className={style.button}>Buy now</button>
+            <button onClick={() => onShowForm(true)} className={style.button}>Buy now</button>
           </div>
         </div>
     </div>

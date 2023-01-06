@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import CardPage from "./pages/CardPage/CardPage";
 import Header from "./components/Header/Header";
+import Form from "./components/Form/Form";
 window.React = React;
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   }, [counter1, totalPrice1]);
 
 
+  const [isShowForm, setIsShowForm] = useState(false)
 
 
   return (
@@ -27,10 +29,12 @@ function App() {
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<HomePage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
-          <Route path="basket" element={<BasketPage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}  counter1={counter1} totalPrice1={totalPrice1}/>} />
-          <Route path="ProductDetails/:id" element={<CardPage />} />
+          <Route path="basket" element={<BasketPage onShowForm={(i) => setIsShowForm(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}  counter1={counter1} totalPrice1={totalPrice1}/>} />
+          <Route path="ProductDetails/:id" element={<CardPage onShowForm={(i) => setIsShowForm(i)}/>} />
         </Routes>
+        
         <Footer />
+        {isShowForm && <Form onShowForm={(i) => setIsShowForm(i)}/>}
       </div>
     </>
   );
