@@ -5,30 +5,37 @@ import classNames from "classnames";
 
 interface IBasketCardsProps {
   item: BasketPagePullArr;
+  onChanck: (i: number) => void;
+  onChanck2: (i: number) => void;
+  totalPrice1: number;
+  counter1: number;
 }
 
-const BasketCards: React.FC<IBasketCardsProps> = ({ item }) => {
-  // const [itemsArr, setItemsArr] = useState<BasketPagePullArr>(
-  //   JSON.parse(localStorage.getItem("Basket"))
-  // );
+const BasketCards: React.FC<IBasketCardsProps> = ({
+  item,
+  totalPrice1,
+  counter1,
+  onChanck,
+  onChanck2,
+}) => {
   const [summary, setSummary] = useState(1);
 
-  // useEffect(() => {
-  //   JSON.parse(localStorage.getItem("Basket"))
-  //     ? setItemsArr(JSON.parse(localStorage.getItem("Basket")))
-  //     : setItemsArr(null);
-  // }, []);
-
-  const addOne = () => {
-    return (event: React.MouseEvent) => {
+  const addOne = (e: React.MouseEvent) => {
       setSummary(summary + 1);
-    };
+      console.log("i am work");
+      onChanck(counter1 + 1);
+      onChanck2(totalPrice1 + item.price);
+      
   };
-  const removeOne = () => {
-    return (event: React.MouseEvent) => {
+  const removeOne = (e: React.MouseEvent) => {
       setSummary(summary - 1);
-    };
+      console.log("i am not work");
+      onChanck(counter1 - 1);
+      onChanck2(totalPrice1 - item.price);
   };
+
+  console.log(counter1);
+  console.log(totalPrice1);
 
   return (
     <div className={style.items__container}>
@@ -55,14 +62,14 @@ const BasketCards: React.FC<IBasketCardsProps> = ({ item }) => {
         <div className={style.counter__container}>
           <div
             className={classNames(style.font3, style.round)}
-            onClick={addOne()}
+            onClick={(e) => addOne(e)}
           >
             +
           </div>
           <div className={style.font3}>{summary}</div>
           <div
             className={classNames(style.font3, style.round)}
-            onClick={removeOne()}
+            onClick={(e) => removeOne(e)}
           >
             -
           </div>

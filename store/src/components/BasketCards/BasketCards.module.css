@@ -97,19 +97,20 @@
 }
 
 .image {
-  width: 20%;
+  width: 10%;
   height: 100%;
   border-radius: 0.5rem;
   border: 0.2px solid orange;
+  margin-right: 5px;
 }
 .items__container {
   height: 100%;
-  border: 1px solid red;
+  border-bottom: 1px solid red;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  padding: 15px 0;
 }
 .font4 {
   font-family: "Source Sans Pro", sans-serif;

@@ -12,7 +12,11 @@ type FormValues = {
   cardCode: string;
 };
 
-function Form() {
+interface FormProps{
+  onShowForm: (i: boolean) => void
+}
+
+const Form: React.FC<FormProps> = ({onShowForm}) => {
   const {
     register,
     handleSubmit,
@@ -54,7 +58,7 @@ function Form() {
   };
 
   return (
-    <div className={style.modal} >
+    <div className={style.modal} onClick={() => onShowForm(false)}>
       <div className={style.modal__container}>
         <div className={style.modal__item}>
           <form className={style.modal__form} onSubmit={handleSubmit(onSubmit)}>

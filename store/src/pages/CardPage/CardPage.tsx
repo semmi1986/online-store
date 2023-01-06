@@ -4,8 +4,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import style from "./CardPage.module.css";
 
+interface CardPageProps{
+  onShowForm: (i: boolean) => void
+}
 
-const CardPage: React.FC = () => {
+const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
   const { id } = useParams();
   const [photo, setPhoto] = useState("");
   const [AddOrDelete, setAddOrDelete] = useState('Add to Cart');
@@ -95,7 +98,9 @@ const CardPage: React.FC = () => {
     />));
   }
 
-
+  const handler = () =>{
+    onShowForm(true)
+  }
 
   return (
     <div>
@@ -143,7 +148,7 @@ const CardPage: React.FC = () => {
             </div>
             <div className={style.two__rows}>
               <button className={style.button}onClick={checker()}>{AddOrDelete}</button>
-              <button className={style.button}>Buy now</button>
+              <Link to="/basket" className={style.button} onClick={handler}>Buy now</Link>
             </div>
           </div>
         </div>

@@ -11,9 +11,9 @@
 
   a {
     display: inline-block;
-    line-height: 38px;
-    width: 40px;
-    height: 40px;
+    line-height: 34px;
+    width: 35px;
+    height: 35px;
     border: 1px solid black;
     border-radius: 50%;
     cursor: pointer;
@@ -27,7 +27,7 @@
   :global{
     .selected{
       a{
-        background-color: #967ac2;
+        background-color: rgba(255, 148, 148, 0.945);
       }
     }
   }
