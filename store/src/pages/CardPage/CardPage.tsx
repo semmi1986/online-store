@@ -10,9 +10,11 @@ interface CardPageProps{
   onChanck2: (i: number) => void;
   onShowForm: (i: boolean) => void;
   onStore: (i: BasketPagePullArr[]) => void;
+  totalPrice1: number 
+  counter1: number
 }
 
-const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onStore}) => {
+const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onStore, totalPrice1,counter1}) => {
   const { id } = useParams();
   const [photo, setPhoto] = useState("");
   const [AddOrDelete, setAddOrDelete] = useState('Add to Cart');
@@ -58,33 +60,31 @@ const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onSt
       : setTotalArray([]);
   },[])
 //TODO ПЕРЕПИСАТЬ ЛОГИКУ ONCHANK!!!
+
   function checker(){
     return (event: React.MouseEvent) =>{
     if(AddOrDelete === 'Add to Cart'){
       setAddOrDelete('Remove from Cart');
       totalArray.push(total);
       onStore(totalArray);
+      onChanck(counter1 + 1)
+      onChanck2(totalPrice1+ total.price)
       localStorage.setItem("Basket", JSON.stringify(totalArray));
-      console.log(AddOrDelete)
-      onChanck((JSON.parse(localStorage.getItem("Count"))) + 1)
-      onChanck2((JSON.parse(localStorage.getItem("Summary")) )+ total.price)
+      countAndSum()
     } else {
       setAddOrDelete('Add to Cart');
       totalArray.splice(-1, 1);
       onStore(totalArray);
+      onChanck(counter1 - 1)
+      onChanck2(totalPrice1 - total.price)
       localStorage.setItem("Basket", JSON.stringify(totalArray));
-      console.log(AddOrDelete);
-      onChanck((JSON.parse(localStorage.getItem("Count"))) - 1)
-      onChanck2((JSON.parse(localStorage.getItem("Summary"))) - total.price)
+      countAndSum();
     }}
   };
-
-  // window.onload = (event) => {    
-  //   let newArr =(JSON.parse(localStorage.getItem("Basket"))); 
-  //   if (newArr.includes(total)){
-  //   setAddOrDelete('Remove from Cart')
-  // } else setAddOrDelete('Add to Cart')
-  // };
+    const countAndSum = () =>{
+      // localStorage.setItem("Count", JSON.stringify(counter1));
+      // localStorage.setItem("Summary", JSON.stringify(totalPrice1));
+    }
 
   function renderHeaderPhoto(){
     return <img 
