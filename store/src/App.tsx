@@ -7,6 +7,7 @@ import BasketPage from "./pages/BasketPage/BasketPage";
 import CardPage from "./pages/CardPage/CardPage";
 import Header from "./components/Header/Header";
 import Form from "./components/Form/Form";
+import Page404 from "./pages/404Page/Page404";
 window.React = React;
 
 
@@ -48,8 +49,8 @@ function App() {
           <Route path="/" element={<HomePage onStore={(i) => setLocalStore(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
           <Route path="basket" element={<BasketPage localStore={localStore}  onShowForm={(i) => setIsShowForm(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}  counter1={counter1} totalPrice1={totalPrice1}/>} />
           <Route path="ProductDetails/:id" element={<CardPage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} onShowForm={(i) => setIsShowForm(i)}  onStore={(i) => setLocalStore(i)} counter1={counter1} totalPrice1={totalPrice1}/>} />
+          <Route path ="*" element ={ <Page404/>}/>
         </Routes>
-        
         <Footer />
         {isShowForm && <Form onShowForm={(i) => setIsShowForm(i)}/>}
       </div>

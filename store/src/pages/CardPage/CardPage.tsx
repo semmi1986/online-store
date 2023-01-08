@@ -59,7 +59,6 @@ const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onSt
       ? setTotalArray(JSON.parse(localStorage.getItem("Basket")))
       : setTotalArray([]);
   },[])
-//TODO ПЕРЕПИСАТЬ ЛОГИКУ ONCHANK!!!
 
   function checker(){
     return (event: React.MouseEvent) =>{
