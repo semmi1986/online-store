@@ -137,7 +137,7 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
         onClickSortType={onClickSortType}
       />
       <div className={style.cards__content}>
-        {isLoading ? <Preloader /> : items}
+        {isLoading ? <Preloader /> : items.length !== 0 ? items : <div>По вашему запросу ничего не найдено</div>}
       </div>
     </div>
   );

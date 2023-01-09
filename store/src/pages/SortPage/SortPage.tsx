@@ -20,7 +20,9 @@ interface SortPageProps{
   activeIndexBrand: number
   onChangIndexBrand: (i: number) => void
   searchValue: string;
-  sortType: Sorts;
+  sortType: Sorts,
+  onClickSortType:(i: Sorts)=> void;
+  setSearchValue: (i:string) => void
 }
 
 
@@ -34,9 +36,11 @@ const SortPage: React.FC<SortPageProps> = ({
   filterStock,
   onChangStock,
   activeIndexBrand,
+  setSearchValue,
   onChangIndexBrand,
   sortType,
   searchValue,
+  onClickSortType,
 }) => {
   const category = [
     "all",
@@ -62,7 +66,7 @@ const SortPage: React.FC<SortPageProps> = ({
     "lighting",
   ];
   const brands = [...new Set(products.map((el) => el.brand))];
-
+  const [buttonCopy, setButtonCopy] = useState('Copy Link')
   const [activeIndexCategory, setActiveIndexCategory] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
   const [categoryURL, setCategoryURL] = useState("");
@@ -77,8 +81,18 @@ const SortPage: React.FC<SortPageProps> = ({
     onClickCategoryBrands("");
     onChangPrice([10, 1800]);
     onChangStock([2, 150]);
+    onClickSortType({
+      name: "Sort by price DEC",
+      sortProperty: "price",
+    });
+    setSearchValue('');
   };
-
+  const handerButton = () =>{
+    setButtonCopy('Copied!')
+    setTimeout(() => {
+      setButtonCopy('Copy Link')
+    }, 500)
+  }
 
   useEffect(() => {
     setSortURL(sortType.name);
@@ -127,7 +141,7 @@ const SortPage: React.FC<SortPageProps> = ({
         <button className={style.reset__filters} onClick={handelRefresh}>
           Reset filters
         </button>
-        <button className={style.copy__link}>Copy link</button>
+        <button className={style.copy__link} onClick={handerButton}>{buttonCopy}</button>
       </div>
       <div className={style.first_check}>
         <div

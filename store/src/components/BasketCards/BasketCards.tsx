@@ -38,6 +38,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
 
 
   const addOne = (e: React.MouseEvent) => {
+    if(summary < item.stock ){      
       localStore.push(item);
       setNewData(getUnique(newData));
       localStorage.setItem ("Count", JSON.stringify(counter1 + 1));
@@ -47,6 +48,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
       onChanck(counter1 + 1);
       onChanck2(totalPrice1 + item.price);
       setSummary(((JSON.parse(localStorage.getItem("Basket"))).map((el:BasketPagePullArr) => el.id === item.id)).filter((element: boolean)=> element === true).length)
+    } else {alert('Предмета на сладе больше нет!')}
 
   };
 

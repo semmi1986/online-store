@@ -59,6 +59,7 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
     <main>
       <div className={style.main__page}>
         <SortPage
+          setSearchValue={setSearchValue}
           searchValue={searchValue}
           sortType={sortType}
           activeIndexBrand={activeIndexBrand}
@@ -70,6 +71,7 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
           onChangIndexBrand={(i) => setActiveIndexBrand(i)}
           filterPrice={filterPrice}
           filterStock={filterStock}
+          onClickSortType={(i) => setSortType(i)}
         />
         <Cards
           setSearchValue={setSearchValue}

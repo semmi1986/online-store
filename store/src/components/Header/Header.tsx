@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({counter, totalPrice}) => {
           <div className={classNames(style.header_counter, style.font)}>
             <div>
               Cart total:{" "}
-              <span className={style.second_font}>€{totalPrice}.00</span>
+              <span className={style.second_font}>€{totalPrice}</span>
             </div>
           </div>
         </div>
