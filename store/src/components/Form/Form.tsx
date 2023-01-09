@@ -13,10 +13,11 @@ type FormValues = {
 };
 
 interface FormProps{
+  isShowForm: boolean
   onShowForm: (i: boolean) => void
 }
 
-const Form: React.FC<FormProps> = ({onShowForm}) => {
+const Form: React.FC<FormProps> = ({onShowForm, isShowForm}) => {
   const {
     register,
     handleSubmit,
@@ -58,8 +59,9 @@ const Form: React.FC<FormProps> = ({onShowForm}) => {
   };
 
   return (
-    <div className={style.modal} onClick={() => onShowForm(false)}>
+    <div className={style.modal} >
       <div className={style.modal__container}>
+      <div className={style.close} onClick={() => onShowForm(!isShowForm)}>Х</div>
         <div className={style.modal__item}>
           <form className={style.modal__form} onSubmit={handleSubmit(onSubmit)}>
             <div className={style.person__info}>

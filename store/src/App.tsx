@@ -50,7 +50,7 @@ function App() {
           <Route path ="*" element ={ <Page404/>}/>
         </Routes>
         <Footer />
-        {isShowForm && <Form onShowForm={(i) => setIsShowForm(i)}/>}
+        {isShowForm && <Form isShowForm={isShowForm} onShowForm={(i) => setIsShowForm(i)}/>}
       </div>
     </>
   );

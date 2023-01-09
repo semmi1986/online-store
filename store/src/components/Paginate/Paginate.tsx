@@ -34,7 +34,7 @@ const Paginate: React.FC<PaginateProps> = ({setNewData, newData, localStore, tot
     getUnique(localStore);
   },[newData])
 
-  const itemsPerPage = 3
+  const itemsPerPage = 4
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = newData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newData.length / itemsPerPage);

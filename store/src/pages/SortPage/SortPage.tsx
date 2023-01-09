@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import SortCategory from "../../components/Sort/SortCategory/SortCategory";
 import SortBrands from "../../components/Sort/SortBrands/SortBrands";
 import BottomCover from "../../components/Preloader/BottomCover/bottomCover";
@@ -6,7 +7,7 @@ import SortPrice from "../../components/Sort/SortPrice/SortPrice";
 import SortStock from "../../components/Sort/SortStock/SortStock";
 import classNames from "classnames";
 import style from "./sortPage.module.css";
-import { BasketPagePullArr } from "../../types/types";
+import { BasketPagePullArr, Sorts, URlparams } from "../../types/types";
 
 interface SortPageProps{
   products: BasketPagePullArr[]
@@ -18,6 +19,8 @@ interface SortPageProps{
   onChangStock: (i: number[]) => void
   activeIndexBrand: number
   onChangIndexBrand: (i: number) => void
+  searchValue: string;
+  sortType: Sorts;
 }
 
 
@@ -32,6 +35,8 @@ const SortPage: React.FC<SortPageProps> = ({
   onChangStock,
   activeIndexBrand,
   onChangIndexBrand,
+  sortType,
+  searchValue,
 }) => {
   const category = [
     "all",
@@ -59,7 +64,14 @@ const SortPage: React.FC<SortPageProps> = ({
   const brands = [...new Set(products.map((el) => el.brand))];
 
   const [activeIndexCategory, setActiveIndexCategory] = useState(0);
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [urlParams, setUrlParams] = useState()
+  const [categoryURL, setCategoryURL] = useState("");
+  const [brandURL, setBrandURL] = useState("");
+  const [sortURL, setSortURL] = useState("");
+  const [searchURL, setSearchURL] = useState("");
+  const [filterURL, setFilterURL] = useState([]);
+  const [stockURL, setStockURL] = useState([]);
   const handelRefresh = () => {
     onClickCategoryName("all");
     setActiveIndexCategory(0);
@@ -67,6 +79,42 @@ const SortPage: React.FC<SortPageProps> = ({
     onChangPrice([10, 1800]);
     onChangStock([2, 150]);
   };
+  useEffect(() => {
+    setSortURL(sortType.name);
+    setSearchURL(searchValue);
+    setFilterURL(filterPrice);
+    setStockURL(filterStock);
+
+    const params: any = {};
+
+    const categ = categoryURL;
+    const brandStr = brandURL;
+    const sortStr = sortURL;
+    const searchStr = searchURL;
+    const filterArr = filterURL;
+    const stockArr = stockURL;
+
+    if (categ.length) params.category = categ;
+    if (brandStr.length) params.brand = brandStr;
+    if (sortStr.length) params.sort = sortStr;
+    if (searchStr.length) params.search = searchStr;
+    if (filterArr.length) params.price = `${filterArr[0]}↕${filterArr[1]}`;
+    if (stockArr.length) params.stock = `${stockArr[0]}↕${stockArr[1]}`;
+
+    setSearchParams(params);
+
+
+
+  }, [
+    categoryURL,
+    brandURL,
+    sortURL,
+    sortType,
+    filterPrice,
+    filterStock,
+    searchValue,
+    searchURL,
+  ]);
 
   return (
     <div className={style.sort__page}>
@@ -87,6 +135,7 @@ const SortPage: React.FC<SortPageProps> = ({
         </div>
         <div className={style.sort__scroll}>
           <SortCategory
+            setCategoryURL={setCategoryURL}
             activeIndexCategory={activeIndexCategory}
             firstPick={category}
             onClickCategoryName={onClickCategoryName}
@@ -106,6 +155,7 @@ const SortPage: React.FC<SortPageProps> = ({
         </div>
         <div className={style.sort__scroll}>
           <SortBrands
+           setBrandURL={setBrandURL}
             activeIndexBrand={activeIndexBrand}
             brands={brands}
             onChangIndexBrand={onChangIndexBrand}

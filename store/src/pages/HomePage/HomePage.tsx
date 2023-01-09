@@ -6,10 +6,10 @@ import { BasketPagePullArr } from "../../types/types";
 // import api from '../../assets/api.json'
 
 
-interface HomePageProps{
-  onChanck: (i: number) => void
-  onChanck2: (i: number) => void
-  onStore: (i: BasketPagePullArr[]) => void
+interface HomePageProps {
+  onChanck: (i: number) => void;
+  onChanck2: (i: number) => void;
+  onStore: (i: BasketPagePullArr[]) => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
@@ -21,7 +21,11 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
   const [filterPrice, setFilterPrice] = useState([10, 1800]); // начальные значения слайдера фильтра по цене
   const [filterStock, setFilterStock] = useState([2, 150]); // начальные значения слайдера фильтра по акциям
   const [activeIndexBrand, setActiveIndexBrand] = useState<number>();
-
+  const [sortType, setSortType] = useState({
+    name: "Sort by price DEC",
+    sortProperty: "price",
+  });
+  const [searchValue, setSearchValue] = useState("");
   
 
   useEffect(() => {
@@ -55,6 +59,8 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
     <main>
       <div className={style.main__page}>
         <SortPage
+          searchValue={searchValue}
+          sortType={sortType}
           activeIndexBrand={activeIndexBrand}
           products={products}
           onClickCategoryName={(item) => setCategoryName(item)}
@@ -66,6 +72,9 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
           filterStock={filterStock}
         />
         <Cards
+          setSearchValue={setSearchValue}
+          searchValue={searchValue}
+          sortType={sortType}
           onStore={onStore}
           filterPrice={filterPrice}
           products={products1}
@@ -73,10 +82,11 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
           isLoading={isLoading}
           onChanck={onChanck}
           onChanck2={onChanck2}
+          onClickSortType={(i) => setSortType(i)}
         />
       </div>
     </main>
   );
-}
+};
 
 export default HomePage;
