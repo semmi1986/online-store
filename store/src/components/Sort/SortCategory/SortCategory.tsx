@@ -8,7 +8,7 @@ interface CategoryProps {
   activeIndexCategory: number
   onClickCategoryName: (i: string) => void
   onChangIndexCategory: (i: number) => void
-  setCategoryURL: (i: any) => void
+  setCategoryURL: (i: string) => void
 }
 
 

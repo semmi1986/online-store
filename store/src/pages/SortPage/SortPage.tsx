@@ -7,7 +7,7 @@ import SortPrice from "../../components/Sort/SortPrice/SortPrice";
 import SortStock from "../../components/Sort/SortStock/SortStock";
 import classNames from "classnames";
 import style from "./sortPage.module.css";
-import { BasketPagePullArr, Sorts, URlparams } from "../../types/types";
+import { BasketPagePullArr, Sorts, URLSearchParams } from "../../types/types";
 
 interface SortPageProps{
   products: BasketPagePullArr[]
@@ -65,7 +65,6 @@ const SortPage: React.FC<SortPageProps> = ({
 
   const [activeIndexCategory, setActiveIndexCategory] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [urlParams, setUrlParams] = useState()
   const [categoryURL, setCategoryURL] = useState("");
   const [brandURL, setBrandURL] = useState("");
   const [sortURL, setSortURL] = useState("");
@@ -79,14 +78,15 @@ const SortPage: React.FC<SortPageProps> = ({
     onChangPrice([10, 1800]);
     onChangStock([2, 150]);
   };
+
+
   useEffect(() => {
     setSortURL(sortType.name);
     setSearchURL(searchValue);
     setFilterURL(filterPrice);
     setStockURL(filterStock);
 
-    const params: any = {};
-
+    const params: URLSearchParams  = {};
     const categ = categoryURL;
     const brandStr = brandURL;
     const sortStr = sortURL;
@@ -101,7 +101,8 @@ const SortPage: React.FC<SortPageProps> = ({
     if (filterArr.length) params.price = `${filterArr[0]}↕${filterArr[1]}`;
     if (stockArr.length) params.stock = `${stockArr[0]}↕${stockArr[1]}`;
 
-    setSearchParams(params);
+    setSearchParams({...params });
+ 
 
 
 
@@ -115,6 +116,10 @@ const SortPage: React.FC<SortPageProps> = ({
     searchValue,
     searchURL,
   ]);
+
+  useEffect(()=>{
+    setSortURL("");
+  },[])
 
   return (
     <div className={style.sort__page}>

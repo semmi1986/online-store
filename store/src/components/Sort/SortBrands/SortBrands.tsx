@@ -6,7 +6,7 @@ interface BrandProps{
   brands:string[]
   onClickCategoryBrands: (i: string) => void
   onChangIndexBrand: (i: number) => void
-  setBrandURL: (i: any) => void
+  setBrandURL: (i: string) => void
   activeIndexBrand: number
 }
 

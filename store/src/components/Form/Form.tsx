@@ -1,6 +1,8 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
+import HomePage from '../../pages/HomePage/HomePage';
 import style from "./form.module.css";
+import { Link } from "react-router-dom";
 
 type FormValues = {
   fullName: string;
@@ -29,8 +31,16 @@ const Form: React.FC<FormProps> = ({onShowForm, isShowForm}) => {
 
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    alert(JSON.stringify(data));
+    alert('Заказ успешно оформлен, вы будете перенаправлены на главную страницу через 2-3 секунды');
     reset();
+    onShowForm(!isShowForm);
+    setTimeout(() => {
+      window.location.href = '/';
+      localStorage.setItem("Basket", JSON.stringify([]));
+      localStorage.setItem("Count", JSON.stringify(0));
+      localStorage.setItem("Summary", JSON.stringify(0));
+      localStorage.setItem("uniqeBasket", JSON.stringify([]));
+    }, 2000)
   };
 
   const cardNumberValue = getValues("cardNumber") || "";

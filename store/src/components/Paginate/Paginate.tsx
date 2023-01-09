@@ -38,8 +38,10 @@ const Paginate: React.FC<PaginateProps> = ({setNewData, newData, localStore, tot
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = newData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newData.length / itemsPerPage);
-
-  const handlePageClick = (event: any) => {
+  interface EventList{
+    selected: number;
+  }
+  const handlePageClick = (event: EventList) => {
     const newOffset = (event.selected * itemsPerPage) % newData.length;
     setItemOffset(newOffset);
   };
