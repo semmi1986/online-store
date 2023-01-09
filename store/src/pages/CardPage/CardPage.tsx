@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import style from "./CardPage.module.css";
 import { BasketPagePullArr } from "../../types/types";
+import Page404 from "../404Page/Page404";
 
 interface CardPageProps{
   onChanck: (i: number) => void;
@@ -19,6 +20,7 @@ const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onSt
   const [photo, setPhoto] = useState("");
   const [AddOrDelete, setAddOrDelete] = useState('Add to Cart');
   const [totalArray, setTotalArray] = useState([]);
+  const [flag, setFlag] = useState(true);
   const [total, setTotal] = useState({
     brand: "Apple",
     category: "smartphones",
@@ -45,9 +47,11 @@ const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onSt
           `https://63a042fa24d74f9fe832fb1e.mockapi.io/items?id=${id}`
         );
         const totalResult = result.data[0];
-        console.log(totalResult);
+        if(totalResult === undefined){
+          setFlag(false);
+        } else{ 
         setTotal(totalResult);
-        setPhoto(totalResult.thumbnail);
+        setPhoto(totalResult.thumbnail);}
       } catch (error) {}
     }
     componentDidMount();
@@ -108,8 +112,10 @@ const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onSt
   const handler = () =>{
     onShowForm(true)
   }
-
-  return (
+  if(flag === false){
+    return <Page404 />
+  } else{
+   return (
     <div>
       <div className={style.breadcrumbs}>
         <div>
@@ -162,7 +168,7 @@ const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onSt
         <div className={style.footer__cover}> </div>
       </div>
     </div>
-  );
+  );}
 }
 
 export default CardPage;
