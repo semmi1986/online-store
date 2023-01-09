@@ -10,6 +10,7 @@ interface IBasketCardsProps {
   totalPrice1: number;
   counter1: number;
   index: number;
+  data:BasketPagePullArr[]
 }
 
 const BasketCards: React.FC<IBasketCardsProps> = ({
@@ -19,6 +20,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
   onChanck,
   onChanck2,
   index,
+  data,
 }) => {
   const [summary, setSummary] = useState(1);
 
@@ -42,7 +44,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
 
   return (
     <div className={style.items__container}>
-      <div className={classNames(style.font3, style.round)}>{index + 1}</div>
+      <div className={classNames(style.font3, style.round)}>{data.indexOf(item) + 1}</div>
       <img src={item.thumbnail} className={style.image} alt={item.title} />
       <div className={classNames(style.font3, style.title)}>
         <div style={{ textAlign: "center" }}>
