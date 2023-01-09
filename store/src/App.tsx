@@ -14,17 +14,10 @@ window.React = React;
 
 function App() {
 
-  const [counter1, setCounter1] = useState(null);
-  const [totalPrice1, setTotalPrice] = useState(null);
+  const [counter1, setCounter1] = useState(JSON.parse(localStorage.getItem("Count")));
+  const [totalPrice1, setTotalPrice] = useState(JSON.parse(localStorage.getItem("Summary")));
+  const [localStore, setLocalStore] = useState((JSON.parse(localStorage.getItem("Basket"))))
 
-  const [localStore, setLocalStore] = useState([])
-
-
-
-  useEffect(() => {
-    setCounter1(counter1)
-    setTotalPrice(totalPrice1)
-  }, [counter1, totalPrice1]);
 
   useEffect(() => {
     localStorage.getItem("Basket")
@@ -38,6 +31,11 @@ function App() {
       : setTotalPrice(null);
   },[]);
 
+  useEffect(() => {
+    setCounter1(counter1)
+    setTotalPrice(totalPrice1)
+    setLocalStore(localStore)
+  }, [counter1, totalPrice1,localStore]);
   const [isShowForm, setIsShowForm] = useState(false)
 
 
@@ -47,8 +45,8 @@ function App() {
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<HomePage onStore={(i) => setLocalStore(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
-          <Route path="basket" element={<BasketPage localStore={localStore}  onShowForm={(i) => setIsShowForm(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}  counter1={counter1} totalPrice1={totalPrice1}/>} />
-          <Route path="ProductDetails/:id" element={<CardPage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} onShowForm={(i) => setIsShowForm(i)}  onStore={(i) => setLocalStore(i)} counter1={counter1} totalPrice1={totalPrice1}/>} />
+          <Route path="basket" element={<BasketPage  localStore={localStore}  onShowForm={(i) => setIsShowForm(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}  counter1={counter1} totalPrice1={totalPrice1}/>} />
+          <Route path="ProductDetails/:id" element={<CardPage setLocalStore={setLocalStore} localStore={localStore}  onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} onShowForm={(i) => setIsShowForm(i)}  onStore={(i) => setLocalStore(i)} counter1={counter1} totalPrice1={totalPrice1}/>} />
           <Route path ="*" element ={ <Page404/>}/>
         </Routes>
         <Footer />

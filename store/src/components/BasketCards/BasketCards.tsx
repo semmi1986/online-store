@@ -7,10 +7,12 @@ interface IBasketCardsProps {
   item: BasketPagePullArr;
   onChanck: (i: number) => void;
   onChanck2: (i: number) => void;
+  setNewData:(i:BasketPagePullArr[]) => void;
   totalPrice1: number;
   counter1: number;
   index: number;
-  data:BasketPagePullArr[]
+  localStore:BasketPagePullArr[]
+  newData:BasketPagePullArr[]
 }
 
 const BasketCards: React.FC<IBasketCardsProps> = ({
@@ -20,31 +22,78 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
   onChanck,
   onChanck2,
   index,
-  data,
+  newData,
+  setNewData,
+  localStore,
 }) => {
   const [summary, setSummary] = useState(1);
 
 
+
+
+  const getUnique = (localStore: BasketPagePullArr[]) => {
+    return localStore.filter((el: BasketPagePullArr, ind:number) => ind === localStore.indexOf(el));
+  };
+
+
+
   const addOne = (e: React.MouseEvent) => {
-      setSummary(summary + 1);
-      console.log("i am work");
+      localStore.push(item);
+      setNewData(getUnique(newData));
+      localStorage.setItem ("Count", JSON.stringify(counter1 + 1));
+      localStorage.setItem ("Summary", JSON.stringify(totalPrice1 + item.price));
+      localStorage.setItem("Basket", JSON.stringify(localStore));
+      localStorage.setItem("uniqeBasket", JSON.stringify(getUnique(newData)));
       onChanck(counter1 + 1);
       onChanck2(totalPrice1 + item.price);
-      localStorage.setItem("Count", JSON.stringify(counter1));
-      localStorage.setItem("Summary", JSON.stringify(totalPrice1));
+      setSummary(((JSON.parse(localStorage.getItem("Basket"))).map((el:BasketPagePullArr) => el.id === item.id)).filter((element: boolean)=> element === true).length)
+
   };
+
   const removeOne = (e: React.MouseEvent) => {
-      setSummary(summary - 1);
-      console.log("i am not work");
-      onChanck(counter1 - 1);
-      onChanck2(totalPrice1 - item.price);
-      localStorage.setItem("Count", JSON.stringify(counter1));
-      localStorage.setItem("Summary", JSON.stringify(totalPrice1));
-  };
+    if(summary === 1){
+        newData.splice(
+        newData.findIndex((el) => el.id === item.id),
+        1
+        );
+        setNewData(getUnique(newData));
+        localStore.splice(
+          localStore.findIndex((el) => el.id === item.id),
+          1
+          );
+        localStorage.setItem ("Count", JSON.stringify(counter1 - 1));
+        localStorage.setItem ("Summary", JSON.stringify(totalPrice1 - item.price));
+        localStorage.setItem("Basket", JSON.stringify(localStore));
+        localStorage.setItem("uniqeBasket", JSON.stringify(getUnique(newData)));
+        onChanck(counter1 - 1);
+        onChanck2(totalPrice1 - item.price);
+        setSummary(((JSON.parse(localStorage.getItem("Basket"))).map((el:BasketPagePullArr) => el.id === item.id)).filter((element: boolean)=> element === true).length)
+    } else {
+      localStore.splice(
+        localStore.findIndex((el) => el.id === item.id),
+        1
+        );
+        setNewData(getUnique(newData));
+        localStorage.setItem ("Count", JSON.stringify(counter1 - 1));
+        localStorage.setItem ("Summary", JSON.stringify(totalPrice1 - item.price));
+        localStorage.setItem("Basket", JSON.stringify(localStore));
+        localStorage.setItem("uniqeBasket", JSON.stringify(getUnique(newData)));
+        onChanck(counter1 - 1);
+        onChanck2(totalPrice1 - item.price);
+        setSummary(((JSON.parse(localStorage.getItem("Basket"))).map((el:BasketPagePullArr) => el.id === item.id)).filter((element: boolean)=> element === true).length)
+    }
+   
+  }
+
+
+
+useEffect(()=>{
+  setSummary(((JSON.parse(localStorage.getItem("Basket"))).map((el:BasketPagePullArr) => el.id === item.id)).filter((element: boolean)=> element === true).length)
+},[summary])
 
   return (
     <div className={style.items__container}>
-      <div className={classNames(style.font3, style.round)}>{data.indexOf(item) + 1}</div>
+      <div className={classNames(style.font3, style.round)}>{newData.indexOf(item) + 1}</div>
       <img src={item.thumbnail} className={style.image} alt={item.title} />
       <div className={classNames(style.font3, style.title)}>
         <div style={{ textAlign: "center" }}>
