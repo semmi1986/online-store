@@ -13,32 +13,37 @@ interface CardPageProps{
   onStore: (i: BasketPagePullArr[]) => void;
   totalPrice1: number 
   counter1: number
+  localStore: BasketPagePullArr[];
+  setLocalStore: (i: BasketPagePullArr[]) => void;
 }
 
-const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onStore, totalPrice1,counter1}) => {
+const CardPage: React.FC<CardPageProps> = ({setLocalStore ,localStore, onChanck, onChanck2,onShowForm, onStore, totalPrice1,counter1}) => {
   const { id } = useParams();
   const [photo, setPhoto] = useState("");
-  const [AddOrDelete, setAddOrDelete] = useState('Add to Cart');
-  const [totalArray, setTotalArray] = useState([]);
+  const [AddOrDelete, setAddOrDelete] = useState('');
   const [flag, setFlag] = useState(true);
   const [total, setTotal] = useState({
-    brand: "Apple",
-    category: "smartphones",
-    description: "An apple mobile which is nothing like apple",
-    discountPercentage: 12.96,
-    id: 1,
-    price: 549,
-    rating: 4.69,
-    stock: 94,
+    brand: "",
+    category: "",
+    description: "",
+    discountPercentage: 0,
+    id: 0,
+    price: 0,
+    rating: 0,
+    stock: 0,
     thumbnail:
-      "https://content2.onliner.by/catalog/device/main/74080a1b5a15d0ffe0a4ac9ad3a8279b.jpeg",
-    title: "iPhone 9",
+      "",
+    title: "",
     images: [
-      "https://i.dummyjson.com/data/products/1/2.jpg",
-      "https://i.dummyjson.com/data/products/1/3.jpg",
-      "https://i.dummyjson.com/data/products/1/4.jpg",
+      "",
+      "",
+      "",
     ],
   });
+  useEffect(()=>{
+    (localStore.map((el)=> el.id).includes(total.id)) ? setAddOrDelete('Remove from Cart') : setAddOrDelete('Add to Cart');
+  },[total])
+
 
   useEffect(() => {
     async function componentDidMount() {
@@ -58,36 +63,40 @@ const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onSt
   }, [id]);
 
 
-  useEffect(()=>{
-    localStorage.getItem("Basket")
-      ? setTotalArray(JSON.parse(localStorage.getItem("Basket")))
-      : setTotalArray([]);
-  },[])
 
   function checker(){
     return (event: React.MouseEvent) =>{
     if(AddOrDelete === 'Add to Cart'){
       setAddOrDelete('Remove from Cart');
-      totalArray.push(total);
-      onStore(totalArray);
+      localStore.push(total);
+      onStore(localStore);
       onChanck(counter1 + 1)
       onChanck2(totalPrice1+ total.price)
-      localStorage.setItem("Basket", JSON.stringify(totalArray));
-      countAndSum()
+      localStorage.setItem("Basket", JSON.stringify(localStore));
+      localStorage.setItem("Count", JSON.stringify(counter1 + 1));
+      localStorage.setItem("Summary", JSON.stringify(totalPrice1+ total.price));
     } else {
       setAddOrDelete('Add to Cart');
-      totalArray.splice(-1, 1);
-      onStore(totalArray);
+      localStore.splice(-1, 1);
+      onStore(localStore);
       onChanck(counter1 - 1)
       onChanck2(totalPrice1 - total.price)
-      localStorage.setItem("Basket", JSON.stringify(totalArray));
-      countAndSum();
+      localStorage.setItem("Basket", JSON.stringify(localStore));
+      localStorage.setItem("Count", JSON.stringify(counter1 + 1));
+      localStorage.setItem("Summary", JSON.stringify(totalPrice1+ total.price));
     }}
   };
-    const countAndSum = () =>{
-      // localStorage.setItem("Count", JSON.stringify(counter1));
-      // localStorage.setItem("Summary", JSON.stringify(totalPrice1));
-    }
+  useEffect(()=>{
+    localStorage.getItem("Basket")
+      ? setLocalStore(JSON.parse(localStorage.getItem("Basket")))
+      : setLocalStore([]);
+    localStorage.getItem("Count")
+      ? onChanck(JSON.parse(localStorage.getItem("Count")))
+      : onChanck(null);
+    localStorage.getItem("Summary")
+      ? onChanck2(JSON.parse(localStorage.getItem("Summary")))
+      : onChanck2(null);
+  },[]);
 
   function renderHeaderPhoto(){
     return <img 

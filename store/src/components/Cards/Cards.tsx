@@ -50,6 +50,7 @@ const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterS
     ArrItems.push(element);
     setArrItems(ArrItems);
     localStorage.setItem("Basket", JSON.stringify(ArrItems));
+    localStorage.setItem("uniqeBasket", JSON.stringify(ArrItems));
   };
 
   const RemoveCard = (element:BasketPagePullArr) => {
@@ -59,6 +60,7 @@ const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterS
     );
     setArrItems(ArrItems);
     localStorage.setItem("Basket", JSON.stringify(ArrItems));
+    localStorage.setItem("uniqeBasket", JSON.stringify(ArrItems));
   };
 
   const countAddedCards = () => {
