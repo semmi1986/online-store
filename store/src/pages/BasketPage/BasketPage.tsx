@@ -3,6 +3,7 @@ import style from "./BasketPage.module.css";
 import { BasketPagePullArr } from "../../types/types";
 import classNames from "classnames";
 import Paginate from "../../components/Paginate/Paginate";
+import Page404 from "../404Page/Page404";
 
 
 interface IBasketPageProps {
@@ -15,32 +16,20 @@ interface IBasketPageProps {
 }
 
 const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanck, onChanck2, onShowForm, localStore }) => {
-  const [itemsArr, setItemsArr] = useState<BasketPagePullArr[]>(
-    JSON.parse(localStorage.getItem("Basket"))
-  );
-  const [counter, setCounter] = useState(
-    JSON.parse(localStorage.getItem("Count"))
-  );
-  const [totalPrice, setTotalPrice] = useState(
-    JSON.parse(localStorage.getItem("Summary"))
-  );
+const check = () => {
+  if(JSON.parse(localStorage.getItem("Count")) === 0){
+    return ( <div><span className={style.font}>Cart is Empty</span></div>)
+  }else{ return <Paginate data={localStore} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>}
+}
 
 
 
-  useEffect(() => {
-    onChanck(counter);
-    onChanck2(totalPrice);
-    setCounter(JSON.parse(localStorage.getItem("Count")))
-    setTotalPrice(JSON.parse(localStorage.getItem("Summary")))
-  },[totalPrice1, counter1]);
-
-
-
+ 
   return (
     <div className={style.basket__page_container}>
       <div className={style.products__cards}>
         <div className={classNames(style.header__products_container, style.font)}>Products In Cart</div>
-        <Paginate data={localStore} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>
+        {check()}
       </div>
       <div className={style.summary__container}>
           <div className={style.summary__container_header}>

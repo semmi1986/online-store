@@ -33,7 +33,7 @@ const Paginate: React.FC<PaginateProps> = ({data, totalPrice1, onChanck, onChanc
   };
   return (
     <>
-      {currentItems.map((item, index) => <BasketCards key={index} item={item} counter1={counter1} onChanck={onChanck} onChanck2={onChanck2} totalPrice1={totalPrice1} />)}
+      {currentItems.map((item, index) => <BasketCards key={index} item={item} counter1={counter1} onChanck={onChanck} onChanck2={onChanck2} totalPrice1={totalPrice1} index ={index}/>)}
       <ReactPaginate
         className={style.root}
         breakLabel="..."

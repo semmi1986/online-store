@@ -9,6 +9,7 @@ interface IBasketCardsProps {
   onChanck2: (i: number) => void;
   totalPrice1: number;
   counter1: number;
+  index: number;
 }
 
 const BasketCards: React.FC<IBasketCardsProps> = ({
@@ -17,6 +18,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
   counter1,
   onChanck,
   onChanck2,
+  index,
 }) => {
   const [summary, setSummary] = useState(1);
 
@@ -40,7 +42,7 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
 
   return (
     <div className={style.items__container}>
-      <div className={classNames(style.font3, style.round)}>1</div>
+      <div className={classNames(style.font3, style.round)}>{index + 1}</div>
       <img src={item.thumbnail} className={style.image} alt={item.title} />
       <div className={classNames(style.font3, style.title)}>
         <div style={{ textAlign: "center" }}>
