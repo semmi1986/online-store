@@ -16,20 +16,17 @@ interface IBasketPageProps {
 }
 
 const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanck, onChanck2, onShowForm, localStore }) => {
-const check = () => {
+
+
+
+
   if(JSON.parse(localStorage.getItem("Count")) === 0){
     return ( <div><span className={style.font}>Cart is Empty</span></div>)
-  }else{ return <Paginate data={localStore} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>}
-}
-
-
-
- 
-  return (
+  }else {return (
     <div className={style.basket__page_container}>
       <div className={style.products__cards}>
         <div className={classNames(style.header__products_container, style.font)}>Products In Cart</div>
-        {check()}
+        return <Paginate data={localStore} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>
       </div>
       <div className={style.summary__container}>
           <div className={style.summary__container_header}>
@@ -53,7 +50,7 @@ const check = () => {
           </div>
         </div>
     </div>
-  );
+  );}
 };
 
 export default BasketPage;
