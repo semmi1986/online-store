@@ -75,15 +75,20 @@ const CardPage: React.FC<CardPageProps> = ({setLocalStore ,localStore, onChanck,
       localStorage.setItem("Basket", JSON.stringify(localStore));
       localStorage.setItem("Count", JSON.stringify(counter1 + 1));
       localStorage.setItem("Summary", JSON.stringify(totalPrice1+ total.price));
+      localStorage.setItem("uniqeBasket", JSON.stringify(localStore));
     } else {
       setAddOrDelete('Add to Cart');
-      localStore.splice(-1, 1);
+      localStore.splice(
+        localStore.findIndex((el) => el.id === total.id),
+        1
+      );
       onStore(localStore);
       onChanck(counter1 - 1)
       onChanck2(totalPrice1 - total.price)
       localStorage.setItem("Basket", JSON.stringify(localStore));
-      localStorage.setItem("Count", JSON.stringify(counter1 + 1));
-      localStorage.setItem("Summary", JSON.stringify(totalPrice1+ total.price));
+      localStorage.setItem("Count", JSON.stringify(counter1 - 1));
+      localStorage.setItem("Summary", JSON.stringify(totalPrice1 - total.price));
+      localStorage.setItem("uniqeBasket", JSON.stringify(localStore));
     }}
   };
   useEffect(()=>{
@@ -118,8 +123,21 @@ const CardPage: React.FC<CardPageProps> = ({setLocalStore ,localStore, onChanck,
     />));
   }
 
-  const handler = () =>{
-    onShowForm(true)
+  const handler = (event: React.MouseEvent) =>{
+    if(localStore.map((el)=> el.id).includes(total.id)){
+      onShowForm(true)
+    } else {    
+    setAddOrDelete('Remove from Cart');
+    localStore.push(total);
+    onStore(localStore);
+    onChanck(counter1 + 1)
+    onChanck2(totalPrice1+ total.price)
+    localStorage.setItem("Basket", JSON.stringify(localStore));
+    localStorage.setItem("Count", JSON.stringify(counter1 + 1));
+    localStorage.setItem("Summary", JSON.stringify(totalPrice1+ total.price));
+    localStorage.setItem("uniqeBasket", JSON.stringify(localStore));
+    onShowForm(true)}
+
   }
   if(flag === false){
     return <Page404 />
