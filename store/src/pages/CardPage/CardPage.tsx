@@ -3,16 +3,24 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import style from "./CardPage.module.css";
+import { BasketPagePullArr } from "../../types/types";
+import Page404 from "../404Page/Page404";
 
 interface CardPageProps{
-  onShowForm: (i: boolean) => void
+  onChanck: (i: number) => void;
+  onChanck2: (i: number) => void;
+  onShowForm: (i: boolean) => void;
+  onStore: (i: BasketPagePullArr[]) => void;
+  totalPrice1: number 
+  counter1: number
 }
 
-const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
+const CardPage: React.FC<CardPageProps> = ({onChanck, onChanck2,onShowForm, onStore, totalPrice1,counter1}) => {
   const { id } = useParams();
   const [photo, setPhoto] = useState("");
   const [AddOrDelete, setAddOrDelete] = useState('Add to Cart');
   const [totalArray, setTotalArray] = useState([]);
+  const [flag, setFlag] = useState(true);
   const [total, setTotal] = useState({
     brand: "Apple",
     category: "smartphones",
@@ -39,9 +47,11 @@ const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
           `https://63a042fa24d74f9fe832fb1e.mockapi.io/items?id=${id}`
         );
         const totalResult = result.data[0];
-        console.log(totalResult);
+        if(totalResult === undefined){
+          setFlag(false);
+        } else{ 
         setTotal(totalResult);
-        setPhoto(totalResult.thumbnail);
+        setPhoto(totalResult.thumbnail);}
       } catch (error) {}
     }
     componentDidMount();
@@ -59,24 +69,25 @@ const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
     if(AddOrDelete === 'Add to Cart'){
       setAddOrDelete('Remove from Cart');
       totalArray.push(total);
-      setTotalArray(totalArray);
+      onStore(totalArray);
+      onChanck(counter1 + 1)
+      onChanck2(totalPrice1+ total.price)
       localStorage.setItem("Basket", JSON.stringify(totalArray));
-      console.log(AddOrDelete)
+      countAndSum()
     } else {
       setAddOrDelete('Add to Cart');
       totalArray.splice(-1, 1);
-      setTotalArray(totalArray);
+      onStore(totalArray);
+      onChanck(counter1 - 1)
+      onChanck2(totalPrice1 - total.price)
       localStorage.setItem("Basket", JSON.stringify(totalArray));
-      console.log(AddOrDelete);
+      countAndSum();
     }}
   };
-
-  // window.onload = (event) => {    
-  //   let newArr =(JSON.parse(localStorage.getItem("Basket"))); 
-  //   if (newArr.includes(total)){
-  //   setAddOrDelete('Remove from Cart')
-  // } else setAddOrDelete('Add to Cart')
-  // };
+    const countAndSum = () =>{
+      // localStorage.setItem("Count", JSON.stringify(counter1));
+      // localStorage.setItem("Summary", JSON.stringify(totalPrice1));
+    }
 
   function renderHeaderPhoto(){
     return <img 
@@ -101,8 +112,10 @@ const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
   const handler = () =>{
     onShowForm(true)
   }
-
-  return (
+  if(flag === false){
+    return <Page404 />
+  } else{
+   return (
     <div>
       <div className={style.breadcrumbs}>
         <div>
@@ -155,7 +168,7 @@ const CardPage: React.FC<CardPageProps> = ({onShowForm}) => {
         <div className={style.footer__cover}> </div>
       </div>
     </div>
-  );
+  );}
 }
 
 export default CardPage;

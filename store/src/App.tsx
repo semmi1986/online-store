@@ -7,12 +7,15 @@ import BasketPage from "./pages/BasketPage/BasketPage";
 import CardPage from "./pages/CardPage/CardPage";
 import Header from "./components/Header/Header";
 import Form from "./components/Form/Form";
+import Page404 from "./pages/404Page/Page404";
 window.React = React;
+
+
 
 function App() {
 
-  const [counter1, setCounter1] = useState(0);
-  const [totalPrice1, setTotalPrice] = useState(0);
+  const [counter1, setCounter1] = useState(null);
+  const [totalPrice1, setTotalPrice] = useState(null);
 
   const [localStore, setLocalStore] = useState([])
 
@@ -23,6 +26,17 @@ function App() {
     setTotalPrice(totalPrice1)
   }, [counter1, totalPrice1]);
 
+  useEffect(() => {
+    localStorage.getItem("Basket")
+      ? setLocalStore(JSON.parse(localStorage.getItem("Basket")))
+      : setLocalStore([]);
+    localStorage.getItem("Count")
+      ? setCounter1(JSON.parse(localStorage.getItem("Count")))
+      : setCounter1(null);
+    localStorage.getItem("Summary")
+      ? setTotalPrice(JSON.parse(localStorage.getItem("Summary")))
+      : setTotalPrice(null);
+  },[]);
 
   const [isShowForm, setIsShowForm] = useState(false)
 
@@ -34,9 +48,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage onStore={(i) => setLocalStore(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} />} />
           <Route path="basket" element={<BasketPage localStore={localStore}  onShowForm={(i) => setIsShowForm(i)} onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)}  counter1={counter1} totalPrice1={totalPrice1}/>} />
-          <Route path="ProductDetails/:id" element={<CardPage  onShowForm={(i) => setIsShowForm(i)}/>} />
+          <Route path="ProductDetails/:id" element={<CardPage onChanck={(i) => setCounter1(i)} onChanck2={(i) => setTotalPrice(i)} onShowForm={(i) => setIsShowForm(i)}  onStore={(i) => setLocalStore(i)} counter1={counter1} totalPrice1={totalPrice1}/>} />
+          <Route path ="*" element ={ <Page404/>}/>
         </Routes>
-        
         <Footer />
         {isShowForm && <Form onShowForm={(i) => setIsShowForm(i)}/>}
       </div>

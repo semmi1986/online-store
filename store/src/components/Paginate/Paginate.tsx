@@ -17,12 +17,11 @@ const Paginate: React.FC<PaginateProps> = ({data, totalPrice1, onChanck, onChanc
   const [itemOffset, setItemOffset] = useState(0);
 
   console.log(data);
-  
+
 
 
   const itemsPerPage = 3
   const endOffset = itemOffset + itemsPerPage;
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
@@ -34,7 +33,7 @@ const Paginate: React.FC<PaginateProps> = ({data, totalPrice1, onChanck, onChanc
   };
   return (
     <>
-      {currentItems.map((item, index) => <BasketCards key={index} item={item} counter1={counter1} onChanck={onChanck} onChanck2={onChanck2} totalPrice1={totalPrice1} />)}
+      {currentItems.map((item, index) => <BasketCards data={data} key={index} item={item} counter1={counter1} onChanck={onChanck} onChanck2={onChanck2} totalPrice1={totalPrice1} index ={index}/>)}
       <ReactPaginate
         className={style.root}
         breakLabel="..."

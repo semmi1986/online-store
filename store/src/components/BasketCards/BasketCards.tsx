@@ -9,6 +9,8 @@ interface IBasketCardsProps {
   onChanck2: (i: number) => void;
   totalPrice1: number;
   counter1: number;
+  index: number;
+  data:BasketPagePullArr[]
 }
 
 const BasketCards: React.FC<IBasketCardsProps> = ({
@@ -17,29 +19,32 @@ const BasketCards: React.FC<IBasketCardsProps> = ({
   counter1,
   onChanck,
   onChanck2,
+  index,
+  data,
 }) => {
   const [summary, setSummary] = useState(1);
+
 
   const addOne = (e: React.MouseEvent) => {
       setSummary(summary + 1);
       console.log("i am work");
       onChanck(counter1 + 1);
       onChanck2(totalPrice1 + item.price);
-      
+      localStorage.setItem("Count", JSON.stringify(counter1));
+      localStorage.setItem("Summary", JSON.stringify(totalPrice1));
   };
   const removeOne = (e: React.MouseEvent) => {
       setSummary(summary - 1);
       console.log("i am not work");
       onChanck(counter1 - 1);
       onChanck2(totalPrice1 - item.price);
+      localStorage.setItem("Count", JSON.stringify(counter1));
+      localStorage.setItem("Summary", JSON.stringify(totalPrice1));
   };
-
-  console.log(counter1);
-  console.log(totalPrice1);
 
   return (
     <div className={style.items__container}>
-      <div className={classNames(style.font3, style.round)}>1</div>
+      <div className={classNames(style.font3, style.round)}>{data.indexOf(item) + 1}</div>
       <img src={item.thumbnail} className={style.image} alt={item.title} />
       <div className={classNames(style.font3, style.title)}>
         <div style={{ textAlign: "center" }}>
