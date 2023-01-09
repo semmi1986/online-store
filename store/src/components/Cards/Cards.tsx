@@ -4,10 +4,12 @@ import FindSection from "../Sort/FindSection/FindSection";
 import Preloader from "../Preloader/Preloader";
 import style from "./cards.module.css";
 
-import { BasketPagePullArr } from "../../types/types";
+import { BasketPagePullArr, Sorts } from "../../types/types";
 
 
 interface CardsProps{
+  searchValue:string
+  sortType: Sorts
   products: BasketPagePullArr[]
   isLoading: boolean
   filterPrice: number[]
@@ -15,17 +17,14 @@ interface CardsProps{
   onChanck: (i: number) => void
   onChanck2: (i: number) => void
   onStore: (i: BasketPagePullArr[]) => void
+  onClickSortType: (i: Sorts) => void
+  setSearchValue: (i:string) => void
 }
 
-const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterStock, onChanck, onChanck2, onStore}) => {
-  const [searchValue, setSearchValue] = useState("");
+const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPrice, filterStock, onChanck, onChanck2, onStore, onClickSortType, searchValue, setSearchValue}) => {
   const [ArrItems, setArrItems] = useState<BasketPagePullArr[]>([]);
   const [counter, setCounter] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [sortType, setSortType] = useState({
-    name: "Sort by price DEC",
-    sortProperty: "price",
-  });
 
   useEffect(()=>{
     onChanck(counter)
@@ -135,10 +134,10 @@ const Cards: React.FC<CardsProps> = ({ products, isLoading, filterPrice, filterS
         sortType={sortType}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
-        onClickSortType={(i) => setSortType(i)}
+        onClickSortType={onClickSortType}
       />
       <div className={style.cards__content}>
-        {isLoading ? <Preloader /> : items}
+        {isLoading ? <Preloader /> : items.length !== 0 ? items : <div>По вашему запросу ничего не найдено</div>}
       </div>
     </div>
   );

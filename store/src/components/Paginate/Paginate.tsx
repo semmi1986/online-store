@@ -14,7 +14,7 @@ interface PaginateProps{
   setNewData:(i:BasketPagePullArr[]) => void;
 }
 
-const Paginate: React.FC<PaginateProps> = ({setNewData, newData, localStore, totalPrice1, onChanck, onChanck2, counter1}) => {
+const Paginate: React.FC<PaginateProps> = ({ setNewData, newData, localStore, totalPrice1, onChanck, onChanck2, counter1}) => {
 
 
 
@@ -34,12 +34,14 @@ const Paginate: React.FC<PaginateProps> = ({setNewData, newData, localStore, tot
     getUnique(localStore);
   },[newData])
 
-  const itemsPerPage = 3
+  const itemsPerPage = 4;
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = newData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newData.length / itemsPerPage);
-
-  const handlePageClick = (event: any) => {
+  interface EventList{
+    selected: number;
+  }
+  const handlePageClick = (event: EventList) => {
     const newOffset = (event.selected * itemsPerPage) % newData.length;
     setItemOffset(newOffset);
   };

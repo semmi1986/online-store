@@ -1,1 +1,6 @@
-
+.modal__close {
+    display: none;
+  }
+  .modal__close {
+    display: block;
+  }

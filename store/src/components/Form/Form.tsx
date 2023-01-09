@@ -1,6 +1,8 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
+import HomePage from '../../pages/HomePage/HomePage';
 import style from "./form.module.css";
+import { Link } from "react-router-dom";
 
 type FormValues = {
   fullName: string;
@@ -13,10 +15,11 @@ type FormValues = {
 };
 
 interface FormProps{
+  isShowForm: boolean
   onShowForm: (i: boolean) => void
 }
 
-const Form: React.FC<FormProps> = ({onShowForm}) => {
+const Form: React.FC<FormProps> = ({onShowForm, isShowForm}) => {
   const {
     register,
     handleSubmit,
@@ -28,8 +31,16 @@ const Form: React.FC<FormProps> = ({onShowForm}) => {
 
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    alert(JSON.stringify(data));
+    alert('Заказ успешно оформлен, вы будете перенаправлены на главную страницу через 2-3 секунды');
     reset();
+    onShowForm(!isShowForm);
+    setTimeout(() => {
+      window.location.href = '/';
+      localStorage.setItem("Basket", JSON.stringify([]));
+      localStorage.setItem("Count", JSON.stringify(0));
+      localStorage.setItem("Summary", JSON.stringify(0));
+      localStorage.setItem("uniqeBasket", JSON.stringify([]));
+    }, 2000)
   };
 
   const cardNumberValue = getValues("cardNumber") || "";
@@ -58,8 +69,9 @@ const Form: React.FC<FormProps> = ({onShowForm}) => {
   };
 
   return (
-    <div className={style.modal} onClick={() => onShowForm(false)}>
+    <div className={style.modal} >
       <div className={style.modal__container}>
+      <div className={style.close} onClick={() => onShowForm(!isShowForm)}>Х</div>
         <div className={style.modal__item}>
           <form className={style.modal__form} onSubmit={handleSubmit(onSubmit)}>
             <div className={style.person__info}>

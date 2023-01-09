@@ -8,15 +8,17 @@ interface CategoryProps {
   activeIndexCategory: number
   onClickCategoryName: (i: string) => void
   onChangIndexCategory: (i: number) => void
+  setCategoryURL: (i: string) => void
 }
 
 
-const SortCategory: React.FC<CategoryProps> = ({firstPick, activeIndexCategory, onClickCategoryName, onChangIndexCategory}) => {
+const SortCategory: React.FC<CategoryProps> = ({setCategoryURL, firstPick, activeIndexCategory, onClickCategoryName, onChangIndexCategory}) => {
 
 
   function handelClick(value: string, index: number) {
     onClickCategoryName(value);
     onChangIndexCategory(index)
+    setCategoryURL(value)
   }
 
   return(

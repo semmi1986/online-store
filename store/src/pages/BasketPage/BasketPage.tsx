@@ -24,12 +24,70 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
   };
 
 
-
+  const [isRS, setIsRS] = useState(false);
+  const [isEPAM, setIsEPAM] = useState(false);
   const [newData,setNewData] = useState(getUnique(localStore));
+  const [inputState, setInput] = useState('');
+  const [isAdd, setIsAdd] = useState(false);
+  const [namePromo, setNamePromo] = useState("Promo for test: 'RS', 'EPAM'");
+  const [inputPage, setInputPage] = useState('5');
+  useEffect(()=>{
+    if(inputState === 'RS'){
+        setIsAdd(true);
+        setNamePromo("Rolling Scopes School - 10%")
+    } else if (inputState === 'EPAM') {
+      setIsAdd(true) 
+      setNamePromo("EPAM Systems - 10% ")
+    } else {
+      setIsAdd(false)
+      setNamePromo("Promo for test: 'RS', 'EPAM'")
+
+    };
+  },[inputState]);
+
+  const handlerPromo = (e: EventTarget) =>{
+    console.log(e);
+    if (inputState === 'RS'){
+      onChanck2(Math.floor(totalPrice1-(totalPrice1 * 0.1)));
+      setIsRS(true);
+      setIsAdd(false);
+    } else if (inputState === 'EPAM'){
+      onChanck2(Math.floor(totalPrice1-(totalPrice1 * 0.1)));
+      setIsEPAM(true);
+      setIsAdd(false);
+    }
+  };
+  const deleteRS = () =>{
+    onChanck2(Math.ceil(totalPrice1+(totalPrice1 * 0.1)));
+    setIsRS(false);
+    setIsAdd(true);
+  }
+  const deleteEPAM = () =>{
+    onChanck2(Math.ceil(totalPrice1+(totalPrice1 * 0.1)));
+    setIsEPAM(false);
+    setIsAdd(true);
+  }
   
-
-
-
+  const addBlock = () =>{
+      return ( 
+      <>
+        <div className={style.flex}>
+           <div className={style.font7}> Rolling Scopes School - 10%</div> 
+           <button className={style.mini_btn} onClick={deleteRS}> Del </button>
+        </div>
+    </>
+    )
+  }
+  const addBlock2 = () =>{
+    return ( 
+    <>
+      <div className={style.flex}>
+         <div className={style.font7}>EPAM Systems - 10% - </div> 
+         <button className={style.mini_btn} onClick={deleteEPAM}> Del </button>
+      </div>
+  </>
+  )
+}
 
   if(!(JSON.parse(localStorage.getItem("Count")))){
     return ( <div><span className={style.font}>Cart is Empty</span></div>)
@@ -50,12 +108,26 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
                 <span className={style.font2}> {counter1}</span> 
               </div>
               <div className={style.item__span}>
-                Total: <span className={style.font2}> €{totalPrice1}.00</span>
+                Total: <span className={style.font2}> €{totalPrice1}</span>
               </div>
             </div>
             <div>
-              <input type="text" className={style.item__input} placeholder="Enter promo code"/>
-              <span className={style.font7}>Promo for test: 'RS', 'EPM'</span>
+            {isRS || isEPAM ? <div className={style.border}>Applied codes</div> : <div></div>}
+              {isRS && <div className={style.flex__two_colums}>
+                            <div>
+                            {addBlock()}
+                            </div>
+                         </div>}
+              {isEPAM && <div className={style.flex__two_colums}>
+                <div>
+                {addBlock2()}
+                </div>
+              </div>}
+              <input type="text" value={inputState} onChange={(e)=>(setInput((e.target as HTMLInputElement).value))} className={style.item__input} placeholder="Enter promo code"/>
+             <div className={style.flex}>
+                <div className={style.font7}>{namePromo}</div> 
+                {isAdd && <button className={style.mini_btn} onClick={(e)=>handlerPromo(e.target)}>ADD</button>} 
+             </div> 
             </div>
             <button onClick={() => onShowForm(true)} className={style.button}>Buy now</button>
           </div>

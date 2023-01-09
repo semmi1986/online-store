@@ -19,7 +19,7 @@
     width: 40%;
     background-color: #181a1c;
     z-index: 99;
-    position: absolute;
+    position: relative;
   }
   
   .modal__item {
@@ -73,6 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: red;
   }
   
   .card__info {
@@ -172,4 +173,22 @@
     display: block;
     margin: 5% auto;
     color: orange;
+  }
+  .close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+    border: 1px solid ;
+    color: orange;
+    position: absolute;
+    border-radius: 5px;
+    right: 10px;
+    top: 5px;
+  }
+  .close:active{
+    width: 20px;
+    height: 20px;
   }

@@ -6,17 +6,19 @@ interface BrandProps{
   brands:string[]
   onClickCategoryBrands: (i: string) => void
   onChangIndexBrand: (i: number) => void
+  setBrandURL: (i: string) => void
   activeIndexBrand: number
 }
 
 
-const SortBrands: React.FC<BrandProps> = ({brands, onClickCategoryBrands, onChangIndexBrand, activeIndexBrand}) => {
+const SortBrands: React.FC<BrandProps> = ({brands, onClickCategoryBrands, onChangIndexBrand, activeIndexBrand, setBrandURL}) => {
   
 
   function handelClick(value: string, index: number) {
 
     onClickCategoryBrands(value);
-    onChangIndexBrand(index)
+    onChangIndexBrand(index);
+    setBrandURL(value)
   }
 
 

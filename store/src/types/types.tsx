@@ -26,3 +26,12 @@ export interface Sorts{
   name: string, 
   sortProperty: string
 }
+
+export interface URLSearchParams{
+  category?: string;
+  brand?:string,
+  price?: string, 
+  sort?: string,
+  stock?: string,
+  search?:string,
+}
