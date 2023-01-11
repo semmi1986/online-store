@@ -25,13 +25,15 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
   const [ArrItems, setArrItems] = useState<BasketPagePullArr[]>([]);
   const [counter, setCounter] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [styleCrad, setStyleCard] = useState(style.cadr__cards);
 
   useEffect(()=>{
     onChanck(counter)
     onChanck2(totalPrice)
     onStore(ArrItems)
   })
-  
+
+
 
   useEffect(() => {
     localStorage.getItem("Basket")
@@ -116,6 +118,8 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
     })
     .map((item) => (
       <Card
+        styleCrad ={styleCrad}
+        setStyleCard ={setStyleCard}
         key={item.id}
         item={item}
         AddCard={AddCard}
@@ -128,7 +132,7 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
 
   return (
     <div className={style.cards__container}>
-      
+      <div></div>
       <FindSection
         obj={obj}
         sortType={sortType}

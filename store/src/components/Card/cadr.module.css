@@ -7,7 +7,15 @@
   height: 200px;
   border: 1px solid black;
 }
-
+.cadr__cards2 {
+  margin: 10px 10px 10px 10px;
+  flex-direction: column;
+  display: flex;  
+  justify-content: space-between;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
 .image__card{
   width: 150px;
   height: 150px;

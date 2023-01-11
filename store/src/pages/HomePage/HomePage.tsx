@@ -27,6 +27,21 @@ const HomePage: React.FC<HomePageProps> = ({onChanck, onChanck2, onStore }) => {
   });
   const [searchValue, setSearchValue] = useState("");
   
+  useEffect(()=>{ 
+  localStorage.getItem("Basket")
+  ?  localStorage.setItem('Basket',localStorage.getItem("Basket"))
+  :  localStorage.setItem('Basket', JSON.stringify([]))
+  localStorage.getItem("Count")
+    ? localStorage.setItem('Count',localStorage.getItem("Count"))
+    :localStorage.setItem('Count', JSON.stringify(0))
+  localStorage.getItem("Summary")
+    ? localStorage.setItem('Summary',localStorage.getItem("Summary"))
+    :localStorage.setItem('Summary', JSON.stringify(0))
+  localStorage.getItem("uniqeBasket")
+    ?  localStorage.setItem('uniqeBasket',localStorage.getItem("uniqeBasket"))
+    :  localStorage.setItem('uniqeBasket', JSON.stringify([]))
+  })
+
 
   useEffect(() => {
     setIsLoading(true);

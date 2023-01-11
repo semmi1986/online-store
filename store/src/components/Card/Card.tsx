@@ -12,10 +12,12 @@ interface CardProps{
   countAddedCards: (i:number)=> void
   ArrItems: BasketPagePullArr[]
   countPrice: (i: number) => void
+  setStyleCard: (i: string) => void
+  styleCrad: string
 }
 
 
-const Card: React.FC<CardProps> = ({ item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) => {
+const Card: React.FC<CardProps> = ({ setStyleCard, styleCrad, item, AddCard, RemoveCard, countAddedCards, ArrItems, countPrice }) => {
   
   const [AddOrDelete, setAddOrDelete] = useState('Add');
  
@@ -35,6 +37,7 @@ const Card: React.FC<CardProps> = ({ item, AddCard, RemoveCard, countAddedCards,
 
   useEffect(() =>{
     (ArrItems.map((el)=> el.id)).includes(item.id) ? setAddOrDelete('Delete') : setAddOrDelete('Add');
+
   }, [])
 
   return (
