@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './sortCategory.module.css';
 
-// setSearchValue: (i:string) => void
 
 interface CategoryProps {
   firstPick: string[]

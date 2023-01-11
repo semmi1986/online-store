@@ -76,16 +76,6 @@ const SortPage: React.FC<SortPageProps> = ({
   const [filterURL, setFilterURL] = useState([]);
   const [stockURL, setStockURL] = useState([]);
   const handelRefresh = () => {
-    // onClickCategoryName("all");
-    // setActiveIndexCategory(0);
-    // onClickCategoryBrands("");
-    // onChangPrice([10, 1800]);
-    // onChangStock([2, 150]);
-    // onClickSortType({
-    //   name: "Sort by price DEC",
-    //   sortProperty: "price",
-    // });
-    // setSearchValue('');
     window.location.reload()
   };
   const handerButton = () =>{

@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import style from './sort.module.css';
 import classNames from "classnames";
 import { Sorts } from '../../types/types';
-// import { Sort, SortProps } from '../../types/types';
 
 
 export interface SortProps {
