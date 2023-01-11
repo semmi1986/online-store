@@ -25,7 +25,7 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
   const [ArrItems, setArrItems] = useState<BasketPagePullArr[]>([]);
   const [counter, setCounter] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [styleCrad, setStyleCard] = useState(style.cadr__cards);
+  const [styleCrad, setStyleCard] = useState('cards_flex_button_click');
 
   useEffect(()=>{
     onChanck(counter)
@@ -134,6 +134,7 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
     <div className={style.cards__container}>
       <div></div>
       <FindSection
+        setStyleCard ={setStyleCard}
         obj={obj}
         sortType={sortType}
         searchValue={searchValue}
@@ -141,7 +142,9 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
         onClickSortType={onClickSortType}
       />
       <div className={style.cards__content}>
-        {isLoading ? <Preloader /> : items.length !== 0 ? items : <div>По вашему запросу ничего не найдено</div>}
+        <div className= {styleCrad}>
+          {isLoading ? <Preloader /> : items.length !== 0 ? items : <div>По вашему запросу ничего не найдено</div>}
+          </div>
       </div>
     </div>
   );

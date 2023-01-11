@@ -3,3 +3,21 @@
     position: relative;
     justify-content: space-around ;
 }
+.image, .image1{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid gold;
+    width: 30px;
+    height: 30px;
+}
+.image{
+    margin-right: 5px;
+}
+
+.buttons_style_container{
+    display: flex;
+    align-items: center;
+}
+.image:active, .image1:active{
+filter: blur(4px);
+}

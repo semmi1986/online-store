@@ -1,6 +1,17 @@
 .modal__close {
-    display: none;
-  }
-  .modal__close {
-    display: block;
-  }
+  display: none;
+}
+.modal__close {
+  display: block;
+}
+.cards_flex_button_click{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cards_flex_column_button_click{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
