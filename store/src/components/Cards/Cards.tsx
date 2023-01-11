@@ -109,7 +109,6 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
   }
 
   // сортировка по input
-  console.log(obj)
   const items = obj
     .filter((elem) => {
       if (elem.title.toLowerCase().includes(searchValue.toLowerCase()) ||

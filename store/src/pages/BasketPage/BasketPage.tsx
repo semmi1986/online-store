@@ -46,7 +46,6 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
   },[inputState]);
 
   const handlerPromo = (e: EventTarget) =>{
-    console.log(e);
     if (inputState === 'RS'){
       onChanck2(Math.floor(totalPrice1-(totalPrice1 * 0.1)));
       setIsRS(true);
