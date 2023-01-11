@@ -10,8 +10,7 @@
 }
 
 .header__logo{
-  background-image: url(../../assets/img/logo.png);
-  background-size: contain;
+
   width: 70px;
   height: 70px;
 }

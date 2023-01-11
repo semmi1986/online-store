@@ -3,7 +3,7 @@ import SortPage from "../SortPage/SortPage";
 import Cards from "../../components/Cards/Cards";
 import style from "./homePage.module.css";
 import { BasketPagePullArr } from "../../types/types";
-// import api from '../../assets/api.json'
+
 
 
 interface HomePageProps {

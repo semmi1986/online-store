@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import style from "./header.module.css";
 import Shop from "../Shop/Shop";
+import logo from "../../assets/img/logo.png"
 
 interface HeaderProps{
   counter: number
@@ -16,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({counter, totalPrice}) => {
     <header className={style.header}>
       <div className={style.header__inner}>
         <Link to="/">
-          <div className={style.header__logo}></div>
+          <img src={logo} className={style.header__logo}/>
         </Link>
         <div>
           <div className={classNames(style.header_counter, style.font)}>
