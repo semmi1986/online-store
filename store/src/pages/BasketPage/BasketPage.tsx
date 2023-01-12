@@ -30,7 +30,23 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
   const [inputState, setInput] = useState('');
   const [isAdd, setIsAdd] = useState(false);
   const [namePromo, setNamePromo] = useState("Promo for test: 'RS', 'EPAM'");
-  const [inputPage, setInputPage] = useState('5');
+  const [inputPage, setInputPage] = useState("4");
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+ 
+
+  useEffect(()=>{
+    if (!inputPage) {
+      setItemsPerPage(counter1)
+      
+    }else{
+      setItemsPerPage(+inputPage)
+    }
+  },[inputPage])
+
+  console.log(itemsPerPage);
+  
+
+  
   useEffect(()=>{
     if(inputState === 'RS'){
         setIsAdd(true);
@@ -42,7 +58,7 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
       setIsAdd(false)
       setNamePromo("Promo for test: 'RS', 'EPAM'")
 
-    };
+    }
   },[inputState]);
 
   const handlerPromo = (e: EventTarget) =>{
@@ -93,8 +109,17 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
   }else {return (
     <div className={style.basket__page_container}>
       <div className={style.products__cards}>
-        <div className={classNames(style.header__products_container, style.font)}>Products In Cart</div>
-         <Paginate newData={newData} setNewData={setNewData} localStore={localStore} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>
+        <div className={classNames(style.header__products_container, style.font)}>
+          <div className={style.container__header}>
+            <h2 className={style.title__prod}>Products In Cart</h2>
+            <div className={style.block__input_pagin}>
+              <span className={style.lim__span}>LIMIT:</span>
+              <input className={style.input__pagin} type="number" value={inputPage} onChange={(e) => setInputPage((e.target as HTMLInputElement).value)}/>
+            </div>
+          </div>
+        </div>
+        
+         <Paginate inputPage={itemsPerPage} newData={newData} setNewData={setNewData} localStore={localStore} onChanck={onChanck} onChanck2={onChanck2} counter1={counter1} totalPrice1={totalPrice1}/>
       </div>
       <div className={style.summary__container}>
           <div className={style.summary__container_header}>
