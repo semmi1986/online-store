@@ -1,0 +1,194 @@
+.modal {
+    color: orange;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 13, 0.658);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal__container {
+    padding: 1%;
+    border: 1px solid orange;
+    border-radius: 0.5rem;
+    width: 40%;
+    background-color: #181a1c;
+    z-index: 99;
+    position: relative;
+  }
+  
+  .modal__item {
+    width: 100%;
+    margin: auto;
+    display: block;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  
+  .modal__form {
+    height: fit-content;
+  }
+  
+  .person__info {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .person__title,
+  .card__title {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 90%;
+  }
+  
+  .modal__field {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .fullName,
+  .email,
+  .phoneNumber,
+  .address {
+    background-color: #181a1c;
+    width: 100%;
+    border: 1px solid orange;
+    color: orange;
+    border-radius: 2rem;
+    padding: 0.4rem;
+    outline: none;
+    font-size: 90%;
+    text-align: center;
+    margin: 2% auto;
+  }
+  .error__massage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+  }
+  
+  .card__info {
+    margin-top: 1%;
+    width: 100%;
+  }
+  .skeleton__card {
+    border: 1px solid orange;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    background: rgb(0, 9, 36);
+    background: linear-gradient(
+      90deg,
+      rgb(0, 9, 36) 6%,
+      rgb(9, 9, 121) 34%,
+      rgb(0, 212, 255) 100%
+    );
+    width: 55%;
+    height: 7rem;
+  }
+  
+  .block__number {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 7% auto 10%;
+  }
+  
+  .card__img {
+    background-color: #fff;
+    width: 10%;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+  }
+  .cardNumber {
+    width: 80%;
+    background: rgb(233, 233, 202);
+    border: 1px solid orange;
+    border-radius: 0.3rem;
+    outline: none;
+    text-align: center;
+    margin-left: 2%;
+    font-size: 90%;
+    color: #000;
+    font-weight: 700;
+  }
+  
+  .other__info {
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .card__data,
+  .card__code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50%;
+  }
+  
+  .card__data_input,
+  .card__code_input {
+    font-weight: 700;
+    font-size: 130%;
+    width: 60%;
+    height: 1rem;
+    background: rgb(233, 233, 202);
+    border: 1px solid orange;
+    border-radius: 0.3rem;
+    outline: none;
+    text-align: center;
+    margin-left: 2%;
+    font-size: 90%;
+    color: #000;
+    font-weight: 700;
+  }
+  
+  .error__card{
+    color: red;
+    text-align: center;
+    padding-top: 1%;
+  }
+  .send__btn{
+    text-transform: uppercase;
+    width: 40%;
+    font-size: 90%;
+    background-color: #3f1010;
+    border: 1px solid orange;
+    border-radius: 0.5rem;
+    padding: 1%;
+    cursor: pointer;
+    display: block;
+    margin: 5% auto;
+    color: orange;
+  }
+  .close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+    border: 1px solid ;
+    color: orange;
+    position: absolute;
+    border-radius: 5px;
+    right: 10px;
+    top: 5px;
+  }
+  .close:active{
+    width: 20px;
+    height: 20px;
+  }

@@ -1,0 +1,237 @@
+.basket__page_container {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.products__cards {
+  width: 70%;
+  border: 1px solid orange;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: #1e1b1b80;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.products__container {
+  border-radius: 15px;
+  height: 100%;
+  width: 70%;
+  border: 2px solid black;
+}
+.summary__container {
+  width: 29%;
+  border: 1px solid orange;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: #1e1b1b80;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.summary__container_header {
+  background-color: rgba(14, 5, 6, 0.534);
+  padding: 0.3rem;
+  border-bottom: 1px solid orange;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  /* background-color: rgba(14, 5, 6, 0.534);
+  border: 1px solid rgba(14, 5, 6, 0.534);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
+  width: 100%;
+}
+.summary__content {
+
+  padding: 15px 0;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.item__span {
+  margin-bottom: 15px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  font-size: 25px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+.font {
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+.font2 {
+  padding: 12px 0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+  color: rgb(18, 98, 112);
+
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+
+.header__products_container {
+  
+  background-color: rgba(14, 5, 6, 0.534);
+  padding: 0.3rem;
+  border-bottom: 1px solid orange;
+ 
+  
+}
+.container__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+
+.block__input_pagin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lim__span{
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: 0 -1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000,
+    0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+    margin-right: 8px;
+}
+
+.title__prod {
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: 0 -1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000,
+    0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+
+.input__pagin {
+  text-align: center;
+  outline: none;
+  border: 1px solid orange;
+  border-radius: 0.2rem;
+  background-color: #373636;
+  width: 60px;
+  height: 25px;
+  color: rgba(255, 148, 148, 0.945);
+  font-size: 20px;
+}
+
+.button {
+  margin-top: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 3px solid rgb(68, 72, 99);
+  background: rgba(168, 168, 168, 0.466);
+  border-radius: 14px;
+  padding: 10px 40px;
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.945);
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+  text-align: center;
+}
+
+.button {
+  font-size: 100%;
+  display: block;
+  padding: 2% 0;
+  background: rgba(168, 168, 168, 0.466);
+  color: wheat;
+  border: 3px solid rgb(68, 72, 99);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  width: 50%;
+  margin: 3rem auto 1rem;
+}
+.font7 {
+  margin: 3% auto;
+  text-align: center;
+  display: block;
+  color: rgb(104, 10, 10);
+}
+
+.item__input {
+  background-color: #181a1c;
+  width: 100%;
+  border: 1px solid orange;
+  color: orange;
+  border-radius: 2rem;
+  padding: 0.4rem;
+  text-align: center;
+  outline: none;
+  font-size: 100%;
+}
+
+.mini_btn {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  font-size: 14px;
+  font-family: "Source Sans Pro", sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 3px solid rgb(68, 72, 99);
+  background: rgba(168, 168, 168, 0.466);
+  color: rgba(255, 255, 255, 0.945);
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+  text-align: center;
+}
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.flex__two_colums {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.border {
+  background-color: #181a1c5b;
+  width: 100%;
+  border-bottom: 1px solid gold;
+  text-align: center;
+}

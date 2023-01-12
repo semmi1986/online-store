@@ -1,0 +1,46 @@
+*,
+*:before,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+}
+li{
+  list-style: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: linear-gradient(90deg, rgba(120, 130, 197, 0.622) 0%, rgba(167,93,93,0.6222864145658263) 100%);
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  max-width: 1570px;
+  padding: 0 1.5rem;
+  margin: 0 auto;
+}
+
+

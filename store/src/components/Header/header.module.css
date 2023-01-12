@@ -1,0 +1,87 @@
+.header {
+  background: rgb(163, 177, 214);
+  border-bottom: 3px solid #967ac2;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.header__logo{
+
+  width: 70px;
+  height: 70px;
+}
+.header__logo:hover{
+  background-color: rgba(167,93,93,0.6222864145658263);
+  transition: 0.5s;
+}
+
+.header__basket {
+  background-image: url(../../assets/img/basket.png);
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transform: scale(-1, 1) ;
+ }
+ .header__basket:hover{
+     transform: scale(1, 1) ;
+     transition: 0.7s;
+ }
+
+ .header_counter{
+  display: flex;
+  flex-direction: column;
+  left: 45vw;
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  width: 200px;
+}
+.font{
+font-family: 'Source Sans Pro', sans-serif;;
+font-size: 22px;
+color: rgba(255, 148, 148, 0.945);
+text-shadow: 
+-0   -1px 0   #000000,
+ 0   -1px 0   #000000,
+-0    1px 0   #000000,
+ 0    1px 0   #000000,
+-1px -0   0   #000000,
+ 1px -0   0   #000000,
+-1px  0   0   #000000,
+ 1px  0   0   #000000,
+-1px -1px 0   #000000,
+ 1px -1px 0   #000000,
+-1px  1px 0   #000000,
+ 1px  1px 0   #000000,
+-1px -1px 0   #000000,
+ 1px -1px 0   #000000,
+-1px  1px 0   #000000,
+ 1px  1px 0   #000000;
+}
+.second_font{
+font-family: 'Source Sans Pro', sans-serif;;
+font-size: 22px;
+color: rgba(253, 253, 253, 0.945);
+text-shadow: 
+-0   -1px 0   #000000,
+ 0   -1px 0   #000000,
+-0    1px 0   #000000,
+ 0    1px 0   #000000,
+-1px -0   0   #000000,
+ 1px -0   0   #000000,
+-1px  0   0   #000000,
+ 1px  0   0   #000000,
+-1px -1px 0   #000000,
+ 1px -1px 0   #000000,
+-1px  1px 0   #000000,
+ 1px  1px 0   #000000,
+-1px -1px 0   #000000,
+ 1px -1px 0   #000000,
+-1px  1px 0   #000000,
+ 1px  1px 0   #000000;
+}

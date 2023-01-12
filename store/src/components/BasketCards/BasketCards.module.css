@@ -1,0 +1,189 @@
+.basket__page_container {
+  width: 100%;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+.basket__page_two_rows {
+  justify-content: space-around;
+  display: flex;
+}
+.products__container {
+  height: 100%;
+  width: 65%;
+  border: 2px solid black;
+}
+.summary__container {
+  height: 450px;
+  text-align: center;
+  width: 25%;
+  border: 2px solid black;
+}
+.summary__container_header {
+  background-color: rgba(14, 5, 6, 0.534);
+  border: 1px solid rgba(14, 5, 6, 0.534);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+}
+.summary__content {
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.font {
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  font-size: 25px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+.font2 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+  color: rgb(18, 98, 112);
+
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+.round {
+  cursor: pointer;
+  background: #a89aa4;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 0 5px;
+}
+.font3 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+.spaces {
+  word-spacing: 5px;
+}
+.header__products_container {
+  background-color: rgba(14, 5, 6, 0.534);
+  border: 1px solid rgba(14, 5, 6, 0.534);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  height: 35px;
+  text-align: left;
+}
+
+.block__img {
+  border-radius: 20px;
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+  border: 1px solid rgb(10, 10, 10);
+}
+
+.image {
+  width: 10%;
+  height: 100%;
+  border-radius: 0.5rem;
+  border: 0.2px solid orange;
+  margin-right: 5px;
+}
+.items__container {
+  height: 100%;
+  border-bottom: 1px solid red;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+.font4 {
+  font-family: "Source Sans Pro", sans-serif;
+  color: aliceblue;
+  font-size: 14px;
+}
+.bottom__line {
+  border-top: 2px solid black;
+  border-radius: 2px;
+}
+.two_rows {
+  display: flex;
+  justify-content: space-around;
+}
+.font5 {
+  font-size: 14px;
+}
+.font6 {
+  font-size: 20px;
+  color: rgb(255, 231, 189);
+}
+.description__container {
+  display: flex;
+  justify-content: center;
+}
+.counter__container {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+.title {
+  width: 450px;
+}
+.button {
+  margin-top: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 3px solid rgb(68, 72, 99);
+  background: rgba(168, 168, 168, 0.466);
+  border-radius: 14px;
+  padding: 10px 40px;
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.945);
+  text-shadow: -0 -1px 0 #000000, 0 -1px 0 #000000, -0 1px 0 #000000,
+    0 1px 0 #000000, -1px -0 0 #000000, 1px -0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+  text-align: center;
+}
+.button_container {
+  margin: 0 auto;
+  width: 50%;
+}
+.font7 {
+  display: block;
+  color: rgb(104, 10, 10);
+}
+.counter__skeleton {
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.font8 {
+  color: white;
+  font-size: 14px;
+  text-shadow: 0 -1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000,
+    0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000,
+    1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000,
+    -1px 1px 0 #000000, 1px 1px 0 #000000;
+}

@@ -1,0 +1,32 @@
+.category_check{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+.font{
+  font-family: 'Source Sans Pro', sans-serif;;
+  font-size: 14px;
+  color: rgba(255, 148, 148, 0.945);
+  text-shadow: 
+  -0   -1px 0   #000000,
+   0   -1px 0   #000000,
+  -0    1px 0   #000000,
+   0    1px 0   #000000,
+  -1px -0   0   #000000,
+   1px -0   0   #000000,
+  -1px  0   0   #000000,
+   1px  0   0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000,
+  -1px -1px 0   #000000,
+   1px -1px 0   #000000,
+  -1px  1px 0   #000000,
+   1px  1px 0   #000000;
+}
+.active{
+  color: rgba(255, 0, 0, 0.945);
+  font-size: 18px;
+  font-weight: bold;
+}

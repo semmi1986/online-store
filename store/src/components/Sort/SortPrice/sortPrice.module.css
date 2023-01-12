@@ -1,0 +1,25 @@
+/* .three_rows {
+    display: flex;
+    justify-content: space-around;
+}
+.font {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    color: rgba(255, 148, 148, 0.945);
+    text-shadow: 0 -1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+
+.input_btn{
+    width: 215px;
+} */
+
+.sort__wrapper{
+  margin: 0 20px;
+  
+}
+.price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
