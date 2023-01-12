@@ -33,7 +33,6 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
   const [inputPage, setInputPage] = useState("4");
   const [itemsPerPage, setItemsPerPage] = useState(4);
  
-
   useEffect(()=>{
     if (!inputPage) {
       setItemsPerPage(counter1)
@@ -42,10 +41,6 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
       setItemsPerPage(+inputPage)
     }
   },[inputPage])
-
-  console.log(itemsPerPage);
-  
-
   
   useEffect(()=>{
     if(inputState === 'RS'){

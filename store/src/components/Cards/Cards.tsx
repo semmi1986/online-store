@@ -70,7 +70,7 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
   };
   const countPrice = () => {
     let sum = 0;
-    let priceArray = ArrItems.map((el) => el.price);
+    const priceArray = ArrItems.map((el) => el.price);
     priceArray.map((item) => (sum += item));
     setTotalPrice(sum);
     localStorage.setItem("Summary", JSON.stringify(sum));
@@ -81,8 +81,20 @@ const Cards: React.FC<CardsProps> = ({ sortType, products, isLoading, filterPric
       filterPrice[0] <= item.price &&
       filterStock[0] <= item.stock &&
       item.stock <= filterStock[1] &&
-      item.price <= filterPrice[1]
-  );
+      item.price <= filterPrice[1] &&
+      item.title.toLowerCase().includes(searchValue.toLowerCase())||
+      item.description.toLowerCase().includes(searchValue.toLowerCase())||
+      (""+item.price).includes(searchValue)||
+      (""+item.stock).includes(searchValue) ||
+      (""+item.rating).includes(searchValue) ||
+      (""+item.discountPercentage).includes(searchValue)
+      
+
+  )
+
+
+  console.log(obj);
+  
 
   // сортировка DESC и ASC
   switch (sortType.sortProperty) {

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BasketPagePullArr, SearchI, Sorts } from "../../../types/types";
+import React from "react";
+import { BasketPagePullArr, Sorts } from "../../../types/types";
 import Search from "../Search/Search";
 import Sort from "../Sort";
 import style from "./findSection.module.css";
@@ -16,8 +16,6 @@ interface FindProps{
 }
 const FindSection: React.FC<FindProps> = ({setStyleCard,sortType, onClickSortType, searchValue, setSearchValue, obj}) => {
   
-  const [grid,setGrid] = useState(1);
-  const [flex,setFlex] = useState(2);
   return (
     <div className={style.search_header}>
       <Sort sortType={sortType} onClickSortType={onClickSortType} />
