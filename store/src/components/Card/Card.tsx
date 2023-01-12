@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({ setStyleCard, styleCrad, item, AddCard, Rem
       countAddedCards(null);
       countPrice(null);
     }
-  };
+  }
 
   useEffect(() =>{
     (ArrItems.map((el)=> el.id)).includes(item.id) ? setAddOrDelete('Delete') : setAddOrDelete('Add');

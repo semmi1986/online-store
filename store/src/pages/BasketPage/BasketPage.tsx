@@ -34,12 +34,11 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
   const [itemsPerPage, setItemsPerPage] = useState(4);
  
   useEffect(()=>{
-    if (!inputPage) {
+    if (!inputPage || inputPage === '0') {
       setItemsPerPage(counter1)
-      
     }else{
       setItemsPerPage(+inputPage)
-    }
+    } 
   },[inputPage])
   
   useEffect(()=>{
@@ -109,7 +108,7 @@ const BasketPage: React.FC<IBasketPageProps> = ({ totalPrice1, counter1, onChanc
             <h2 className={style.title__prod}>Products In Cart</h2>
             <div className={style.block__input_pagin}>
               <span className={style.lim__span}>LIMIT:</span>
-              <input className={style.input__pagin} type="number" value={inputPage} onChange={(e) => setInputPage((e.target as HTMLInputElement).value)}/>
+              <input className={style.input__pagin} type="number" min={1} value={inputPage} onChange={(e) => setInputPage((e.target as HTMLInputElement).value)}/>
             </div>
           </div>
         </div>

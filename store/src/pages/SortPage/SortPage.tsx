@@ -80,7 +80,7 @@ const SortPage: React.FC<SortPageProps> = ({
   };
   const handerButton = () =>{
     setButtonCopy('Copied!')
-    let newURL = window.location.href;
+    const newURL = window.location.href;
     navigator.clipboard.writeText(newURL);
     setTimeout(() => {
       setButtonCopy('Copy Link')

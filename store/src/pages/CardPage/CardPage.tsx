@@ -90,7 +90,8 @@ const CardPage: React.FC<CardPageProps> = ({setLocalStore ,localStore, onChanck,
       localStorage.setItem("Summary", JSON.stringify(totalPrice1 - total.price));
       localStorage.setItem("uniqeBasket", JSON.stringify(localStore));
     }}
-  };
+  }
+  
   useEffect(()=>{
     localStorage.getItem("Basket")
       ? setLocalStore(JSON.parse(localStorage.getItem("Basket")))
